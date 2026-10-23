@@ -1,0 +1,67 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8510,
+  "steps": 180,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 88019,
+    "sensitivity_integer_squared": 967779802564,
+    "dimension": 768,
+    "log_tau_upper": -76463223991.77179,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0208196029819755,
+    "rho_total_upper": 0.0208196029819755,
+    "epsilon_upper": 0.9999917785297815,
+    "residual_std": 0.02452086984713095,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 491879
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 70,
+    "distinct_author_hash": "8a37f832f2e4ab8d0227cba42ac18030ab76838a68435996b9fa777397463785",
+    "client_sample_indices_sha256": "cfd0ebe729bb1aabb1db6b123490c663f29b73a96a3126841a753cdc2a3cb63e",
+    "client_generation_seed": 8510,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.45768566493955093,
+      "balanced_accuracy": 0.22541506860682883,
+      "per_class_recall": [
+        0.9956331877729258,
+        0.32362459546925565,
+        0.03323262839879154,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8510_T1_s180_head_K0_-.npz",
+  "diagnostic_sha256": "f7e332e926b6389200b01e4c5fd55f504a0832be8efbd321b0e492a640d8f4e1"
+}

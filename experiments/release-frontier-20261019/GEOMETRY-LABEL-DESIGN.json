@@ -1,0 +1,38 @@
+{
+  "design": {
+    "tasks": [
+      "cifar10",
+      "mnist",
+      "web",
+      "femnist62"
+    ],
+    "multipliers": [
+      1,
+      3,
+      5,
+      10,
+      20,
+      50
+    ],
+    "policy": "For each public K=C region, request q nearest development features to its centroid; if short, fill with remaining globally closest-to-assigned-centroid points.",
+    "uses_unqueried_labels": false,
+    "distinct_sample_labels_counted": true,
+    "random_draws": 1,
+    "acquisition_right": "feature-selected annotation queries; separate from existing passive labels",
+    "reason": "Avoid attributing private value to passive class-coverage gaps when public representative annotation is available."
+  },
+  "utc": "2026-10-19T09:50:24Z",
+  "source_sha256": {
+    "engine_base.py": "19d4d3801843c6b7dd5dcd1407b74b5533699e96ea3d00a9dc806358a886bbed",
+    "privacy.py": "6ad4e7b087e7d01a08bd6d47335ddff81ae0ed90858b89ad0c0aca2122fcac38",
+    "exact_dg.cpp": "d4c553b3c68249ab721e0d27f32c19e7ea75212a57765a30464d807cba2557bf",
+    "exact_dg.so": "ce26c0feff7a23f886460b743f783e92e2745f2f236c114b528364863c1e2a2d",
+    "common.py": "22edf78a1437dad79a7d57aad81dea80dd25ee9322d30bc930e4e3c30683cd96",
+    "run_private.py": "6445463fdc23867db61bff2a61e36e884796f7b9854c49866becf6a862d2b17f",
+    "public_frontier.py": "2c0295ad39a7886b7248aa8d049ddd9fc3d6ded259c00a49f67ae7cb4e7d8f12",
+    "bound_diagnostics.py": "33281bf8e2177e211b98db977235f10d88b8715e129a938d1fbccfeda46704fc",
+    "head_fixed.py": "125b0e87e5c5cb6ff853f22e9c64c8260f98b85a0cce8130edfe5332ea3bbb47",
+    "students.py": "b8a4afffae323b7e48e354bd60f4b61d0b798e729c286aeeaf4a3aac662a6e03",
+    "geometry_labels.py": "cef270b1f5f58a70cac2c613652751d7b3cdc970e82bf9a073aea00ce5f5176e"
+  }
+}

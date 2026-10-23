@@ -1,0 +1,68 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8509,
+  "steps": 180,
+  "method": "head-fixed",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "clip": 1.0,
+  "public_task_labels": 0,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 11730,
+    "sensitivity_integer_squared": 17187210000,
+    "dimension": 768,
+    "log_tau_upper": -1357987481.0900288,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.020818915801614764,
+    "rho_total_upper": 0.020818915801614764,
+    "epsilon_upper": 0.9999749317367296,
+    "residual_std": 0.0032678149411700433,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 65550
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 37,
+    "distinct_author_hash": "856b1d45e939e5414c76ef10c6a4cd75da68d4a7aeaa58f697aa20fd971c23f0",
+    "client_sample_indices_sha256": "141243f42112fdeeef3120904c01aba3ee83adfdd7b82cea7d8bb48544c56f3d",
+    "client_generation_seed": 8509,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.4599884858952216,
+      "balanced_accuracy": 0.23079876054961257,
+      "per_class_recall": [
+        0.9941775836972343,
+        0.3268608414239482,
+        0.027190332326283987,
+        0.02185792349726776,
+        0.0,
+        0.014705882352941176
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8509_T1_s180_head-fixed_K0_-.npz",
+  "diagnostic_sha256": "3f41c3bb037ddfa937870990dc5aa5d03bad163ab8f95a688e460292a6b203cf"
+}

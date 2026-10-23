@@ -1,0 +1,67 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8505,
+  "steps": 60,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 88019,
+    "sensitivity_integer_squared": 967779802564,
+    "dimension": 768,
+    "log_tau_upper": -76463223991.77179,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0208196029819755,
+    "rho_total_upper": 0.0208196029819755,
+    "epsilon_upper": 0.9999917785297815,
+    "residual_std": 0.02452086984713095,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 491879
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 54,
+    "distinct_author_hash": "961e5c544b6f7547f019702f9514bf09467d27243a372560bd329517c73b9f27",
+    "client_sample_indices_sha256": "bab4aa239fa1fc671bf51a6d3c7b6f5e8f821ecbda429f08bd05534ed0360e86",
+    "client_generation_seed": 8505,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.4571099597006333,
+      "balanced_accuracy": 0.2282497585601407,
+      "per_class_recall": [
+        0.9941775836972343,
+        0.2977346278317152,
+        0.03927492447129909,
+        0.0273224043715847,
+        0.01098901098901099,
+        0.0
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8505_T1_s60_head_K0_-.npz",
+  "diagnostic_sha256": "b869f0bad3c15fbb54b034f34e09323f8e4090739c3d15d5fad7f6405be4efb3"
+}

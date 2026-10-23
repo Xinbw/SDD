@@ -1,0 +1,68 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8501,
+  "steps": 60,
+  "method": "head-fixed",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "clip": 1.0,
+  "public_task_labels": 0,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 11730,
+    "sensitivity_integer_squared": 17187210000,
+    "dimension": 768,
+    "log_tau_upper": -1357987481.0900288,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.020818915801614764,
+    "rho_total_upper": 0.020818915801614764,
+    "epsilon_upper": 0.9999749317367296,
+    "residual_std": 0.0032678149411700433,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 65550
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 54,
+    "distinct_author_hash": "8812ee956e6d7fdad70bdbb94ca6f3043177b1acf385e8fbc11d2bb7a9cff7e9",
+    "client_sample_indices_sha256": "f3f045cf3cc3655d7bba92608a004ed4a4ce8f9749212e5bcb33b4c07fb1876f",
+    "client_generation_seed": 8501,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.46862406447898675,
+      "balanced_accuracy": 0.23795148538852737,
+      "per_class_recall": [
+        0.9912663755458515,
+        0.31715210355987056,
+        0.09365558912386707,
+        0.01092896174863388,
+        0.0,
+        0.014705882352941176
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8501_T1_s60_head-fixed_K0_-.npz",
+  "diagnostic_sha256": "800f5bec74a7bfed5a3fa01753420d7e79fc0cf8cf3ad7044a4c0979faeaf901"
+}

@@ -1,0 +1,93 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8505,
+  "steps": 60,
+  "method": "regional",
+  "k": 5,
+  "estimator": "R",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 18543,
+    "sensitivity_integer_squared": 42949672960,
+    "dimension": 30,
+    "log_tau_upper": -3393592885.4648843,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.020818460664472526,
+    "rho_total_upper": 0.020818460664472526,
+    "epsilon_upper": 0.9999637735276589,
+    "residual_std": 0.005165822033598986,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits"
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 54,
+    "distinct_author_hash": "961e5c544b6f7547f019702f9514bf09467d27243a372560bd329517c73b9f27",
+    "client_sample_indices_sha256": "bab4aa239fa1fc671bf51a6d3c7b6f5e8f821ecbda429f08bd05534ed0360e86",
+    "client_generation_seed": 8505,
+    "alpha": null
+  },
+  "endpoints": {
+    "raw": {
+      "accuracy": 0.3955094991364421,
+      "balanced_accuracy": 0.16666666666666666,
+      "per_class_recall": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "center": {
+      "accuracy": 0.48704663212435234,
+      "balanced_accuracy": 0.29295207917527527,
+      "per_class_recall": [
+        0.7729257641921398,
+        0.49838187702265374,
+        0.486404833836858,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        2,
+        0,
+        2,
+        1,
+        1
+      ]
+    }
+  },
+  "logical_report_coordinates": 30,
+  "public_task_labels": 0,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8505_T1_s60_regional_K5_R.npz",
+  "diagnostic_sha256": "b7909ba869d61e64cefedd9ced78fefc2e448e1808e81128c969def6e96e2d1a"
+}

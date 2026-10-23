@@ -1,0 +1,67 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8507,
+  "steps": 180,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 88019,
+    "sensitivity_integer_squared": 967779802564,
+    "dimension": 768,
+    "log_tau_upper": -76463223991.77179,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0208196029819755,
+    "rho_total_upper": 0.0208196029819755,
+    "epsilon_upper": 0.9999917785297815,
+    "residual_std": 0.02452086984713095,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 491879
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 70,
+    "distinct_author_hash": "7b33ca92eb84199c100343a715af9ef4ce436e0b4e7e27f4670632836b532397",
+    "client_sample_indices_sha256": "3f174018ffda6bf44de50b6e4f74518ee601b2fd572fa4ffbe3665e8406e9d8b",
+    "client_generation_seed": 8507,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.46862406447898675,
+      "balanced_accuracy": 0.2364847019640005,
+      "per_class_recall": [
+        0.992721979621543,
+        0.37540453074433655,
+        0.045317220543806644,
+        0.00546448087431694,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8507_T1_s180_head_K0_-.npz",
+  "diagnostic_sha256": "783ee75cf362215bf0e59a72e442a87e407b81fe0d3d6eb7e64362176a1b8a35"
+}

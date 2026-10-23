@@ -1,0 +1,72 @@
+{
+  "dataset": "mnist",
+  "n": 10000,
+  "epsilon": 0.1,
+  "seed": 8504,
+  "steps": 180,
+  "method": "head-fixed",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "clip": 1.0,
+  "public_task_labels": 0,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 10000,
+    "calibrated_clients": 10000,
+    "honest_clients": 10000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 63049,
+    "sensitivity_integer_squared": 17189307664,
+    "dimension": 1280,
+    "log_tau_upper": -39233418490.90333,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.00021620811166613686,
+    "rho_total_upper": 0.00021620811166613686,
+    "epsilon_upper": 0.09999973129128119,
+    "residual_std": 0.009620513916015625,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 65554
+  },
+  "population": {
+    "actual_clients": 10000,
+    "unique_client_identifiers": 10000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "f02ba677581ed846ecb07f38180132fe25a0c90412d2da59de4a716141778f89",
+    "client_generation_seed": 8504,
+    "alpha": 0.1
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.7748,
+      "balanced_accuracy": 0.774810376178102,
+      "per_class_recall": [
+        0.9652173913043478,
+        0.9807355516637478,
+        0.4320754716981132,
+        0.882,
+        0.832,
+        0.6140350877192983,
+        0.7727272727272727,
+        0.70703125,
+        0.8834355828220859,
+        0.6788461538461539
+      ],
+      "minimum_recall": 0.4320754716981132
+    }
+  },
+  "logical_report_coordinates": 1280,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/mnist_10000_0.1_8504_T1_s180_head-fixed_K0_-.npz",
+  "diagnostic_sha256": "f9432d8891a2578bfe483d7ae185b0e82271beb1a1cb0ace8f276d240e3f0f8b"
+}

@@ -1,0 +1,68 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8505,
+  "steps": 60,
+  "method": "head-fixed",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "clip": 1.0,
+  "public_task_labels": 0,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 11730,
+    "sensitivity_integer_squared": 17187210000,
+    "dimension": 768,
+    "log_tau_upper": -1357987481.0900288,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.020818915801614764,
+    "rho_total_upper": 0.020818915801614764,
+    "epsilon_upper": 0.9999749317367296,
+    "residual_std": 0.0032678149411700433,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 65550
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 54,
+    "distinct_author_hash": "961e5c544b6f7547f019702f9514bf09467d27243a372560bd329517c73b9f27",
+    "client_sample_indices_sha256": "bab4aa239fa1fc671bf51a6d3c7b6f5e8f821ecbda429f08bd05534ed0360e86",
+    "client_generation_seed": 8505,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.46286701208981,
+      "balanced_accuracy": 0.2318495689905291,
+      "per_class_recall": [
+        0.9970887918486172,
+        0.2783171521035599,
+        0.08459214501510574,
+        0.01639344262295082,
+        0.0,
+        0.014705882352941176
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8505_T1_s60_head-fixed_K0_-.npz",
+  "diagnostic_sha256": "5b493e861fa961bcbd6682beb0f62ef9abf4b45e4fc04ea23ca9b44d5e4b16af"
+}

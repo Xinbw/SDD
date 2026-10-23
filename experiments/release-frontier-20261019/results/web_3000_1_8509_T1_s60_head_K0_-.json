@@ -1,0 +1,67 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8509,
+  "steps": 60,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 88019,
+    "sensitivity_integer_squared": 967779802564,
+    "dimension": 768,
+    "log_tau_upper": -76463223991.77179,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0208196029819755,
+    "rho_total_upper": 0.0208196029819755,
+    "epsilon_upper": 0.9999917785297815,
+    "residual_std": 0.02452086984713095,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 491879
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 37,
+    "distinct_author_hash": "856b1d45e939e5414c76ef10c6a4cd75da68d4a7aeaa58f697aa20fd971c23f0",
+    "client_sample_indices_sha256": "141243f42112fdeeef3120904c01aba3ee83adfdd7b82cea7d8bb48544c56f3d",
+    "client_generation_seed": 8509,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.45135290731145655,
+      "balanced_accuracy": 0.22134308063155708,
+      "per_class_recall": [
+        0.9941775836972343,
+        0.26537216828478966,
+        0.04833836858006042,
+        0.00546448087431694,
+        0.0,
+        0.014705882352941176
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8509_T1_s60_head_K0_-.npz",
+  "diagnostic_sha256": "21856f6941bac6580a0d8ac09c1f981366a266d05d08b5b7b93ccd986c68890b"
+}

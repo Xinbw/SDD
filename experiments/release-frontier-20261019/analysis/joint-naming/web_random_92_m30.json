@@ -1,0 +1,1093 @@
+{
+  "dataset": "web",
+  "scheme": "random",
+  "draw": 92,
+  "q": 5,
+  "m": 30,
+  "indices": [
+    743,
+    597,
+    892,
+    800,
+    424,
+    1453,
+    1243,
+    539,
+    1491,
+    1372,
+    495,
+    1474,
+    985,
+    68,
+    472,
+    360,
+    1262,
+    116,
+    587,
+    584,
+    659,
+    1349,
+    1084,
+    55,
+    10,
+    607,
+    1134,
+    366,
+    1290,
+    315
+  ],
+  "labels": [
+    3,
+    3,
+    4,
+    3,
+    3,
+    0,
+    3,
+    4,
+    1,
+    2,
+    4,
+    0,
+    3,
+    1,
+    3,
+    3,
+    1,
+    0,
+    0,
+    2,
+    1,
+    0,
+    2,
+    0,
+    2,
+    0,
+    1,
+    1,
+    0,
+    1
+  ],
+  "missing_classes": 1,
+  "sample_sha256": "84f6b6eb26bd5c8aafcc5a2aef5de949cc7eae8dc3042c32ec9edeead567014e",
+  "label_budget": 30,
+  "external_validation_labels": 0,
+  "source": "web_random_92_m30.json",
+  "source_sha256": "3a89800aa4ee773c4e0a899b7a24afb8dc0e633179e33a656d9a5d133f6c95df",
+  "selected_public": "graph-0.95-classmass",
+  "baselines": {
+    "cluster-majority": {
+      "accuracy": 0.5020149683362118,
+      "balanced_accuracy": 0.41204800464788843,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.44660194174757284,
+        0.33534743202416917,
+        0.26229508196721313,
+        0.6813186813186813,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.5392857142857143
+    },
+    "cluster-coverage": {
+      "accuracy": 0.4789867587795049,
+      "balanced_accuracy": 0.39253137922749376,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.26229508196721313,
+        0.6813186813186813,
+        0.022058823529411766
+      ],
+      "minimum_recall": 0.022058823529411766,
+      "loo_score": 0.6892857142857143
+    },
+    "prototype": {
+      "accuracy": 0.5998848589522164,
+      "balanced_accuracy": 0.4782420405566459,
+      "per_class_recall": [
+        0.8253275109170306,
+        0.5663430420711975,
+        0.43202416918429004,
+        0.6721311475409836,
+        0.37362637362637363,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.530952380952381
+    },
+    "ridge-0.001": {
+      "accuracy": 0.5757052389176741,
+      "balanced_accuracy": 0.47821425934185674,
+      "per_class_recall": [
+        0.7627365356622998,
+        0.5792880258899676,
+        0.48036253776435045,
+        0.4644808743169399,
+        0.5824175824175825,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.6761904761904762
+    },
+    "ridge-0.01": {
+      "accuracy": 0.5751295336787565,
+      "balanced_accuracy": 0.4771530370292205,
+      "per_class_recall": [
+        0.7656477438136827,
+        0.5760517799352751,
+        0.4743202416918429,
+        0.4644808743169399,
+        0.5824175824175825,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.6761904761904762
+    },
+    "ridge-0.1": {
+      "accuracy": 0.5831894070236039,
+      "balanced_accuracy": 0.484184051317231,
+      "per_class_recall": [
+        0.7758369723435226,
+        0.5922330097087378,
+        0.46827794561933533,
+        0.48633879781420764,
+        0.5824175824175825,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.6761904761904762
+    },
+    "ridge-1": {
+      "accuracy": 0.5958549222797928,
+      "balanced_accuracy": 0.4778003081576417,
+      "per_class_recall": [
+        0.834061135371179,
+        0.6343042071197411,
+        0.3413897280966767,
+        0.6174863387978142,
+        0.43956043956043955,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.46428571428571425
+    },
+    "ridge-10": {
+      "accuracy": 0.5561312607944733,
+      "balanced_accuracy": 0.4158624788585032,
+      "per_class_recall": [
+        0.8529839883551674,
+        0.6019417475728155,
+        0.09969788519637462,
+        0.819672131147541,
+        0.12087912087912088,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.4892857142857142
+    },
+    "graph-0.8-ordinary": {
+      "accuracy": 0.560161197466897,
+      "balanced_accuracy": 0.43837887774855117,
+      "per_class_recall": [
+        0.9286754002911208,
+        0.44660194174757284,
+        0.12084592145015106,
+        0.5846994535519126,
+        0.5494505494505495,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.6142857142857142
+    },
+    "graph-0.8-classmass": {
+      "accuracy": 0.5728267127230858,
+      "balanced_accuracy": 0.48031621412978837,
+      "per_class_recall": [
+        0.8165938864628821,
+        0.46601941747572817,
+        0.4259818731117825,
+        0.45901639344262296,
+        0.7142857142857143,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.7142857142857142
+    },
+    "graph-0.95-ordinary": {
+      "accuracy": 0.5480713874496258,
+      "balanced_accuracy": 0.4325013727015974,
+      "per_class_recall": [
+        0.9199417758369723,
+        0.42718446601941745,
+        0.04833836858006042,
+        0.6830601092896175,
+        0.5164835164835165,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.45595238095238094
+    },
+    "graph-0.95-classmass": {
+      "accuracy": 0.5808865860679332,
+      "balanced_accuracy": 0.47715116062914475,
+      "per_class_recall": [
+        0.8981077147016011,
+        0.5145631067961165,
+        0.21148036253776434,
+        0.546448087431694,
+        0.6923076923076923,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "loo_score": 0.7392857142857142
+    },
+    "count-matching": {
+      "accuracy": 0.4789867587795049,
+      "balanced_accuracy": 0.39253137922749376,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.26229508196721313,
+        0.6813186813186813,
+        0.022058823529411766
+      ],
+      "minimum_recall": 0.022058823529411766,
+      "loo_score": 0.6892857142857143
+    },
+    "uniform-empty-matching": {
+      "accuracy": 0.4789867587795049,
+      "balanced_accuracy": 0.39253137922749376,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.26229508196721313,
+        0.6813186813186813,
+        0.022058823529411766
+      ],
+      "minimum_recall": 0.022058823529411766,
+      "loo_score": 0.6892857142857143
+    }
+  },
+  "public_portfolio": {
+    "accuracy": 0.5808865860679332,
+    "balanced_accuracy": 0.47715116062914475,
+    "per_class_recall": [
+      0.8981077147016011,
+      0.5145631067961165,
+      0.21148036253776434,
+      0.546448087431694,
+      0.6923076923076923,
+      0.0
+    ],
+    "minimum_recall": 0.0,
+    "loo_score": 0.7392857142857142
+  },
+  "hybrid": [
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8501,
+      "protected_source": "web_3000_1_8501_T1_s180_regional_K6_M",
+      "source_sha256": "3fe8b6c594157cec599b6f96c2e67c7722b64eb94533d49f7c033b33fd2d91d7",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.175,
+          "private-coverage": 0.05
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.23806141623357932,
+        "balanced_accuracy": 0.17051873867958783
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8502,
+      "protected_source": "web_3000_1_8502_T1_s180_regional_K6_M",
+      "source_sha256": "787b78a0c44f61f664e9561800d5d9f6ed9b4195c13535bb3439cb46f5c7e7ea",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.325,
+          "private-coverage": 0.3
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.2363603990711272,
+        "balanced_accuracy": 0.17039535499860842
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8503,
+      "protected_source": "web_3000_1_8503_T1_s180_regional_K6_M",
+      "source_sha256": "c5ad370c97640adf208b844ab8d1431609a90bc979d81522a1c6c629eac438d0",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.25,
+          "private-coverage": 0.1
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.23714988290021816,
+        "balanced_accuracy": 0.1705292876213789
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8504,
+      "protected_source": "web_3000_1_8504_T1_s180_regional_K6_M",
+      "source_sha256": "fa4bf9bafe2c2e89f61bf94819eef17fb5e4ebb0f64d6e3f2382822560f1000d",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.125,
+          "private-coverage": 0.3
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.2382828708042701,
+        "balanced_accuracy": 0.17059507032235463
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8505,
+      "protected_source": "web_3000_1_8505_T1_s180_regional_K6_M",
+      "source_sha256": "f8450c8290edbc79f443bca35925be19784b44b5813304e33608e1de00628c08",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.2,
+          "private-coverage": 0.1
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.23754078678041696,
+        "balanced_accuracy": 0.17042213733990988
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8506,
+      "protected_source": "web_3000_1_8506_T1_s180_regional_K6_M",
+      "source_sha256": "601ba485b3d6ed35699418c3dca83a601c10321b943c12f6b3a86c78438d6f33",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.225,
+          "private-coverage": 0.3
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.2340280252546072,
+        "balanced_accuracy": 0.17046550968289376
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8507,
+      "protected_source": "web_3000_1_8507_T1_s180_regional_K6_M",
+      "source_sha256": "4b8bf8fde900331f46853fa8198a7e09828c3fcb3fb8ca4238a32b72d0916098",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.275,
+          "private-coverage": 0.1
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.23752313181012868,
+        "balanced_accuracy": 0.17064178664485613
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8508,
+      "protected_source": "web_3000_1_8508_T1_s180_regional_K6_M",
+      "source_sha256": "186250d7f744fb24ea69ccf7963a4bceacf28d74f14c0bff4755acf2eec32580",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.2642857142857143,
+          "private-coverage": 0.05
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.2352608020020028,
+        "balanced_accuracy": 0.17056813136239846
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8509,
+      "protected_source": "web_3000_1_8509_T1_s180_regional_K6_M",
+      "source_sha256": "2a41ee8bb59b25353c4b035a037b3c271c317fe4098faffe88e44e2f7194eda9",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.24642857142857144,
+          "private-coverage": 0.3571428571428571
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.23861658804987868,
+        "balanced_accuracy": 0.1706348573639989
+      },
+      "selected_uses_private_votes": false
+    },
+    {
+      "n": 3000,
+      "epsilon": 1.0,
+      "seed": 8510,
+      "protected_source": "web_3000_1_8510_T1_s180_regional_K6_M",
+      "source_sha256": "6d9f8b51b2ce524ccee1cb921e4964ebc23097504991ce4215302de8ce6cb475",
+      "protected_group": "development",
+      "ungated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gated": {
+        "accuracy": 0.5808865860679332,
+        "balanced_accuracy": 0.47715116062914475,
+        "per_class_recall": [
+          0.8981077147016011,
+          0.5145631067961165,
+          0.21148036253776434,
+          0.546448087431694,
+          0.6923076923076923,
+          0.0
+        ],
+        "minimum_recall": 0.0,
+        "loo_score": 0.7392857142857142
+      },
+      "gate": {
+        "paired_loo_gain": 0.0,
+        "paired_loo_gain_lower": 0.0,
+        "minimum_loo_wilson_lower": 0.0,
+        "all_classes_in_proxy_predictions": false,
+        "private_augmentation_published": false,
+        "gate_scope": "predeclared LOO heuristic, not a statistical/local-utility certificate",
+        "selected": "graph-0.95-classmass",
+        "loo_score": 0.7392857142857142,
+        "public_loo_score": 0.7392857142857142,
+        "candidate_loo_scores": {
+          "cluster-majority": 0.5392857142857143,
+          "cluster-coverage": 0.6892857142857143,
+          "prototype": 0.530952380952381,
+          "ridge-0.001": 0.6761904761904762,
+          "ridge-0.01": 0.6761904761904762,
+          "ridge-0.1": 0.6761904761904762,
+          "ridge-1": 0.46428571428571425,
+          "ridge-10": 0.4892857142857142,
+          "graph-0.8-ordinary": 0.6142857142857142,
+          "graph-0.8-classmass": 0.7142857142857142,
+          "graph-0.95-ordinary": 0.45595238095238094,
+          "graph-0.95-classmass": 0.7392857142857142,
+          "count-matching": 0.6892857142857143,
+          "uniform-empty-matching": 0.6892857142857143,
+          "joint-0.01": 0.6892857142857143,
+          "joint-0.03": 0.6892857142857143,
+          "joint-0.1": 0.6892857142857143,
+          "joint-0.3": 0.6892857142857143,
+          "joint-1": 0.6892857142857143,
+          "joint-3": 0.6892857142857143,
+          "joint-10": 0.6892857142857143,
+          "joint-30": 0.575,
+          "private-center": 0.20714285714285713,
+          "private-coverage": 0.25
+        },
+        "public_classifier_published": false,
+        "private_local_utility_used_for_selection": false
+      },
+      "abstention_client_utility": {
+        "accuracy": 0.2375296566337347,
+        "balanced_accuracy": 0.1702747844507297
+      },
+      "selected_uses_private_votes": false
+    }
+  ],
+  "policy": "joint observed-count naming; no imputed evidence; original policy preserved separately"
+}

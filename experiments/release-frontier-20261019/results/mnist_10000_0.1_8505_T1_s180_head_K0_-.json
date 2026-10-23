@@ -1,0 +1,71 @@
+{
+  "dataset": "mnist",
+  "n": 10000,
+  "epsilon": 0.1,
+  "seed": 8505,
+  "steps": 180,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 10000,
+    "calibrated_clients": 10000,
+    "honest_clients": 10000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 609457,
+    "sensitivity_integer_squared": 1606160814336,
+    "dimension": 1280,
+    "log_tau_upper": -3665944489545.28,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0002162085635391653,
+    "rho_total_upper": 0.0002162085635391653,
+    "epsilon_upper": 0.09999983601643726,
+    "residual_std": 0.09299575805664062,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 633672
+  },
+  "population": {
+    "actual_clients": 10000,
+    "unique_client_identifiers": 10000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "63cd2910bd777738a615efb36cc6e5c3199d0bf24cb620b53259cdd5848e1fb6",
+    "client_generation_seed": 8505,
+    "alpha": 0.1
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.7756,
+      "balanced_accuracy": 0.7740991714471781,
+      "per_class_recall": [
+        0.9869565217391304,
+        0.978984238178634,
+        0.4811320754716981,
+        0.912,
+        0.788,
+        0.5833333333333334,
+        0.6558441558441559,
+        0.751953125,
+        0.885480572597137,
+        0.7173076923076923
+      ],
+      "minimum_recall": 0.4811320754716981
+    }
+  },
+  "logical_report_coordinates": 1280,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/mnist_10000_0.1_8505_T1_s180_head_K0_-.npz",
+  "diagnostic_sha256": "863e19b187849cb618601689a5614f71319f50897a4ad78b3500df2ad31ffec9"
+}

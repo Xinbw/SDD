@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/public_frontier.py", line 277, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--dataset',choices=list(CLASSES));main(p.parse_args().dataset)
+                                                                                  ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/public_frontier.py", line 265, in main
+    prediction,gate=hybrid(chosen,sample,private,data,assignment,centres,weights,extra)
+                    ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/public_frontier.py", line 201, in hybrid
+    if mode=='coverage':pl=np.stack([coverage(row,weights) for row in z])
+                                     ~~~~~~~~^^^^^^^^^^^^^
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/run_private.py", line 23, in coverage
+    classes,regions=linear_sum_assignment(loss.T)
+                    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+KeyboardInterrupt

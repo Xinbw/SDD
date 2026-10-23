@@ -1,0 +1,67 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8508,
+  "steps": 60,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 88019,
+    "sensitivity_integer_squared": 967779802564,
+    "dimension": 768,
+    "log_tau_upper": -76463223991.77179,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0208196029819755,
+    "rho_total_upper": 0.0208196029819755,
+    "epsilon_upper": 0.9999917785297815,
+    "residual_std": 0.02452086984713095,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 491879
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 70,
+    "distinct_author_hash": "5d5aefa53504f29475bf7e049fe3856016562d4a82b01aabaf9654b7b9b1271e",
+    "client_sample_indices_sha256": "1fc0dbfcaaf6036e0d7c22bf658abb2cf5fd9de00ae71e24e7d2b51034dc91af",
+    "client_generation_seed": 8508,
+    "alpha": null
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.45365572826712725,
+      "balanced_accuracy": 0.22497310210391794,
+      "per_class_recall": [
+        0.9912663755458515,
+        0.3106796116504854,
+        0.015105740181268883,
+        0.03278688524590164,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "logical_report_coordinates": 768,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8508_T1_s60_head_K0_-.npz",
+  "diagnostic_sha256": "020646bfe829b01449379b54bf3b0289630a01333acbbfcddb00a90c65120d05"
+}

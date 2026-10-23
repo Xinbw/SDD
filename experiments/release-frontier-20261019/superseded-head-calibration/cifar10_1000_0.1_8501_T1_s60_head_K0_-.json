@@ -1,0 +1,70 @@
+{
+  "dataset": "cifar10",
+  "n": 1000,
+  "epsilon": 0.1,
+  "seed": 8501,
+  "steps": 60,
+  "method": "head",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 1000,
+    "calibrated_clients": 1000,
+    "honest_clients": 1000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 2007697,
+    "sensitivity_integer_squared": 1743011796705.9165,
+    "dimension": 1280,
+    "log_tau_upper": -39782867697607.0,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.000216209110799599,
+    "rho_total_upper": 0.000216209110799599,
+    "epsilon_upper": 0.09999996284823469,
+    "residual_std": 0.9687645525340385,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits"
+  },
+  "population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "0d9aca5d2cb11943101c6678197f78ea8364765c5c8ab9c6a058a455b7ea9ec8",
+    "client_generation_seed": 8501,
+    "alpha": 0.1
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.28613935035953386,
+      "balanced_accuracy": 0.28484630303609776,
+      "per_class_recall": [
+        0.14795918367346939,
+        0.6323529411764706,
+        0.3268765133171913,
+        0.3088235294117647,
+        0.13580246913580246,
+        0.5885286783042394,
+        0.11734693877551021,
+        0.02756892230576441,
+        0.18048780487804877,
+        0.38271604938271603
+      ],
+      "minimum_recall": 0.02756892230576441
+    }
+  },
+  "logical_report_coordinates": 1280,
+  "public_task_labels": "parent public clipping configuration",
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/cifar10_1000_0.1_8501_T1_s60_head_K0_-.npz",
+  "diagnostic_sha256": "49fd0bb5f831a11a1dbbc4281d8697b30cbb89a7386c80eca1d740c26b8af813"
+}

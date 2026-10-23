@@ -1,0 +1,140 @@
+{
+  "dataset": "mnist",
+  "n": 10000,
+  "epsilon": 0.1,
+  "seed": 8506,
+  "steps": 180,
+  "method": "regional",
+  "k": 10,
+  "estimator": "M",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 10000,
+    "calibrated_clients": 10000,
+    "honest_clients": 10000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 140943,
+    "sensitivity_integer_squared": 85899345920,
+    "dimension": 100,
+    "log_tau_upper": -196058993131.7463,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.00021620853727511807,
+    "rho_total_upper": 0.00021620853727511807,
+    "epsilon_upper": 0.09999982992953912,
+    "residual_std": 0.021506195068359376,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits"
+  },
+  "population": {
+    "actual_clients": 10000,
+    "unique_client_identifiers": 10000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "3c125c9983283b8d0e3de651eda862fada7be890fdc694aeddeefd6da3741e19",
+    "client_generation_seed": 8506,
+    "alpha": 0.1
+  },
+  "endpoints": {
+    "raw": {
+      "accuracy": 0.539,
+      "balanced_accuracy": 0.5316584114215395,
+      "per_class_recall": [
+        0.782608695652174,
+        0.9667250437828371,
+        0.19056603773584907,
+        0.78,
+        0.542,
+        0.34649122807017546,
+        0.0,
+        0.57421875,
+        0.6666666666666666,
+        0.4673076923076923
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        2,
+        7,
+        9,
+        8,
+        3,
+        5,
+        1,
+        4,
+        3,
+        0
+      ]
+    },
+    "center": {
+      "accuracy": 0.539,
+      "balanced_accuracy": 0.5316584114215395,
+      "per_class_recall": [
+        0.782608695652174,
+        0.9667250437828371,
+        0.19056603773584907,
+        0.78,
+        0.542,
+        0.34649122807017546,
+        0.0,
+        0.57421875,
+        0.6666666666666666,
+        0.4673076923076923
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        2,
+        7,
+        9,
+        8,
+        3,
+        5,
+        1,
+        4,
+        3,
+        0
+      ]
+    },
+    "coverage": {
+      "accuracy": 0.4988,
+      "balanced_accuracy": 0.49255296598977816,
+      "per_class_recall": [
+        0.782608695652174,
+        0.9667250437828371,
+        0.19056603773584907,
+        0.238,
+        0.542,
+        0.3026315789473684,
+        0.19480519480519481,
+        0.57421875,
+        0.6666666666666666,
+        0.4673076923076923
+      ],
+      "minimum_recall": 0.19056603773584907,
+      "labels": [
+        2,
+        7,
+        9,
+        8,
+        3,
+        6,
+        1,
+        4,
+        5,
+        0
+      ]
+    }
+  },
+  "logical_report_coordinates": 100,
+  "public_task_labels": 0,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/mnist_10000_0.1_8506_T1_s180_regional_K10_M.npz",
+  "diagnostic_sha256": "7d346c500be1455bb367be5787e5fe8c9abfd4c0f3b08f607a311d24aa2338ef"
+}

@@ -1,0 +1,32 @@
+mnist geometry labels 10 public 52.34 cluster-coverage
+mnist geometry labels 30 public 52.34 cluster-coverage
+mnist geometry labels 50 public 53.7 cluster-majority
+mnist geometry labels 100 public 64.14 ridge-0.01
+mnist geometry labels 200 public 69.38 ridge-0.01
+mnist geometry labels 500 public 80.42 ridge-0.1
+web geometry labels 6 public 16.292 cluster-coverage
+web geometry labels 18 public 48.762 prototype
+web geometry labels 30 public 49.511 ridge-0.001
+web geometry labels 60 public 49.223 ridge-0.001
+web geometry labels 120 public 55.268 ridge-0.1
+web geometry labels 300 public 59.182 graph-0.8-classmass
+femnist62 geometry labels 62 public 41.877 graph-0.95-classmass
+femnist62 geometry labels 186 public 49.923 ridge-0.01
+femnist62 geometry labels 310 public 55.331 ridge-0.001
+femnist62 geometry labels 620 public 59.991 ridge-0.001
+Traceback (most recent call last):
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/geometry_labels.py", line 62, in <module>
+    p=argparse.ArgumentParser();p.add_argument('--dataset',choices=list(CLASSES));main(p.parse_args().dataset)
+                                                                                  ~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/geometry_labels.py", line 54, in main
+    prediction,gate=frontier.hybrid(public,sample,a,data,assignment,centres,weights,extra)
+                    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/public_frontier.py", line 186, in hybrid
+    pl=np.stack([decode((1-fraction)*ee+fraction*a,weights,mode) for ee in elo])
+                 ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/run_private.py", line 29, in decode
+    a=project(a)
+  File "/root/autodl-tmp/xbw/ssd-10719/experiments/release-frontier-20261019/src/run_private.py", line 15, in project
+    return np.maximum(a-theta[:,None],0)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt

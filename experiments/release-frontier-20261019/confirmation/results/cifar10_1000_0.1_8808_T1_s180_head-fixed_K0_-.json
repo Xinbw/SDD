@@ -1,0 +1,86 @@
+{
+  "dataset": "cifar10",
+  "n": 1000,
+  "epsilon": 0.1,
+  "seed": 8808,
+  "steps": 180,
+  "method": "head-fixed",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "clip": 1.0,
+  "public_task_labels": 0,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 1000,
+    "calibrated_clients": 1000,
+    "honest_clients": 1000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 199378,
+    "sensitivity_integer_squared": 17189307664,
+    "dimension": 1280,
+    "log_tau_upper": -392332436851.4031,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.00021620907505102256,
+    "rho_total_upper": 0.00021620907505102256,
+    "epsilon_upper": 0.09999995456323316,
+    "residual_std": 0.09620492482437913,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 65554
+  },
+  "population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "5594cc04f5e397eef9c1c066fa3587f63d9c750b405e781f0400c487b769a595",
+    "client_generation_seed": 8808,
+    "alpha": 0.1
+  },
+  "private_local_only_endpoint": {
+    "accuracy": 0.4273622868657112,
+    "balanced_accuracy": 0.4274913362264633,
+    "per_class_recall": [
+      0.4288367286468856,
+      0.44819608885259365,
+      0.35468524383753536,
+      0.3752769740228541,
+      0.4208518684823066,
+      0.39391522398451345,
+      0.41467601610277777,
+      0.49360400877194477,
+      0.48143902685772627,
+      0.46343211518367755
+    ]
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.3830895115298785,
+      "balanced_accuracy": 0.3830530885791045,
+      "per_class_recall": [
+        0.21173469387755103,
+        0.5490196078431373,
+        0.3050847457627119,
+        0.34068627450980393,
+        0.29876543209876544,
+        0.19451371571072318,
+        0.6632653061224489,
+        0.49874686716791977,
+        0.7341463414634146,
+        0.0345679012345679
+      ],
+      "minimum_recall": 0.0345679012345679
+    }
+  },
+  "diagnostic_file": "diagnostics/cifar10_1000_0.1_8808_T1_s180_head-fixed_K0_-.npz",
+  "diagnostic_sha256": "02ea595757b89196983fd09e9258c1e2da26106813635ffdf8559733cc44215a",
+  "private_model_published": false
+}

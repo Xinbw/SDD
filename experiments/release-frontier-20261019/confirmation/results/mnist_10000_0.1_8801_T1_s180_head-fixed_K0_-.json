@@ -1,0 +1,86 @@
+{
+  "dataset": "mnist",
+  "n": 10000,
+  "epsilon": 0.1,
+  "seed": 8801,
+  "steps": 180,
+  "method": "head-fixed",
+  "k": 0,
+  "estimator": "-",
+  "releases": 1,
+  "clip": 1.0,
+  "public_task_labels": 0,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 10000,
+    "calibrated_clients": 10000,
+    "honest_clients": 10000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 63049,
+    "sensitivity_integer_squared": 17189307664,
+    "dimension": 1280,
+    "log_tau_upper": -39233418490.90333,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.00021620811166613686,
+    "rho_total_upper": 0.00021620811166613686,
+    "epsilon_upper": 0.09999973129128119,
+    "residual_std": 0.009620513916015625,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits",
+    "integer_report_radius": 65554
+  },
+  "population": {
+    "actual_clients": 10000,
+    "unique_client_identifiers": 10000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "43fdd7929fc3e28a01248b429f7721fa086d258ffb77ae81afd60c69df86d19a",
+    "client_generation_seed": 8801,
+    "alpha": 0.1
+  },
+  "private_local_only_endpoint": {
+    "accuracy": 0.33112625182643535,
+    "balanced_accuracy": 0.32950120244175196,
+    "per_class_recall": [
+      0.37917824235095177,
+      0.46279228652906607,
+      0.24578868310302496,
+      0.32713361465565394,
+      0.3376514149329858,
+      0.28393487052302807,
+      0.28333095208206216,
+      0.3353740234375,
+      0.3387355743422173,
+      0.30109230816506316
+    ]
+  },
+  "endpoints": {
+    "broadcast": {
+      "accuracy": 0.7654,
+      "balanced_accuracy": 0.763957745498946,
+      "per_class_recall": [
+        0.941304347826087,
+        0.9772329246935202,
+        0.45660377358490567,
+        0.88,
+        0.888,
+        0.5679824561403509,
+        0.6883116883116883,
+        0.671875,
+        0.8548057259713702,
+        0.7134615384615385
+      ],
+      "minimum_recall": 0.45660377358490567
+    }
+  },
+  "diagnostic_file": "diagnostics/mnist_10000_0.1_8801_T1_s180_head-fixed_K0_-.npz",
+  "diagnostic_sha256": "da7545def3ae74491bad536cda1255c5bc4e43026c6215c9f4122fe4b27882fc",
+  "private_model_published": false
+}

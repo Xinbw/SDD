@@ -1,0 +1,75 @@
+{
+  "design": {
+    "settings": [
+      [
+        "cifar10",
+        1000,
+        0.1
+      ],
+      [
+        "cifar10",
+        10000,
+        0.1
+      ],
+      [
+        "mnist",
+        10000,
+        0.1
+      ]
+    ],
+    "seeds": [
+      8801,
+      8802,
+      8803,
+      8804,
+      8805,
+      8806,
+      8807,
+      8808,
+      8809,
+      8810
+    ],
+    "public_draws": 100,
+    "budgets": [
+      1,
+      3,
+      5,
+      10,
+      20,
+      50
+    ],
+    "label_sampling_seed": 11000001,
+    "private_steps": 180,
+    "release_rounds": 1,
+    "regional": "K=C,M",
+    "head_clip": 1.0,
+    "independent_label_and_cohort_noise_tapes": true,
+    "method_frozen_before_confirmatory_outcomes": true,
+    "public_labels_for_all_selection_in_m": true,
+    "private_local_utility_never_selects": true,
+    "purpose": "Independent replication after strengthening public matching controls; all development outcomes retained."
+  },
+  "utc": "2026-10-19T11:08:06Z",
+  "source_sha256": {
+    "engine_base.py": "19d4d3801843c6b7dd5dcd1407b74b5533699e96ea3d00a9dc806358a886bbed",
+    "privacy.py": "6ad4e7b087e7d01a08bd6d47335ddff81ae0ed90858b89ad0c0aca2122fcac38",
+    "exact_dg.cpp": "d4c553b3c68249ab721e0d27f32c19e7ea75212a57765a30464d807cba2557bf",
+    "exact_dg.so": "ce26c0feff7a23f886460b743f783e92e2745f2f236c114b528364863c1e2a2d",
+    "common.py": "22edf78a1437dad79a7d57aad81dea80dd25ee9322d30bc930e4e3c30683cd96",
+    "run_private.py": "82e0a7705ddb782f13404dac217235a7ff50b1fec0b10031ce9e635db63cb6f8",
+    "public_frontier.py": "1bea4ebb0e39b4ff844f70445572e42bb09b05eab89afb440fb743109bd39299",
+    "bound_diagnostics.py": "33281bf8e2177e211b98db977235f10d88b8715e129a938d1fbccfeda46704fc",
+    "head_fixed.py": "125b0e87e5c5cb6ff853f22e9c64c8260f98b85a0cce8130edfe5332ea3bbb47",
+    "students.py": "b8a4afffae323b7e48e354bd60f4b61d0b798e729c286aeeaf4a3aac662a6e03",
+    "geometry_labels.py": "ee4d288354821f39a947e3e1f74eff29fa9e42c737bda57d48cbbb2c0f9f6ec4",
+    "export_frontier.py": "2c7dd63d6b42951e78189ab61993a7593a975a327cf1c6303455ff8334c301d5",
+    "validate_frontier.py": "2089172342a7c34d516de2808ecd125df9a86cd5832fff56036f4411b87b9ea6",
+    "build_indexes.py": "e69f3579d73622562e7cb481ffb16c07ba0185884954b2cd1927de88e4a623c4",
+    "replay_smoke.py": "c840f0f68ad6c75b1860d8000171571305ba3578d8d79acda878d8f10c76320b",
+    "finalize_revision.py": "d8aab0b2233d9d5e992d528d7a64e1230119e6c2f6bb2feab0de00950f780880",
+    "canonical_readouts.py": "ccd4f84ae1ac810c0706239fbafc7961f765223219d733c4e4bd808c18a2cc49",
+    "naming_audit.py": "bfe12146a0d9372dc788c966c49279b15d7752e038ecc99f8d21244b13c048aa",
+    "anchored_fusion.py": "ecc95134e702a85c6ddf8fc40ea043a46f72cedb592089448890727f04c0ea80",
+    "confirm_joint.py": "2204b8c8ec26f8aa713b9c7dbaf6774aedcd8d7583be1884fe43dbe825e74c41"
+  }
+}

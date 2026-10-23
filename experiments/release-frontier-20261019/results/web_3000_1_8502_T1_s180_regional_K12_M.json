@@ -1,0 +1,134 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8502,
+  "steps": 180,
+  "method": "regional",
+  "k": 12,
+  "estimator": "M",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 1.0,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 3000,
+    "calibrated_clients": 3000,
+    "honest_clients": 3000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 28726,
+    "sensitivity_integer_squared": 103079215104,
+    "dimension": 72,
+    "log_tau_upper": -8144230508.285435,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.02081946380587185,
+    "rho_total_upper": 0.02081946380587185,
+    "epsilon_upper": 0.999988366534401,
+    "residual_std": 0.008002664279629213,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits"
+  },
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 70,
+    "distinct_author_hash": "079b9f6911fbd86b30f309194df408e36351db0c211839888a494fd761297167",
+    "client_sample_indices_sha256": "0964d96aa9a3400fc203ac60cd2b8be80ce7fb46312cb9b9a67fae5011a5e922",
+    "client_generation_seed": 8502,
+    "alpha": null
+  },
+  "endpoints": {
+    "raw": {
+      "accuracy": 0.3955094991364421,
+      "balanced_accuracy": 0.16666666666666666,
+      "per_class_recall": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "center": {
+      "accuracy": 0.13241220495106507,
+      "balanced_accuracy": 0.1137399946144153,
+      "per_class_recall": [
+        0.11499272197962154,
+        0.29449838187702265,
+        0.1299093655589124,
+        0.01092896174863388,
+        0.06593406593406594,
+        0.0661764705882353
+      ],
+      "minimum_recall": 0.01092896174863388,
+      "labels": [
+        1,
+        1,
+        0,
+        1,
+        3,
+        5,
+        5,
+        5,
+        4,
+        0,
+        2,
+        2
+      ]
+    },
+    "coverage": {
+      "accuracy": 0.39666090961427747,
+      "balanced_accuracy": 0.19781673326123003,
+      "per_class_recall": [
+        0.8675400291120815,
+        0.27184466019417475,
+        0.00906344410876133,
+        0.01639344262295082,
+        0.0,
+        0.022058823529411766
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        0,
+        0,
+        3,
+        0,
+        0,
+        1,
+        5,
+        0,
+        0,
+        4,
+        2,
+        0
+      ]
+    }
+  },
+  "logical_report_coordinates": 72,
+  "public_task_labels": 0,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/web_3000_1_8502_T1_s180_regional_K12_M.npz",
+  "diagnostic_sha256": "1ff16ac67c95104271ffea233ddb16779a3e09ba44f5602cc4dbcd5a1da46a0c"
+}
