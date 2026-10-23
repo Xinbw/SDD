@@ -1,0 +1,13 @@
+\begin{table}[t]
+\caption{FEMNIST supervision-source references, ten seeds, 5000 public development labels. Public validation chooses public learning rate and training length; final-test arrays do not participate. Local+Public retains 180 private-client steps and 64/64 mixing, taking proxy targets from the selected public teacher. All entries require zero private report coordinates.}
+\label{tab:femnist-public}\small
+\centering
+\begin{tabular}{@{}lrrr@{}}\toprule
+Reference & Steps & Accuracy & Macro recall \\
+\midrule
+Public-only 180 & 180 & 50.65$\pm$0.24 & 18.89$\pm$0.22 \\
+Public-only selected & 600 & 59.33$\pm$0.39 & 27.34$\pm$0.45 \\
+Local+Public 1k & 180 & 37.52$\pm$0.07 & 12.68$\pm$0.04 \\
+Local+Public 2k & 180 & 37.56$\pm$0.07 & 12.71$\pm$0.05 \\
+\bottomrule\end{tabular}
+\end{table}

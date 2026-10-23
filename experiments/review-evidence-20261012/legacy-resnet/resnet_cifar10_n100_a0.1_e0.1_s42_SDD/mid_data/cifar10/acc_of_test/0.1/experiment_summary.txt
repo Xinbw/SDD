@@ -1,0 +1,35 @@
+==== Experiment Summary [2026-10-12 23:44:51] ====
+dataset=cifar10
+proxy_dataset=cifar10  # homogeneous (CE + hard-label mix)
+distill_coeff=1.0
+clients=100
+alpha=0.1
+proxy_size=2000
+clusters=10
+q=1.0
+rounds=3
+epochs=20
+epsilon_total=0.1
+delta=1e-05
+mechanism=distributed discrete Gaussian (multi-message shuffle, aggregate view)
+l2_sensitivity=sqrt(2K)=4.47214
+rho_zcdp_total=0.000216209
+sigma_on_aggregate=372.498
+dp_cohort_size=100
+noise_std_on_aggregate=3.72498
+quantization_bits=16
+lr=0.1
+optimizer=sgd
+confidence_threshold=0.0
+seed=42
+
+Final mean client accuracy: 0.2233
+Final std of client accuracy: 0.0763
+Final P10  client accuracy: 0.1247
+Best  client accuracy: 0.4210  (client_id=63)
+Worst client accuracy: 0.1004  (client_id=5)
+Evaluated clients: 100/100
+Final weights: not saved (--no-final-ckpt)
+Recorded round accuracies: [0.1906669972725019, 0.22083808579221426, 0.22332258864368956]
+============================================================
+

@@ -1,0 +1,13 @@
+\begin{table}[t]
+\caption{CIFAR-1k, $\varepsilon=.1$, ten paired 600-record cohorts and 180 private/proxy training steps. Each T=3 protocol charges three releases. Private-only rounds contain 128 private examples/batch; feedback rounds 2/3 use 64 private and 64 proxy examples. Pooled averages the three unprojected matrices before centered decoding. Mean$\pm$sample SD accuracy, \%. The contrast changes teacher content as well as feedback exposure.}
+\label{tab:no-feedback}\small
+\centering
+\begin{tabular}{@{}lr@{}}\toprule
+T=3 protocol/readout & Public NN \\
+\midrule
+Feedback, last & 40.02$\pm$21.31 \\
+Feedback, pooled & 40.56$\pm$17.28 \\
+Private-only, last & 32.36$\pm$18.79 \\
+Private-only, pooled & 45.98$\pm$19.18 \\
+\bottomrule\end{tabular}
+\end{table}

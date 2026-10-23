@@ -1,0 +1,30 @@
+{
+  "fixed_before_legacy_test_access": true,
+  "both_methods_use_same_local_GPU_trainer": true,
+  "per_example_variant": "singleton public partition",
+  "budgets": [
+    0.1,
+    1.0
+  ],
+  "seeds": [
+    42
+  ],
+  "actual_and_calibrated_clients": 100,
+  "role": "Original-architecture numerical corroboration; statistical effects use five/ten-seed classifier studies.",
+  "epochs_per_round": 20,
+  "T": 3,
+  "concurrent_clients": 1,
+  "source_sha256": {
+    "train_sdd.py": "a9da4f752ca4e856c1787aa39678c309001784ac10366c1f13bb4baa324fda8e",
+    "train_fedct.py": "5a653dceeff37e5ecc07e6710897fd645cecd44d748f07079ca7ebf1d9aa3510",
+    "sdd_core.py": "f4c6543d66406e1816af31d2e0c58e39db59d01dd9c6e0b80ce07101c4e762eb",
+    "dp_utils.py": "049804f6e71be4410fceb98e55d0179173420c5e86bf2b066b27a036a423a127",
+    "data.py": "548856c89d20d904291e77df498da7c8f0780bf8f2aa564e19377dacb625333d",
+    "models.py": "8d7131d39ece2ca041436356eb93b67619aceb190ab5fec12fbd31a3c272cad1",
+    "cluster.py": "b1a3f835f78de36d830b68224ab8c4433c0eb33ae18f46f0ad8d07cab713659e",
+    "proxy_hetero.py": "ee1db9be8a2bab83aeb6cc3370d96700d8810efb31feae66d802ff9ac8c27909",
+    "rdp_accounting.py": "1b3fc43ae68dda272d781d956edd73f8972c100e69e569d3a4e6befc8818827c",
+    "privacy_accounting.py": "654767d7c48121019dc1148083d72609abfa8c16f19f947b90d83a3722734441",
+    "exact_wrapper.py": "ce8dd8c9f7a735a0254e7e8061c878aa76216979e34192a7dc499c53ae733217"
+  }
+}

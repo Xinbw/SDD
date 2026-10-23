@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Numerical scope of the sufficient coupled-decoder criterion, first release, ten cohorts per setting. $\delta_q$ is the unprojected matrix sup distance. Coupled bounds are 1 in every applicable cohort; raw decoding uses the separate regional vote-gap bound. The last column is the public-region-weighted raw-winner flip bound, not a classification error bound. Clean private votes enter these diagnostics only.}
+\label{tab:bound-values}\small
+\centering
+\begin{tabular}{@{}llrrr@{}}\toprule
+Task, clients, $\varepsilon$ & Decoder & $\delta_q$ & Coupled & Raw gap \\
+\midrule
+CIFAR, 1k, 0.1 & center & 0.051 & 1.000 & 1.000 \\
+CIFAR, 10k, 0.1 & matching & 0.044 & 1.000 & 0.150 \\
+MNIST, 10k, 0.1 & center & 0.052 & 1.000 & 0.770 \\
+Usenet, 3k, 1 & center & 0.033 & 1.000 & 0.000 \\
+FEMNIST, 1k, 0.1 & raw & 0.421 & n/a & 1.000 \\
+FEMNIST, 1k, 1 & center & 0.385 & 1.000 & 0.325 \\
+FEMNIST, 2k, 0.1 & raw & 0.418 & n/a & 1.000 \\
+FEMNIST, 2k, 1 & center & 0.384 & 1.000 & 0.143 \\
+\bottomrule\end{tabular}
+\end{table*}

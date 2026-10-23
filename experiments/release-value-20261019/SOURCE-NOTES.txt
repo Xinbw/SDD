@@ -1,0 +1,39 @@
+Execution and analytical provenance: private-supervision value/verification study
+
+PRIVATE-VALIDATION-DESIGN.json froze ten actual holdout cohorts, fresh public
+label draws, restricted candidate family, total budgets and 50/25/25 rho split
+before these experiments. The source file private_validation.py remains byte
+identical to its recorded execution hash. All 3000 original decisions and
+coordinate-band outputs are immutable, including every rejected case.
+
+LINEAR-BANDS-DESIGN.json is an analytical addition after initial coordinate
+bands were evaluated. It fixes direct sum-numerator/denominator concentration
+bounds of the SAME protected histogram. The targets are the fixed C classes;
+no threshold or weight search is used, no private query is repeated, and all
+initial records remain separate. Source/test statistics do not choose a rule.
+Finite-noise coverage follows the exact sub-Gaussian proxies of these linear
+functions; existing deployment budgets do not change.
+
+NO-FEEDBACK-DESIGN.json fixes three private-only training rounds on original
+600-record cohorts, with matched source/noise tapes. First and final private
+clean votes match preceding T=1 sources; first protected matrices match T=3
+feedback sources exactly. Last and mean-of-three readouts are both reported.
+The mean restores the frozen-query noise scale while changing teacher signal;
+its performance gap is not identified as a pure budget-splitting cost.
+
+ZERO-LABEL-POOL-AUDIT.json records postprocessing of 110 existing protected
+point matrices. Its outcomes were already inspected when the audit replay was
+frozen; it is not called a prospective experiment. PUBLIC-MAPS-DESIGN.json
+records a label-free distance replay map after experiments for CPU verification.
+Neither operation queries private models or adds privacy charge.
+
+Source snapshots are addressed by SHA-256 in implementation-history, including
+export/analysis versions captured by design metadata. Algorithmic execution
+sources remain unchanged. Exporter/layout refinements do not overwrite raw
+measurements. Parent evidence is preserved through full/anonymous fingerprints.
+
+Literature checks: Canonne, Kamath and Steinke, arXiv:2004.00010, Lemma16 and
+Corollary17, establishes exact discrete-Gaussian MGF/tail bounds. Kairouz, Liu
+and Steinke, PMLR139/kairouz21a, supplies distributed privacy calibration.
+The papers were checked from primary research PDFs. SOURCE-REFERENCES.json
+records URLs; cached third-party PDFs are not redistributed in the artifact.

@@ -1,0 +1,14 @@
+\begin{table*}[t]
+\centering
+\caption{No-public-label check. Taxonomy resolution $K=C$ and centered consensus are fixed for every task without public training, validation or proxy labels. The feature maps and all 180 client steps are unchanged. Mean $\pm$ sample SD in percent; five seeds for 10k image cohorts and ten fresh seeds elsewhere. Both Web estimators are shown without routing.}
+\label{tab:label-free}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+task, cohort & $K$ & SDD-M & SDD-R & DP-FedCT & Local \\\midrule
+CIFAR, 10k & 10 & 84.2\,$\pm$\,3.0 & -- & 69.7\,$\pm$\,1.6 & 42.4\,$\pm$\,0.1 \\
+MNIST, 10k & 10 & 51.6\,$\pm$\,1.8 & -- & 46.2\,$\pm$\,1.1 & 33.3\,$\pm$\,0.1 \\
+CIFAR, 1k & 10 & 45.5\,$\pm$\,6.6 & -- & 46.6\,$\pm$\,2.3 & 42.3\,$\pm$\,0.4 \\
+Usenet, 1k, $0.25$ & 6 & 18.8\,$\pm$\,4.0 & 15.0\,$\pm$\,2.7 & 19.0\,$\pm$\,0.6 & 17.1\,$\pm$\,0.0 \\
+Usenet, 3k, $1$ & 6 & 20.3\,$\pm$\,3.4 & 17.6\,$\pm$\,1.6 & 21.3\,$\pm$\,0.8 & 17.0\,$\pm$\,0.0 \\
+\bottomrule\end{tabular}
+\end{table*}

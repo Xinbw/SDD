@@ -1,0 +1,84 @@
+% ---------------------------------------------------------------------------
+% The Web Conference 2027 (ACM Web 2027), Security and Privacy track.
+% Full papers: 8 pages main + references + optional appendix, 12 pages total.
+% Abstract 18 Oct 2026, full paper 25 Oct 2026 (AoE). Double-blind.
+%   latexmk -pdf main.tex
+%
+% Active tables and figures are GENERATED from recorded experiments: run
+%   python experiments/review-narrative-20261013/src/export_tables.py --paper paper
+%   python experiments/review-round4-20261013/src/export_mechanism.py --paper paper
+% from the packaged project root. Never edit numerical table cells by hand.
+% ---------------------------------------------------------------------------
+\documentclass[sigconf,anonymous,review,balance=false]{acmart}
+
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\setlength{\emergencystretch}{2em}
+
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+\acmConference[The Web Conference 2027]{The Web Conference 2027}{}{}
+\acmYear{2027}
+
+\begin{document}
+
+\title[Semantic-DP Distillation]{Semantic-DP Distillation: Choosing the Granularity
+of Client-Private Supervision}
+
+\author{Anonymous Author(s)}
+
+\begin{abstract}
+Strong public features leave a private design question: at what granularity
+should clients release task supervision? Per-example votes spend sensitivity
+on every public query, while a regional target reuses supervision across related
+examples. Semantic-DP Distillation (SDD) releases one bounded class vote per
+public semantic region, yielding $KC$ coordinates and tight replace-one
+whole-client sensitivity $\sqrt{2K}$. We characterize regional target quality
+through an exact purity--decoding decomposition and a margin-dependent noise
+bound, and use a public-only approximation to choose release resolution.
+At taxonomy resolution, weighted matching provides an alternative decoder
+that preserves class coverage without an additional privacy release.
+On frozen public representations with $10^4$ strongly heterogeneous CIFAR-10
+clients, matching reaches $86.3\%$ accuracy at $\varepsilon=0.1$,
+$\delta=10^{-5}$ without public task labels, confirmed by an independent
+five-seed group, using $200\times$ fewer report coordinates than per-example
+transfer. Natural-writer and natural-author studies characterize how public
+geometry and participation govern the choice of release. Compact head averaging
+supplies higher accuracy when its parameter release is supported by the cohort
+and budget. SDD makes semantic reuse a measurable resource for private supervision.
+\end{abstract}
+
+\ccsdesc[500]{Security and privacy~Privacy-preserving protocols}
+\ccsdesc[300]{Computing methodologies~Machine learning}
+
+\keywords{differential privacy, federated learning, distributed DP,
+knowledge distillation, semantic partition, private aggregation}
+
+
+\maketitle
+% Review headers show the venue name without unspecified date/location fields.
+\makeatletter
+\fancyhead[LE]{\ACM@linecountL\@headfootfont The Web Conference 2027}
+\fancyhead[RO]{\@headfootfont The Web Conference 2027\ACM@linecountR}
+\makeatother
+
+\input{sec-intro}
+\input{sec-related}
+\input{sec-method}
+\input{sec-threat-model}
+\input{sec-quality}
+\input{sec-eval}
+\input{sec-conclusion}
+
+\clearpage
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\input{sec-appendix}
+
+\end{document}

@@ -1,0 +1,18 @@
+{
+  "stage": "EAB2-20261020 selection-rule study (post-processing; no new query, no new budget)",
+  "frozen_utc": "2026-10-20T06:06:41Z",
+  "inputs": "release-frontier-20261019 joint-naming / joint-confirmation per-draw records (random scheme, q=1, m=C) and canonical-regional-readouts center metrics of the same protected release",
+  "settings": "the eight rows of tab-ceiling: CIFAR 1k/.1 and 10k/.1 and MNIST 10k/.1 (confirmation cohorts 8801-8810), Usenet 3k/1, FEMNIST 1k/.1,1k/1,2k/.1,2k/1 (development cohorts)",
+  "rules": {
+    "loo": "existing ungated LOO selection over the frozen candidate family (reference)",
+    "cover": "if the label set misses any class use the zero-label private centered naming of the same release, else LOO (reviewer rule)",
+    "cover-noise-v0": "if the label set misses a class AND the calibrated naming noise std v (public function of n, epsilon, K) <= v0 use private centered naming, else LOO; v0 in {0.01,0.03,0.1}"
+  },
+  "protocol": "each fixed rule reported on all 100 draws; one global rule selected on draws 0-49 by the mean over the eight settings of the gain against the strongest public learner (strongest chosen on the same draws); the selected rule evaluated on draws 50-99 per setting against the strongest public learner on draws 50-99; crossed bootstrap over label draws x cohort seeds (2000 replicates, seed 982019)",
+  "predictions": [
+    "cover gains over the strongest public learner on MNIST 10k and CIFAR 10k",
+    "cover loses on CIFAR 1k, Usenet and FEMNIST at epsilon=.1 because random m=C draws almost always miss a class",
+    "no label-free rule in the family is positive on MNIST without lowering Usenet, because teacher content is not observable from m=C labels"
+  ],
+  "test_labels": "used only to score rules; never inside a rule"
+}

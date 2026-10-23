@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Complementary endpoints for exactly the paired cohorts of Table~\ref{tab:selector-e2e}, mean$\pm$sample SD (\%). Public students train for 180 additional server steps on final protected targets, initialized independently of private models. CT denotes per-example DP-FedCT. Head local precedes its third broadcast with no additional adaptation.}
+\label{tab:selector-readouts}\small
+\centering
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+Task, clients, $\varepsilon$ & CT client & CT student & SDD student & Head local & Local-only \\
+\midrule
+CIFAR, 1k, 0.1 & 45.87$\pm$2.14 & 20.32$\pm$6.35 & 40.75$\pm$21.20 & 30.87$\pm$4.45 & 42.44$\pm$0.30 \\
+CIFAR, 10k, 0.1 & 71.29$\pm$0.85 & 87.53$\pm$2.95 & 91.92$\pm$0.14 & 91.29$\pm$0.34 & 42.28$\pm$0.08 \\
+MNIST, 10k, 0.1 & 46.32$\pm$0.57 & 56.22$\pm$2.03 & 49.94$\pm$8.40 & 64.77$\pm$1.02 & 33.21$\pm$0.08 \\
+Usenet, 3k, 1 & 21.79$\pm$0.85 & 25.69$\pm$2.18 & 24.65$\pm$3.03 & 18.13$\pm$0.20 & 17.05$\pm$0.01 \\
+FEMNIST, 1k, 0.1 & 31.72$\pm$0.09 & 2.19$\pm$1.78 & 5.50$\pm$3.20 & 4.73$\pm$1.80 & 32.18$\pm$0.07 \\
+FEMNIST, 1k, 1 & 32.86$\pm$0.10 & 26.28$\pm$1.26 & 27.83$\pm$1.24 & 31.11$\pm$1.48 & 32.18$\pm$0.07 \\
+FEMNIST, 2k, 0.1 & 31.76$\pm$0.07 & 4.23$\pm$2.20 & 18.56$\pm$2.41 & 13.03$\pm$3.44 & 32.16$\pm$0.04 \\
+FEMNIST, 2k, 1 & 33.49$\pm$0.09 & 26.03$\pm$0.86 & 27.81$\pm$0.64 & 31.58$\pm$0.55 & 32.16$\pm$0.04 \\
+\bottomrule\end{tabular}
+\end{table*}

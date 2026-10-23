@@ -1,0 +1,20 @@
+{
+  "design": {
+    "scope": "postprocessing audit after diagnostic outcomes were known; not prospective preregistration",
+    "sources": "110 existing protected per-example matrices at T=1/180",
+    "new_private_queries": 0,
+    "pooling": "average unprojected scores inside the same public K=C regions; then project and decode",
+    "decoders": [
+      "center",
+      "coverage"
+    ],
+    "public_query_assignment": "TF32-disabled concatenated development/test convention"
+  },
+  "utc": "2026-10-19T13:22:50Z",
+  "source_sha256": {
+    "study.py": "26b3db9e2cda1e45ab3379fccd406d8490971aaf63232f35277d792a876ccda7",
+    "private_validation.py": "807779810c91743b3bd1b6e6b8478db9e1df2787dbee5cd47e0a9c5a52de2d8b",
+    "no_feedback.py": "255a155688deb6d8b3872e664d0973813e8a7eb8a60fe889db53ab3c44347abe",
+    "zero_label_pool.py": "ccbbdc51a3e6e23bd93d52a168b71346ddd6c2d167e451b726a98a04385b5b60"
+  }
+}

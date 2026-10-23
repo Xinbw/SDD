@@ -1,0 +1,124 @@
+% ---------------------------------------------------------------------------
+% IEEE ICDE 2027, Research Track (Data Security and Privacy).
+% IEEE conference format: at most 12 pages, excluding references and the
+% AI-generated content acknowledgement; no appendix. Single-blind review.
+%   tectonic --keep-logs --keep-intermediates main.tex
+%
+% Active numerical objects are generated from immutable experimental records:
+%   python experiments/release-value-20261019/src/export_value.py --paper paper
+% Run from the packaged project root; do not edit numerical table cells.
+% ---------------------------------------------------------------------------
+\documentclass[conference]{IEEEtran}
+
+\usepackage{iftex}
+\ifXeTeX\usepackage{fontspec}\setmainfont{texgyretermes}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]\setmonofont{texgyrecursor}[Extension=.otf,UprightFont=*-regular,BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic]\fi
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{etoolbox}
+% IEEE tables use footnotesize; generated table files request \small.
+\AtBeginEnvironment{table}{\let\small\footnotesize}
+\AtBeginEnvironment{table*}{\let\small\footnotesize}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,fit,decorations.pathreplacing}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{cite}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{lemma}{Lemma}
+\newtheorem{theorem}{Theorem}
+\newtheorem{valueprop}{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\providecommand{\Description}[1]{}
+\setlength{\emergencystretch}{2em}
+
+\input{selector-values}
+\input{frontier-values}
+\input{joint-values}
+\input{value-values}
+\input{eab-values}
+\input{eab3-values}
+\input{eab4-values}
+\input{eab5-values}
+\input{eab6-values}
+\input{eab8-values}
+\input{eab12-values}
+\input{eab13-values}
+
+\begin{document}
+
+\title{[Experiment, Analysis, and Benchmark]\\ Private Supervision under
+Strong Public Representations: Label Access, Release Granularity, and
+Verification}
+
+\author{\IEEEauthorblockN{Author Name(s)}
+\IEEEauthorblockA{Affiliation\\
+Email}}
+
+\maketitle
+
+\begin{abstract}
+Strong public representations make task supervision the scarce resource
+of a data-platform classifier: public labels under some acquisition
+contract, or private client opinions reachable only through aggregate-only,
+differentially private interfaces. This experiment and analysis paper
+measures what private supervision adds and what verification costs, fixing
+annotation budget and acquisition mode, whole-client privacy budget, report
+payload, representation and public post-processing on four tasks; image
+clients are simulated privacy units built from public benchmarks, Usenet
+authors and FEMNIST writers are natural. Three findings stand out. First,
+acquisition rights decide whether private reports are needed: with ten random
+CIFAR labels at $\varepsilon=.1$, private regional naming adds \JointGain{}
+points over the strongest of fourteen public learners, yet ten
+feature-directed labels reach the same \CeilCifar{}\% classifier without
+private reports. Second, raw sensitivity does not rank release interfaces:
+per-example votes are about 14 times more sensitive than regional reports, but
+pooled within regions they carry .88--1.07 times the regional noise and match
+regional accuracy within \PointRegionMaxGap{} points; payload is what differs.
+Third, publication evidence is a separate resource:
+\MinRecGainOneTenth{}\% of the classifiers a mean-gain certificate publishes
+recall some class below 10\%, and a budget split selected on independent
+development cohorts and frozen raises all-class acceptance on new cohorts from
+\BCFixedRecallOne{}\% to \BCFrozenRecallOne{}\% at $\varepsilon=1$, with no
+false accept. The public artifact (\url{https://github.com/Xinbw/SDD})
+regenerates every reported number.
+\end{abstract}
+
+\begin{IEEEkeywords}
+differential privacy, experimental analysis, federated data, distributed DP,
+data acquisition, public representations, private verification
+\end{IEEEkeywords}
+
+\input{sec-intro}
+\input{sec-problem}
+\input{sec-method}
+\input{sec-threat-model}
+\input{sec-quality}
+\input{sec-eval}
+\input{sec-discussion}
+\input{sec-related}
+\input{sec-conclusion}
+
+% Required by ICDE 2027; excluded from the 12-page limit. The authors must
+% confirm and complete this statement before submission.
+\section*{Acknowledgment of AI-Generated Content}
+Claude (Anthropic), a large language model used through the Claude Code
+agent, was used under the authors' direction throughout this study. It wrote
+and ran the experiment, analysis and export scripts of the artifact, which
+produce every result in Section~\ref{sec:eval}; it generated the data
+figures (Figures~\ref{fig:label-frontier}--\ref{fig:ceiling}) and the tables
+(Tables~\ref{tab:release-interfaces}--\ref{tab:information}) from the recorded
+experiment outputs; and it drafted and revised the
+manuscript text of all sections. Experiment designs were frozen in the
+artifact before their runs, and the artifact regenerates every reported
+number from the immutable records. The authors directed the study, checked
+the content and take full responsibility for its correctness and originality.
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\end{document}

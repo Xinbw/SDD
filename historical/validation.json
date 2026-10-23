@@ -1,0 +1,511 @@
+{
+  "source_archive": "sdd-www2027-paper-3fig-compiled.zip",
+  "source_archive_sha256": "78098734b39566002afd0a85d10b4919e045dff357ed5484352edf8590f139ea",
+  "ablation": {
+    "accuracies_and_absolute_differences_unchanged": true,
+    "gain_orientation_explicit": true,
+    "rows": [
+      [
+        0.3953,
+        3.27
+      ],
+      [
+        0.3664,
+        5.38
+      ],
+      [
+        0.4037,
+        2.43
+      ],
+      [
+        0.2778,
+        15.02
+      ],
+      [
+        0.4299,
+        0.19
+      ],
+      [
+        0.4264,
+        0.62
+      ],
+      [
+        0.3903,
+        -3.77
+      ],
+      [
+        0.4064,
+        -2.16
+      ],
+      [
+        0.4261,
+        -0.19
+      ],
+      [
+        0.4348,
+        0.68
+      ]
+    ]
+  },
+  "budget_table_unchanged": false,
+  "figure_files_unchanged_from_8page_version": {
+    "fig-main-curves.pdf": false,
+    "fig-ablations.pdf": true,
+    "fig-mechanism.pdf": false
+  },
+  "source_results_provenance_references_unchanged": {
+    "results/SSD_RESULTS.md": true,
+    "results/SSD_COMPARISON.md": true,
+    "results/SSD_MIA.md": true,
+    "results/SSD_FEDAVG.md": true,
+    "results/data.zip": true,
+    "provenance/PAPER_THREAT_MODEL.md": true,
+    "provenance/SDD_PHASE1_NOTES.md": true,
+    "paper/refs.bib": true
+  },
+  "main_grid": {
+    "settings": 28,
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "runs_per_method": 84,
+    "methods": [
+      "SDD",
+      "DP-FedCT",
+      "PATE"
+    ],
+    "total_runs": 252,
+    "display_names": {
+      "PATE": "PATE-DI"
+    }
+  },
+  "headline_gains_points": {
+    "CIFAR-10, alpha=0.1, epsilon=0.1": {
+      "DP-FedCT": 14.18,
+      "PATE": 14.9
+    },
+    "MNIST, alpha=0.1, epsilon=0.05": {
+      "DP-FedCT": 45.12,
+      "PATE": 42.73
+    }
+  },
+  "utility_target_90pct_MNIST": {
+    "0.1": {
+      "SDD": 0.1,
+      "DP-FedCT": 0.5,
+      "PATE": null,
+      "budget_ratio_DP_FedCT_to_SDD": 5.0
+    },
+    "1.0": {
+      "SDD": 0.025,
+      "DP-FedCT": 0.25,
+      "PATE": 0.1,
+      "budget_ratio_DP_FedCT_to_SDD": 10.0
+    }
+  },
+  "headline_paired_tests": {
+    "CIFAR-10": {
+      "DP-FedCT": {
+        "gain_points": 14.176666666666671,
+        "p": 0.000958151859601408,
+        "seeds": 3
+      },
+      "PATE": {
+        "gain_points": 14.900000000000002,
+        "p": 0.0010797315647633485,
+        "seeds": 3
+      }
+    },
+    "MNIST": {
+      "DP-FedCT": {
+        "gain_points": 45.126666666666665,
+        "p": 0.0018367956183321214,
+        "seeds": 3
+      },
+      "PATE": {
+        "gain_points": 42.73333333333333,
+        "p": 0.0006401238832071371,
+        "seeds": 3
+      }
+    }
+  },
+  "citation_keys_resolve": true,
+  "reference_count": 27,
+  "undefined_references": 0,
+  "overfull_boxes": 0,
+  "compile_engine": "Tectonic, cached TeX bundle, XeTeX",
+  "pdf_pages": 12,
+  "conclusion_page": 8,
+  "references_begin_page": 9,
+  "main_body_pages": 8,
+  "conclusion_complete_on_page_8": true,
+  "no_nonprivate_accuracy_results": true,
+  "visual_review": "Passed: pages 5/6/7/8/10 inspected; revised protocol, utility contrast, table notes, appendix calibration and complete conclusion fit.",
+  "derived_budget_table_rows": [
+    [
+      0.1,
+      0.85,
+      0.05,
+      0.25,
+      5.0
+    ],
+    [
+      0.1,
+      0.9,
+      0.1,
+      0.5,
+      5.0
+    ],
+    [
+      1.0,
+      0.9,
+      0.025,
+      0.25,
+      10.0
+    ],
+    [
+      1.0,
+      0.95,
+      0.025,
+      0.25,
+      10.0
+    ]
+  ],
+  "T5_vs_T3_paired_check": {
+    "gain_points": 5.18,
+    "p": 0.0310775386183652,
+    "seeds": 3
+  },
+  "mild_CIFAR_gains_points": {
+    "DP-FedCT": 12.39,
+    "PATE": 10.63
+  },
+  "mild_MNIST_90pct_PATE_budget_ratio": 4.0,
+  "review_scope_checks": {
+    "100_trained_clients_and_deployment_calibration": true,
+    "TPR_maximum_over_tested_budgets": true,
+    "unadjusted_per_cell_tests_disclosed": true,
+    "rounded_continuous_sampler_disclosed": true,
+    "granularity_spectrum_is_release_interface_claim": true,
+    "PATE_DI_RDP_protocol_defined_once": true,
+    "no_unmeasured_nonprivate_ceiling_claim": true,
+    "no_statistical_indistinguishability_claim": true,
+    "collusion_accuracy_claim_scoped_to_epsilon_0_1": true,
+    "cohort_mean_change_not_claimed_significant": true,
+    "conditional_repeat_not_pooled_with_population_seeds": true,
+    "conclusion_seven_budget_scope_explicit": true,
+    "conclusion_five_low_budget_audit_points_explicit": true,
+    "one_K_release_spectrum_not_whole_algorithm_equivalence": true,
+    "Table7_epsilon1_K1000_not_singleton": true,
+    "PATE_DI_actual_accounting_retained": true,
+    "original_PATE_agreement_accounting_in_related_work": true,
+    "no_claim_all_PATE_gap_is_caused_by_K": true,
+    "no_unmeasured_FedAvg_common_target_budget_ratio": true,
+    "selected_cohort_calibration_not_fixed_at_10000_in_appendix": true,
+    "existing_FedAvg_results_preserved_in_figure_and_table": true
+  },
+  "experiment_validation_complete": true,
+  "new_full_training_runs": 6,
+  "fixed_report_noise_repeats": 20000,
+  "corrected_vote_margin": {
+    "median_convention": "arithmetic mean of the two middle observations for even K",
+    "vote_median": 0.05499999999999999,
+    "mean_posterior_median": 0.040740328707455545,
+    "legacy_posterior_lower_median": 0.040241552896732175,
+    "sigma": 37.95953711053704,
+    "vote_operating_cohort": 690.1734020097645,
+    "vote_operating_cohort_rounded": 690.0
+  },
+  "cohort_3000_minus_1000": {
+    "n": 3,
+    "mean": 1.8733333333333304,
+    "values": [
+      -0.9200000000000041,
+      6.129999999999996,
+      0.40999999999999925
+    ],
+    "std": 3.745882183589512,
+    "mean_ci95": [
+      -7.4319538626950505,
+      11.178620529361712
+    ],
+    "units": "percentage points, right minus left",
+    "unadjusted_p": 0.47768749794630033
+  },
+  "source_hashes_verified": {
+    "train_sdd.py": "3984eda72b198f860a1b7e169d41bcb9995ef1fc2933fd39b97fa5fb75e72db8",
+    "sdd_core.py": "41069a259a9fc1caf96123f4c481aef841c604780d96765809c25131ae0a2c56",
+    "data.py": "fd6d5be274504ba680242c502be98afdae49c637ba7e1a7f2ec7cda4fef839bd",
+    "dp_utils.py": "049804f6e71be4410fceb98e55d0179173420c5e86bf2b066b27a036a423a127"
+  },
+  "original_protected_files_verified": 21,
+  "proxy_test_exclusion_verified_for_new_runs": true,
+  "new_training_protocol": "Six warm-start validation runs: reuse the corresponding seed's round-1 models, complete rounds 2/3 with 20 epochs each; overall T=3 and 100 trained clients.",
+  "conditional_cluster_labels_match_every_round": [
+    true,
+    true,
+    true
+  ],
+  "conditional_probability_differences": [
+    0.02024148404598236,
+    0.016220975667238235,
+    0.020648129284381866
+  ],
+  "revision_parent_archive": "sdd-www2027-paper-3fig-compiled-8pages-second-review.zip",
+  "revision_parent_archive_sha256": "a6ccaec3abb80a548a0aeeca2786e1d7362cd5c211a5217506fa897a0e23cb9c",
+  "review_document": "review.md",
+  "review_document_sha256": "1fd97564c82dedbc567b038d979c8044d1a5c2091205c0b0771851a6bb2922fc",
+  "frozen_main_table_numerical_rows_unchanged": {
+    "tab-main-a01.tex": true,
+    "tab-main-a10.tex": true
+  },
+  "other_generated_tables_and_macros_unchanged_from_validated_parent": {
+    "tab-fedavg.tex": true,
+    "tab-ablation.tex": true,
+    "tab-budget-targets.tex": false,
+    "tab-cohort-validation.tex": true,
+    "numbers.tex": true
+  },
+  "audit_table_expanded_to_all_seven_budgets": {
+    "budgets": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "settings": 2,
+    "rows": 14,
+    "raw_inputs_sha256": {
+      "mia_agg_cifar10_a0.1_K10_s42.json": "24f316220974b67ca67dd966a05baf59f6300c4b828997706170d50923fe7dfe",
+      "mia_agg_mnist_a1.0_K5_s42.json": "2298f034d1f4353682f1d8f20cefffa1ce88de140d81eb44a28764559f3df398",
+      "mia_agg_mnist_a1.0_K20_s42.json": "ce0d43e0f98c067bb0b0c15a9c6d4fcc64a9fe4274f296bda3fa0b7b84462df3",
+      "mia_agg_mnist_a1.0_K100_s42.json": "890fb3039eed2bd80fe7764a970b9471c53c0a39593547bd7aed17eaaa23cf37",
+      "mia_agg_mnist_a1.0_K2000_s42.json": "ddc716418b51e78d47979cde1a8e36991ea0ea0fc6b361c096d465cef5672875",
+      "mia_agg_mnist_a1.0_K500_s42.json": "f397afabf7fed129dec701522b596a840134b10e64e2feb027365ea1d4409753"
+    },
+    "all_rows_match_source": true,
+    "Gaussian_AUC_maximum_absolute_error": 1.2796600445952322e-09,
+    "Gaussian_TPR_maximum_absolute_error": 0.0,
+    "maximum_TPR_at_epsilon_le_0_25": 0.011467119436007719,
+    "numerical_mc_replay_checks": {
+      "mia_agg_cifar10_a0.1_K10_s42.json": {
+        "pairs": 10,
+        "absolute_tpr_difference": 0.0003583507422751306
+      },
+      "mia_agg_mnist_a1.0_K5_s42.json": {
+        "pairs": 9,
+        "absolute_tpr_difference": 0.00012954877773307776
+      },
+      "mia_agg_mnist_a1.0_K20_s42.json": {
+        "pairs": 11,
+        "absolute_tpr_difference": 0.0006758079133084207
+      },
+      "mia_agg_mnist_a1.0_K100_s42.json": {
+        "pairs": 19,
+        "absolute_tpr_difference": 2.0282433003827177e-06
+      },
+      "mia_agg_mnist_a1.0_K2000_s42.json": {
+        "pairs": 20,
+        "absolute_tpr_difference": 8.257976953190797e-05
+      },
+      "mia_agg_mnist_a1.0_K500_s42.json": {
+        "pairs": 20,
+        "absolute_tpr_difference": 0.00019779289455331382
+      }
+    }
+  },
+  "previous_eight_audit_rows_preserved": true,
+  "figure_files_unchanged_from_validated_parent": {
+    "fig-main-curves.pdf": false,
+    "fig-mechanism.pdf": true,
+    "fig-ablations.pdf": true
+  },
+  "protected_trees_unchanged_from_validated_parent": {
+    "results": {
+      "files": 5,
+      "all_sha256_identical": true
+    },
+    "provenance": {
+      "files": 2,
+      "all_sha256_identical": true
+    },
+    "validation-experiments": {
+      "files": 94,
+      "all_sha256_identical": true
+    }
+  },
+  "secondary_MNIST_gain": {
+    "alpha": 0.1,
+    "epsilon": 1.0,
+    "SDD": 0.9763,
+    "PATE_DI": 0.7735,
+    "gain_percentage_points": 20.28,
+    "precision": "four-decimal frozen means"
+  },
+  "MNIST_singleton_partition": {
+    "source": "data/mnist/cluster_result/2000_C_2000.npy",
+    "sha256": "551322de316625ec7282eef8b421201dc1989fc4f29c1cd976b568b8c9f5d29e",
+    "samples": 2000,
+    "clusters": 2000,
+    "all_clusters_size_one": true
+  },
+  "number_macros_changed_in_previous_experiment_validation": [
+    "MarginKTen",
+    "CohortFloor"
+  ],
+  "number_macros_changed_in_current_revision": [],
+  "new_training_runs_in_current_revision": 0,
+  "reproducibility_note": "Original numerical MC checks exclude identical-report pairs; recorded checks use 9-20 nonidentical-report pairs, up to 20 requested, with 20000 draws per hypothesis.",
+  "paper_pdf_sha256": "e68fcaa30ad76783fdb16c312c837d2d7c26037c8fed2d2d584c2d4db485bf64",
+  "review_history": [
+    {
+      "review_document": "按「发布会原则」对 SDD 论文的修改意见.pdf",
+      "review_document_sha256": "29fc4e90e25f924f17696ec6d316930baf5beaa23ca801a25e652d87519efcc6",
+      "decisions": {
+        "directly_accepted": [
+          9,
+          10,
+          14
+        ],
+        "accepted_with_adjustments": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          7,
+          8,
+          12,
+          13
+        ],
+        "not_adopted": [
+          6,
+          11
+        ]
+      }
+    },
+    {
+      "review_document": "第二轮审读.pdf",
+      "review_document_sha256": "897816a152ddb4a40bc32dbca1931c7b8aee4a16e1e017e2b17a91650ea08629",
+      "decisions": {
+        "directly_accepted": [
+          7,
+          8
+        ],
+        "accepted_with_adjustments": [
+          1,
+          2,
+          4
+        ],
+        "not_adopted": [
+          3,
+          6
+        ],
+        "table_kept_unchanged": [
+          5
+        ],
+        "detail_file": "SECOND_REVIEW_DECISIONS.txt"
+      }
+    }
+  ],
+  "figure_files_unchanged_from_previous_revision": {
+    "fig-ablations.pdf": true,
+    "fig-main-curves.pdf": true,
+    "fig-mechanism.pdf": true
+  },
+  "figure_1_edit_in_previous_revision": "Display legend PATE -> PATE-DI; all means, standard deviations and annotations unchanged.",
+  "figure_edits_in_current_revision": [],
+  "protected_trees_unchanged_from_previous_revision": {
+    "paper/figures": {
+      "files": 3,
+      "all_sha256_identical": true
+    },
+    "figure-review": {
+      "files": 8,
+      "all_sha256_identical": true
+    },
+    "audit-inputs": {
+      "files": 7,
+      "all_sha256_identical": true
+    },
+    "results": {
+      "files": 5,
+      "all_sha256_identical": true
+    },
+    "provenance": {
+      "files": 2,
+      "all_sha256_identical": true
+    },
+    "validation-experiments": {
+      "files": 94,
+      "all_sha256_identical": true
+    }
+  },
+  "review_document_snapshot": "REVIEW_MD_INPUT.md",
+  "current_revision_review_decisions": {
+    "directly_accepted": [
+      5
+    ],
+    "accepted_with_adjustments": [
+      3,
+      4,
+      7
+    ],
+    "readability_improvement": [
+      8
+    ],
+    "unverified_layout_error_claims_not_applied": [
+      "2.1",
+      "2.2",
+      "6 typo",
+      "9",
+      "10"
+    ],
+    "optional_abstract_and_extra_conclusion_not_applied": [
+      "1",
+      "11"
+    ],
+    "detail_file": "REVIEW_MD_DECISIONS.txt"
+  },
+  "budget_table_numerical_rows_unchanged": true,
+  "all_table_numerical_rows_unchanged_from_previous_revision": {
+    "tab-ablation.tex": true,
+    "tab-budget-targets.tex": true,
+    "tab-cohort-validation.tex": true,
+    "tab-fedavg.tex": true,
+    "tab-main-a01.tex": true,
+    "tab-main-a10.tex": true,
+    "tab-mia.tex": true
+  },
+  "table_notes_changed_in_current_revision": [
+    "tab-budget-targets.tex",
+    "tab-mia.tex"
+  ],
+  "table_generators_updated_in_current_revision": [
+    "tables-and-scripts/export_budget_targets.py",
+    "tables-and-scripts/table_metadata.json"
+  ],
+  "representative_CIFAR_comparison": {
+    "epsilon": 0.1,
+    "alpha": 0.1,
+    "SDD_frozen_mean": 0.4229,
+    "DP_FedAvg_seeds": [
+      0.1028,
+      0.1028,
+      0.1028
+    ],
+    "DP_FedAvg_mean": 0.1028,
+    "displayed_percentages": [
+      42.3,
+      10.3
+    ],
+    "cohort_noise_calibration": 10000,
+    "trained_clients": 100,
+    "SDD_report_coordinates": 100
+  }
+}

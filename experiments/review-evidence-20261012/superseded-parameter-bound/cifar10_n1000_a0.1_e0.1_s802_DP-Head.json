@@ -1,0 +1,139 @@
+{
+  "dataset": "cifar10",
+  "actual_clients": 1000,
+  "calibrated_clients": 1000,
+  "alpha": 0.1,
+  "seed": 802,
+  "method": "DP-Head",
+  "k": 20,
+  "epsilon": 0.1,
+  "delta": 1e-05,
+  "mode": "center",
+  "clip": 10.072295713424683,
+  "public_development": false,
+  "evaluation_split": "test",
+  "accuracy": 0.26431939005851746,
+  "balanced_accuracy": 0.26407119631767273,
+  "initial_accuracy": 0.4019615908563137,
+  "initial_balanced_accuracy": 0.4022018132656813,
+  "population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "2c7e9022deeec9f3ce105de6dcaa88a5ac10a51b424e871350d0039f6064031d",
+    "client_generation_seed": 802,
+    "alpha": 0.1
+  },
+  "rounds": 3,
+  "optimizer_steps_per_round": 60,
+  "batch_size": 128,
+  "lr": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "private_model": "128-dimensional frozen public features; independently trained no-intercept softmax heads",
+  "trace": [
+    {
+      "round": 1,
+      "privacy": {
+        "epsilon_requested": 0.1,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 1000,
+        "calibrated_clients": 1000,
+        "honest_clients": 1000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 3477432,
+        "sensitivity_integer_squared": 1743011796705.9165,
+        "dimension": 1280,
+        "log_tau_upper": -119348520022323.52,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.206975376276286e-05,
+        "rho_total_upper": 0.0002162092612882886,
+        "epsilon_upper": 0.09999999772511321,
+        "residual_std": 1.6779488416068493,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "clip": 10.072295713424683,
+        "clipped_fraction": 0.058000002056360245,
+        "logical_report_coordinates": 1280
+      }
+    },
+    {
+      "round": 2,
+      "privacy": {
+        "epsilon_requested": 0.1,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 1000,
+        "calibrated_clients": 1000,
+        "honest_clients": 1000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 3477432,
+        "sensitivity_integer_squared": 1743011796705.9165,
+        "dimension": 1280,
+        "log_tau_upper": -119348520022323.52,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.206975376276286e-05,
+        "rho_total_upper": 0.0002162092612882886,
+        "epsilon_upper": 0.09999999772511321,
+        "residual_std": 1.6779488416068493,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "clip": 10.072295713424683,
+        "clipped_fraction": 0.0,
+        "logical_report_coordinates": 1280
+      }
+    },
+    {
+      "round": 3,
+      "privacy": {
+        "epsilon_requested": 0.1,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 1000,
+        "calibrated_clients": 1000,
+        "honest_clients": 1000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 3477432,
+        "sensitivity_integer_squared": 1743011796705.9165,
+        "dimension": 1280,
+        "log_tau_upper": -119348520022323.52,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.206975376276286e-05,
+        "rho_total_upper": 0.0002162092612882886,
+        "epsilon_upper": 0.09999999772511321,
+        "residual_std": 1.6779488416068493,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "clip": 10.072295713424683,
+        "clipped_fraction": 0.0,
+        "logical_report_coordinates": 1280
+      }
+    }
+  ],
+  "seconds": 0.4648447036743164,
+  "diagnostics_are_offline_benchmark_measurements": true,
+  "experiment_roles": [
+    "matched actual population scaling"
+  ],
+  "configuration_override": null,
+  "public_configuration_file": "cifar10_a0.1_n1000.json"
+}

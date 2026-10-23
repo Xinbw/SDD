@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Additional public readouts for Table~\ref{tab:rounds}, 180 pre-release private steps. Every student adds 180 public SGD steps from independent initialization, with no private model state. The final column is a head broadcast with the preceding public-label-tuned clipping configuration, separately from fixed $B=1$. Mean$\pm$sample SD, \%; Web uses balanced accuracy.}
+\label{tab:round-students}\small
+\centering
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Task, clients, $\varepsilon$ & SDD student & SDD Cov student & CT student & Public-tuned Head \\
+\midrule
+CIFAR, 1k, 0.1 & 52.53$\pm$11.92 & 50.38$\pm$14.48 & 25.46$\pm$6.77 & 36.51$\pm$7.34 \\
+CIFAR, 10k, 0.1 & 91.92$\pm$0.14 & 91.92$\pm$0.14 & 89.72$\pm$1.57 & 94.02$\pm$0.35 \\
+MNIST, 10k, 0.1 & 53.58$\pm$1.53 & 49.30$\pm$0.18 & 63.88$\pm$1.53 & 77.13$\pm$1.47 \\
+Usenet, 3k, 1 & 20.60$\pm$4.88 & 10.68$\pm$2.64 & 25.72$\pm$2.36 & 23.60$\pm$1.20 \\
+FEMNIST, 1k, 0.1 & 8.23$\pm$1.87 & 4.13$\pm$2.04 & 4.32$\pm$2.47 & 11.03$\pm$2.25 \\
+FEMNIST, 1k, 1 & 31.06$\pm$0.48 & 18.37$\pm$1.28 & 29.01$\pm$1.27 & 40.67$\pm$0.68 \\
+FEMNIST, 2k, 0.1 & 23.20$\pm$4.14 & 9.58$\pm$2.53 & 6.68$\pm$3.58 & 24.33$\pm$2.84 \\
+FEMNIST, 2k, 1 & 31.48$\pm$0.45 & 20.75$\pm$0.88 & 31.78$\pm$0.36 & 41.13$\pm$0.42 \\
+\bottomrule\end{tabular}
+\end{table*}

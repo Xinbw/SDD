@@ -1,0 +1,25 @@
+{
+  "design": {
+    "scope": "Analytical postprocessing addition after initial coordinate-band experiment; initial outputs retained",
+    "protected_source": "same existing C x 4 histogram and same gain release",
+    "new_private_queries": 0,
+    "new_privacy_budget": 0,
+    "fixed_targets": "C candidate-correct masses (two coordinates each), C class masses (four each)",
+    "class_family_alpha": 0.025,
+    "union": "two-sided union over 2C fixed linear targets, 4C one-sided events",
+    "numerator_radius": "sqrt(2)*v*sqrt(2 log(4C/alpha)) + 2/s",
+    "denominator_radius": "2*v*sqrt(2 log(4C/alpha)) + 4/s",
+    "rule": "same gain lower >0 and private candidate selected, plus every new recall lower >0",
+    "clean_private_or_test_statistics_choose_rule": false,
+    "no_weight_or_threshold_search": true
+  },
+  "utc": "2026-10-19T13:37:06Z",
+  "source_sha256": {
+    "study.py": "26b3db9e2cda1e45ab3379fccd406d8490971aaf63232f35277d792a876ccda7",
+    "private_validation.py": "807779810c91743b3bd1b6e6b8478db9e1df2787dbee5cd47e0a9c5a52de2d8b",
+    "no_feedback.py": "255a155688deb6d8b3872e664d0973813e8a7eb8a60fe889db53ab3c44347abe",
+    "zero_label_pool.py": "ccbbdc51a3e6e23bd93d52a168b71346ddd6c2d167e451b726a98a04385b5b60",
+    "export_value.py": "5c8fe8f4357a56c7cd1c6674cda2c03a2463fac7dfc406cb647fae4e3e99ac10",
+    "linear_bands.py": "c7239c63e07b31ade4d49529ecace077a9fc14da50bb5591c50c4b2997e91d6f"
+  }
+}

@@ -1,0 +1,851 @@
+{
+  "design_sha256": "ff49a6690ab2d66a0a53f41abe91adf1793eb85876e5e6dee50dda36f21bc6c8",
+  "primary": {
+    "C1": true,
+    "C2": false,
+    "success": false,
+    "mnist_acceptance": 0.996,
+    "usenet_acceptance": 0.20606060606060606
+  },
+  "predictions": {
+    "C1 holds (MNIST acceptance >= 50%)": true,
+    "C2 holds (Usenet acceptance <= 10%)": false,
+    "CIFAR-10k acceptance >= 50%": true,
+    "gated_gain_verified - LOO > 0 on MNIST": true,
+    "gated_gain_verified - LOO >= 0 on Usenet": true,
+    "gated above LOO on MNIST": true,
+    "gated below LOO on Usenet": true,
+    "gate closed at epsilon=.1 on all tasks": true
+  },
+  "results": {
+    "mnist/0.1/primary": {
+      "metric": "accuracy",
+      "cases": 500,
+      "private_candidate_cases": 267,
+      "gate_fires": 0.0,
+      "gain_acceptance": 0.7415730337078652,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 1,
+      "mean_clean_client_gain_private": 0.11338332084893883,
+      "rejections": 69,
+      "rejections_clean_gain_nonpositive": 32,
+      "rejections_clean_gain_positive": 37,
+      "mean_gain_band_radius": 0.05226370528574387,
+      "utility": {
+        "public": 0.373028,
+        "loo": 0.42878240000000006,
+        "gated": 0.42878240000000006,
+        "gated_gain_verified": 0.4272144,
+        "gated_class_verified": 0.373028
+      },
+      "utility_accuracy": {
+        "public": 0.373028,
+        "loo": 0.42878240000000006,
+        "gated": 0.42878240000000006,
+        "gated_gain_verified": 0.4272144,
+        "gated_class_verified": 0.373028
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.0557544,
+          "ci_low": 0.03487413000000004,
+          "ci_high": 0.07775733999999991
+        },
+        "gated": {
+          "mean": 0.0557544,
+          "ci_low": 0.03487413000000004,
+          "ci_high": 0.07775733999999991
+        },
+        "gated_gain_verified": {
+          "mean": 0.054186399999999996,
+          "ci_low": 0.034147580000000004,
+          "ci_high": 0.07656710000000001
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_gain_verified": {
+          "mean": -0.0015680000000000023,
+          "ci_low": -0.004531250000000002,
+          "ci_high": 0.0009413199999999966
+        },
+        "gated_class_verified": {
+          "mean": -0.0557544,
+          "ci_low": -0.07775733999999991,
+          "ci_high": -0.03487413000000005
+        }
+      },
+      "clean_center_test": 0.539
+    },
+    "mnist/0.1/all": {
+      "metric": "accuracy",
+      "cases": 1000,
+      "private_candidate_cases": 586,
+      "gate_fires": 0.0,
+      "gain_acceptance": 0.7866894197952219,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 1,
+      "mean_clean_client_gain_private": 0.12487936860068259,
+      "rejections": 125,
+      "rejections_clean_gain_nonpositive": 46,
+      "rejections_clean_gain_positive": 79,
+      "mean_gain_band_radius": 0.05226370528574387,
+      "utility": {
+        "public": 0.37361199999999994,
+        "loo": 0.44016340000000004,
+        "gated": 0.44016340000000004,
+        "gated_gain_verified": 0.4396368,
+        "gated_class_verified": 0.37361199999999994
+      },
+      "utility_accuracy": {
+        "public": 0.37361199999999994,
+        "loo": 0.44016340000000004,
+        "gated": 0.44016340000000004,
+        "gated_gain_verified": 0.4396368,
+        "gated_class_verified": 0.37361199999999994
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.0665514,
+          "ci_low": 0.04985630999999998,
+          "ci_high": 0.08405302499999996
+        },
+        "gated": {
+          "mean": 0.0665514,
+          "ci_low": 0.04985630999999998,
+          "ci_high": 0.08405302499999996
+        },
+        "gated_gain_verified": {
+          "mean": 0.0660248,
+          "ci_low": 0.04941943,
+          "ci_high": 0.08303941999999995
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_gain_verified": {
+          "mean": -0.0005266000000000007,
+          "ci_low": -0.0029553800000000005,
+          "ci_high": 0.002473155
+        },
+        "gated_class_verified": {
+          "mean": -0.0665514,
+          "ci_low": -0.08405302499999996,
+          "ci_high": -0.04985631
+        }
+      },
+      "clean_center_test": 0.5389999999999999
+    },
+    "mnist/1/primary": {
+      "metric": "accuracy",
+      "cases": 500,
+      "private_candidate_cases": 500,
+      "gate_fires": 1.0,
+      "gain_acceptance": 0.996,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 3,
+      "mean_clean_client_gain_private": 0.17209842166666667,
+      "rejections": 2,
+      "rejections_clean_gain_nonpositive": 0,
+      "rejections_clean_gain_positive": 2,
+      "mean_gain_band_radius": 0.005340236900096274,
+      "utility": {
+        "public": 0.373028,
+        "loo": 0.4302656000000001,
+        "gated": 0.5363399999999999,
+        "gated_gain_verified": 0.5363815999999999,
+        "gated_class_verified": 0.373028
+      },
+      "utility_accuracy": {
+        "public": 0.373028,
+        "loo": 0.4302656000000001,
+        "gated": 0.5363399999999999,
+        "gated_gain_verified": 0.5363815999999999,
+        "gated_class_verified": 0.373028
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.057237600000000007,
+          "ci_low": 0.03601338,
+          "ci_high": 0.07956151999999994
+        },
+        "gated": {
+          "mean": 0.16331200000000004,
+          "ci_low": 0.1395906,
+          "ci_high": 0.1878429000000001
+        },
+        "gated_gain_verified": {
+          "mean": 0.16335360000000002,
+          "ci_low": 0.1395906,
+          "ci_high": 0.1878436400000001
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.10607440000000001,
+          "ci_low": 0.08033537999999998,
+          "ci_high": 0.13581089999999993
+        },
+        "gated_gain_verified": {
+          "mean": 0.10611600000000002,
+          "ci_low": 0.08040661999999997,
+          "ci_high": 0.13581089999999993
+        },
+        "gated_class_verified": {
+          "mean": -0.057237600000000007,
+          "ci_low": -0.07956151999999997,
+          "ci_high": -0.03601338000000002
+        }
+      },
+      "clean_center_test": 0.539
+    },
+    "mnist/1/all": {
+      "metric": "accuracy",
+      "cases": 1000,
+      "private_candidate_cases": 1000,
+      "gate_fires": 1.0,
+      "gain_acceptance": 0.998,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 3,
+      "mean_clean_client_gain_private": 0.173464615,
+      "rejections": 2,
+      "rejections_clean_gain_nonpositive": 0,
+      "rejections_clean_gain_positive": 2,
+      "mean_gain_band_radius": 0.005340236900096274,
+      "utility": {
+        "public": 0.37361199999999994,
+        "loo": 0.4460046,
+        "gated": 0.5363399999999999,
+        "gated_gain_verified": 0.5363608,
+        "gated_class_verified": 0.37361199999999994
+      },
+      "utility_accuracy": {
+        "public": 0.37361199999999994,
+        "loo": 0.4460046,
+        "gated": 0.5363399999999999,
+        "gated_gain_verified": 0.5363608,
+        "gated_class_verified": 0.37361199999999994
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.07239260000000002,
+          "ci_low": 0.05498724499999999,
+          "ci_high": 0.09056578500000001
+        },
+        "gated": {
+          "mean": 0.16272800000000004,
+          "ci_low": 0.14584570000000008,
+          "ci_high": 0.17889200000000013
+        },
+        "gated_gain_verified": {
+          "mean": 0.16274880000000005,
+          "ci_low": 0.1458897500000001,
+          "ci_high": 0.17890422000000047
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.09033540000000002,
+          "ci_low": 0.07271257500000004,
+          "ci_high": 0.11005094500000001
+        },
+        "gated_gain_verified": {
+          "mean": 0.09035620000000001,
+          "ci_low": 0.07271257500000004,
+          "ci_high": 0.11012036500000001
+        },
+        "gated_class_verified": {
+          "mean": -0.07239260000000002,
+          "ci_low": -0.09056578500000001,
+          "ci_high": -0.054987245000000004
+        }
+      },
+      "clean_center_test": 0.5389999999999999
+    },
+    "cifar10/0.1/primary": {
+      "metric": "accuracy",
+      "cases": 500,
+      "private_candidate_cases": 470,
+      "gate_fires": 0.0,
+      "gain_acceptance": 0.9787234042553191,
+      "class_acceptance": 0.11063829787234042,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 2,
+      "mean_clean_client_gain_private": 0.3466710886524823,
+      "rejections": 10,
+      "rejections_clean_gain_nonpositive": 10,
+      "rejections_clean_gain_positive": 0,
+      "mean_gain_band_radius": 0.05226370528574387,
+      "utility": {
+        "public": 0.5588197371683612,
+        "loo": 0.8816493925117777,
+        "gated": 0.8816493925117777,
+        "gated_gain_verified": 0.8816493925117777,
+        "gated_class_verified": 0.5950349615670717
+      },
+      "utility_accuracy": {
+        "public": 0.5588197371683612,
+        "loo": 0.8816493925117777,
+        "gated": 0.8816493925117777,
+        "gated_gain_verified": 0.8816493925117777,
+        "gated_class_verified": 0.5950349615670717
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.32282965534341684,
+          "ci_low": 0.27975360773617647,
+          "ci_high": 0.3642791470369453
+        },
+        "gated": {
+          "mean": 0.32282965534341684,
+          "ci_low": 0.27975360773617647,
+          "ci_high": 0.3642791470369453
+        },
+        "gated_gain_verified": {
+          "mean": 0.32282965534341684,
+          "ci_low": 0.27975360773617647,
+          "ci_high": 0.3642791470369453
+        },
+        "gated_class_verified": {
+          "mean": 0.036215224398710645,
+          "ci_low": 0.022019526407141086,
+          "ci_high": 0.05168251921646416
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_gain_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_class_verified": {
+          "mean": -0.28661443094470623,
+          "ci_low": -0.32788315150012437,
+          "ci_high": -0.24478693280436403
+        }
+      },
+      "clean_center_test": 0.9159434664021818
+    },
+    "cifar10/0.1/all": {
+      "metric": "accuracy",
+      "cases": 1000,
+      "private_candidate_cases": 920,
+      "gate_fires": 0.0,
+      "gain_acceptance": 0.967391304347826,
+      "class_acceptance": 0.11521739130434783,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 2,
+      "mean_clean_client_gain_private": 0.3425957255434782,
+      "rejections": 30,
+      "rejections_clean_gain_nonpositive": 30,
+      "rejections_clean_gain_positive": 0,
+      "mean_gain_band_radius": 0.05226370528574387,
+      "utility": {
+        "public": 0.5612521696007934,
+        "loo": 0.8738546987354325,
+        "gated": 0.8738546987354325,
+        "gated_gain_verified": 0.8738546987354325,
+        "gated_class_verified": 0.5978405653359782
+      },
+      "utility_accuracy": {
+        "public": 0.5612521696007934,
+        "loo": 0.8738546987354325,
+        "gated": 0.8738546987354325,
+        "gated_gain_verified": 0.8738546987354325,
+        "gated_class_verified": 0.5978405653359782
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.3126025291346392,
+          "ci_low": 0.28121253409372715,
+          "ci_high": 0.34270058269278475
+        },
+        "gated": {
+          "mean": 0.3126025291346392,
+          "ci_low": 0.28121253409372715,
+          "ci_high": 0.34270058269278475
+        },
+        "gated_gain_verified": {
+          "mean": 0.3126025291346392,
+          "ci_low": 0.28121253409372715,
+          "ci_high": 0.34270058269278475
+        },
+        "gated_class_verified": {
+          "mean": 0.036588395735184735,
+          "ci_low": 0.026235271510042152,
+          "ci_high": 0.047850588891643946
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_gain_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_class_verified": {
+          "mean": -0.2760141333994545,
+          "ci_low": -0.3049703942474584,
+          "ci_high": -0.24582382221671234
+        }
+      },
+      "clean_center_test": 0.9159434664021817
+    },
+    "cifar10/1/primary": {
+      "metric": "accuracy",
+      "cases": 500,
+      "private_candidate_cases": 500,
+      "gate_fires": 1.0,
+      "gain_acceptance": 0.98,
+      "class_acceptance": 0.98,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 1,
+      "mean_clean_client_gain_private": 0.360254795,
+      "rejections": 10,
+      "rejections_clean_gain_nonpositive": 10,
+      "rejections_clean_gain_positive": 0,
+      "mean_gain_band_radius": 0.00534023690009628,
+      "utility": {
+        "public": 0.5588197371683612,
+        "loo": 0.8799851227374161,
+        "gated": 0.9159434664021818,
+        "gated_gain_verified": 0.9159434664021818,
+        "gated_class_verified": 0.9159434664021818
+      },
+      "utility_accuracy": {
+        "public": 0.5588197371683612,
+        "loo": 0.8799851227374161,
+        "gated": 0.9159434664021818,
+        "gated_gain_verified": 0.9159434664021818,
+        "gated_class_verified": 0.9159434664021818
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.32116538556905533,
+          "ci_low": 0.2779620629804116,
+          "ci_high": 0.3637121249690052
+        },
+        "gated": {
+          "mean": 0.357123729233821,
+          "ci_low": 0.32347408876766687,
+          "ci_high": 0.38989685097941995
+        },
+        "gated_gain_verified": {
+          "mean": 0.357123729233821,
+          "ci_low": 0.32347408876766687,
+          "ci_high": 0.38989685097941995
+        },
+        "gated_class_verified": {
+          "mean": 0.357123729233821,
+          "ci_low": 0.32347408876766687,
+          "ci_high": 0.38989685097941995
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.03595834366476568,
+          "ci_low": 0.009966526159186709,
+          "ci_high": 0.06857773369699971
+        },
+        "gated_gain_verified": {
+          "mean": 0.03595834366476568,
+          "ci_low": 0.009966526159186709,
+          "ci_high": 0.06857773369699971
+        },
+        "gated_class_verified": {
+          "mean": 0.03595834366476568,
+          "ci_low": 0.009966526159186709,
+          "ci_high": 0.06857773369699971
+        }
+      },
+      "clean_center_test": 0.9159434664021818
+    },
+    "cifar10/1/all": {
+      "metric": "accuracy",
+      "cases": 1000,
+      "private_candidate_cases": 1000,
+      "gate_fires": 1.0,
+      "gain_acceptance": 0.97,
+      "class_acceptance": 0.97,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 4,
+      "mean_clean_client_gain_private": 0.35758962583333337,
+      "rejections": 30,
+      "rejections_clean_gain_nonpositive": 30,
+      "rejections_clean_gain_positive": 0,
+      "mean_gain_band_radius": 0.00534023690009628,
+      "utility": {
+        "public": 0.5612521696007934,
+        "loo": 0.8730225638482517,
+        "gated": 0.9159434664021817,
+        "gated_gain_verified": 0.9159434664021817,
+        "gated_class_verified": 0.9159434664021817
+      },
+      "utility_accuracy": {
+        "public": 0.5612521696007934,
+        "loo": 0.8730225638482517,
+        "gated": 0.9159434664021817,
+        "gated_gain_verified": 0.9159434664021817,
+        "gated_class_verified": 0.9159434664021817
+      },
+      "versus_public": {
+        "loo": {
+          "mean": 0.3117703942474585,
+          "ci_low": 0.280222910984379,
+          "ci_high": 0.3423624473096953
+        },
+        "gated": {
+          "mean": 0.3546912968013886,
+          "ci_low": 0.3311470369452022,
+          "ci_high": 0.37800421522439887
+        },
+        "gated_gain_verified": {
+          "mean": 0.3546912968013886,
+          "ci_low": 0.3311470369452022,
+          "ci_high": 0.37800421522439887
+        },
+        "gated_class_verified": {
+          "mean": 0.3546912968013886,
+          "ci_low": 0.3311470369452022,
+          "ci_high": 0.37800421522439887
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.04292090255393008,
+          "ci_low": 0.020063476320357057,
+          "ci_high": 0.06977671708405651
+        },
+        "gated_gain_verified": {
+          "mean": 0.04292090255393008,
+          "ci_low": 0.020063476320357057,
+          "ci_high": 0.06977671708405651
+        },
+        "gated_class_verified": {
+          "mean": 0.04292090255393008,
+          "ci_low": 0.020063476320357057,
+          "ci_high": 0.06977671708405651
+        }
+      },
+      "clean_center_test": 0.9159434664021817
+    },
+    "web/0.1/primary": {
+      "metric": "balanced_accuracy",
+      "cases": 500,
+      "private_candidate_cases": 122,
+      "gate_fires": 0.0,
+      "gain_acceptance": 0.0,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 1,
+      "mean_clean_client_gain_private": -0.03938391271012882,
+      "rejections": 122,
+      "rejections_clean_gain_nonpositive": 83,
+      "rejections_clean_gain_positive": 39,
+      "mean_gain_band_radius": 0.41833567335747684,
+      "utility": {
+        "public": 0.282365449335786,
+        "loo": 0.276123406964125,
+        "gated": 0.276123406964125,
+        "gated_gain_verified": 0.282365449335786,
+        "gated_class_verified": 0.282365449335786
+      },
+      "utility_accuracy": {
+        "public": 0.367426597582038,
+        "loo": 0.3564041450777202,
+        "gated": 0.3564041450777202,
+        "gated_gain_verified": 0.367426597582038,
+        "gated_class_verified": 0.367426597582038
+      },
+      "versus_public": {
+        "loo": {
+          "mean": -0.006242042371661042,
+          "ci_low": -0.015453040455018274,
+          "ci_high": 0.00160432616467289
+        },
+        "gated": {
+          "mean": -0.006242042371661042,
+          "ci_low": -0.015453040455018274,
+          "ci_high": 0.00160432616467289
+        },
+        "gated_gain_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_gain_verified": {
+          "mean": 0.006242042371661042,
+          "ci_low": -0.0016043261646728909,
+          "ci_high": 0.01545304045501826
+        },
+        "gated_class_verified": {
+          "mean": 0.006242042371661042,
+          "ci_low": -0.0016043261646728909,
+          "ci_high": 0.01545304045501826
+        }
+      },
+      "clean_center_test": 0.31632031770025976
+    },
+    "web/0.1/all": {
+      "metric": "balanced_accuracy",
+      "cases": 1000,
+      "private_candidate_cases": 260,
+      "gate_fires": 0.0,
+      "gain_acceptance": 0.0038461538461538464,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 3,
+      "mean_clean_client_gain_private": -0.05219800235919559,
+      "rejections": 259,
+      "rejections_clean_gain_nonpositive": 177,
+      "rejections_clean_gain_positive": 82,
+      "mean_gain_band_radius": 0.41833567335747696,
+      "utility": {
+        "public": 0.28758964074957877,
+        "loo": 0.28038716677987746,
+        "gated": 0.28038716677987746,
+        "gated_gain_verified": 0.2875542330400708,
+        "gated_class_verified": 0.28758964074957877
+      },
+      "utility_accuracy": {
+        "public": 0.369573978123201,
+        "loo": 0.35488370754173865,
+        "gated": 0.35488370754173865,
+        "gated_gain_verified": 0.36955900978698913,
+        "gated_class_verified": 0.369573978123201
+      },
+      "versus_public": {
+        "loo": {
+          "mean": -0.0072024739697013436,
+          "ci_low": -0.013784620855367085,
+          "ci_high": -0.0013448220867166
+        },
+        "gated": {
+          "mean": -0.0072024739697013436,
+          "ci_low": -0.013784620855367085,
+          "ci_high": -0.0013448220867166
+        },
+        "gated_gain_verified": {
+          "mean": -3.5407709508028265e-05,
+          "ci_low": -0.0002124462570481696,
+          "ci_high": 0.0
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        },
+        "gated_gain_verified": {
+          "mean": 0.007167066260193316,
+          "ci_low": 0.0013004182818333178,
+          "ci_high": 0.013783735662629384
+        },
+        "gated_class_verified": {
+          "mean": 0.0072024739697013436,
+          "ci_low": 0.0013448220867165986,
+          "ci_high": 0.01378462085536708
+        }
+      },
+      "clean_center_test": 0.31632031770025976
+    },
+    "web/1/primary": {
+      "metric": "balanced_accuracy",
+      "cases": 500,
+      "private_candidate_cases": 495,
+      "gate_fires": 0.98,
+      "gain_acceptance": 0.20606060606060606,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 1,
+      "mean_clean_client_gain_private": -0.07867141144182867,
+      "rejections": 393,
+      "rejections_clean_gain_nonpositive": 348,
+      "rejections_clean_gain_positive": 45,
+      "mean_gain_band_radius": 0.04264429314124767,
+      "utility": {
+        "public": 0.282365449335786,
+        "loo": 0.28212057213101,
+        "gated": 0.23811063799262824,
+        "gated_gain_verified": 0.28667227962194525,
+        "gated_class_verified": 0.282365449335786
+      },
+      "utility_accuracy": {
+        "public": 0.367426597582038,
+        "loo": 0.3604870466321244,
+        "gated": 0.2810972941853771,
+        "gated_gain_verified": 0.3995820379965458,
+        "gated_class_verified": 0.367426597582038
+      },
+      "versus_public": {
+        "loo": {
+          "mean": -0.0002448772047760581,
+          "ci_low": -0.010566228128307925,
+          "ci_high": 0.00911447940886499
+        },
+        "gated": {
+          "mean": -0.04425481134315781,
+          "ci_low": -0.08551052948832341,
+          "ci_high": -0.003764182034092354
+        },
+        "gated_gain_verified": {
+          "mean": 0.004306830286159117,
+          "ci_low": -0.004344129854327343,
+          "ci_high": 0.01574955743074848
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": -0.04400993413838176,
+          "ci_low": -0.08273311367244517,
+          "ci_high": -0.0070135785684233105
+        },
+        "gated_gain_verified": {
+          "mean": 0.004551707490935175,
+          "ci_low": -0.006502968470268592,
+          "ci_high": 0.016754042020968998
+        },
+        "gated_class_verified": {
+          "mean": 0.0002448772047760581,
+          "ci_low": -0.009114479408864992,
+          "ci_high": 0.010566228128307919
+        }
+      },
+      "clean_center_test": 0.31632031770025976
+    },
+    "web/1/all": {
+      "metric": "balanced_accuracy",
+      "cases": 1000,
+      "private_candidate_cases": 984,
+      "gate_fires": 0.97,
+      "gain_acceptance": 0.21138211382113822,
+      "class_acceptance": 0.0,
+      "false_gain_accepts": 0,
+      "gain_bound_violations": 5,
+      "mean_clean_client_gain_private": -0.07988332374180805,
+      "rejections": 776,
+      "rejections_clean_gain_nonpositive": 691,
+      "rejections_clean_gain_positive": 85,
+      "mean_gain_band_radius": 0.04264429314124767,
+      "utility": {
+        "public": 0.28758964074957877,
+        "loo": 0.2830948001355871,
+        "gated": 0.2397868786593568,
+        "gated_gain_verified": 0.2902416222549582,
+        "gated_class_verified": 0.28758964074957877
+      },
+      "utility_accuracy": {
+        "public": 0.369573978123201,
+        "loo": 0.35649913644214165,
+        "gated": 0.28305066206102475,
+        "gated_gain_verified": 0.40202705814622913,
+        "gated_class_verified": 0.369573978123201
+      },
+      "versus_public": {
+        "loo": {
+          "mean": -0.004494840613991707,
+          "ci_low": -0.012646602739146473,
+          "ci_high": 0.0027183633059969666
+        },
+        "gated": {
+          "mean": -0.04780276209022204,
+          "ci_low": -0.08509919912191975,
+          "ci_high": -0.01289576177966613
+        },
+        "gated_gain_verified": {
+          "mean": 0.0026519815053794365,
+          "ci_low": -0.005259080041248767,
+          "ci_high": 0.011347629823338328
+        },
+        "gated_class_verified": {
+          "mean": 0.0,
+          "ci_low": 0.0,
+          "ci_high": 0.0
+        }
+      },
+      "versus_loo": {
+        "gated": {
+          "mean": -0.043307921476230325,
+          "ci_low": -0.07893282026139871,
+          "ci_high": -0.010545796357290329
+        },
+        "gated_gain_verified": {
+          "mean": 0.007146822119371145,
+          "ci_low": -0.002155120121401529,
+          "ci_high": 0.016028872259686914
+        },
+        "gated_class_verified": {
+          "mean": 0.004494840613991707,
+          "ci_low": -0.002718363305996967,
+          "ci_high": 0.012646602739146471
+        }
+      },
+      "clean_center_test": 0.31632031770025976
+    }
+  },
+  "new_private_queries_beyond_design": 0
+}

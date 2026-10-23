@@ -1,0 +1,119 @@
+{
+  "design": {
+    "tasks": {
+      "cifar10": {
+        "cohorts": [
+          1000,
+          10000
+        ],
+        "budgets": [
+          0.1
+        ],
+        "ks": [
+          5,
+          10,
+          20,
+          50,
+          100
+        ],
+        "metric": "accuracy"
+      },
+      "mnist": {
+        "cohorts": [
+          10000
+        ],
+        "budgets": [
+          0.1
+        ],
+        "ks": [
+          5,
+          10,
+          20,
+          50,
+          100
+        ],
+        "metric": "accuracy"
+      },
+      "web": {
+        "cohorts": [
+          3000
+        ],
+        "budgets": [
+          1.0
+        ],
+        "ks": [
+          3,
+          5,
+          6,
+          10,
+          20,
+          50
+        ],
+        "metric": "balanced_accuracy"
+      },
+      "femnist62": {
+        "cohorts": [
+          1000,
+          2000
+        ],
+        "budgets": [
+          0.1,
+          1.0
+        ],
+        "ks": [
+          31,
+          62,
+          124,
+          248,
+          500
+        ],
+        "metric": "accuracy"
+      }
+    },
+    "teacher_bootstraps": 8,
+    "noise_repeats_per_bootstrap": 256,
+    "estimators": [
+      "M",
+      "R"
+    ],
+    "decoders": [
+      "center",
+      "raw",
+      "matching only at K=C"
+    ],
+    "private_data_access": false,
+    "test_access": false,
+    "private_seeds": [
+      8501,
+      8502,
+      8503,
+      8504,
+      8505,
+      8506,
+      8507,
+      8508,
+      8509,
+      8510
+    ],
+    "mix_seeds": [
+      8601,
+      8602,
+      8603,
+      8604,
+      8605,
+      8606,
+      8607,
+      8608,
+      8609,
+      8610
+    ]
+  },
+  "created_utc": "2026-10-19T05:57:40Z",
+  "source_sha256": {
+    "engine_base.py": "9b30ee49f1c8e33911f58129acca08fb1b5a1f5e4ef93212d7d45cae8874d433",
+    "privacy.py": "6ad4e7b087e7d01a08bd6d47335ddff81ae0ed90858b89ad0c0aca2122fcac38",
+    "common.py": "c54b1db81ebc24e5b0ab286672a18a0db8001a9ac1418d4c4b8e46c570ee8b78",
+    "replay_centroid.py": "296677a2ebccba4e1487c6d4e6d28b33bc166ef99b6f15994cd333116259f6f9",
+    "selection.py": "2f649cf5d9fe047e82ea964597e8f777a9aef5e4c2851ca32634b9e6d7e8b972"
+  }
+}

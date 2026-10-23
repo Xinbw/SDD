@@ -1,0 +1,43 @@
+Revision scope: completed first-stage release-granularity optimization, 2026-10-19.
+
+Accepted and completed:
+1. Replay original five CIFAR-10 seeds. Every original endpoint and population
+   hash is reproduced. Clean count matrices and all three released target
+   matrices are retained. Two original low seeds have repeated first-release
+   class assignments that persist during training.
+2. Freeze four decoder variants before new outcomes: centered hard, weighted
+   assignment at K=C, projected soft, centered soft at temperature 0.1.
+   Confirm separately on five fresh CIFAR-10 seeds; retain MNIST, Web and 1k
+   controls. Matching repairs three trajectories over the ten CIFAR-10 seeds;
+   seven final endpoints are exactly unchanged. The paired mean difference
+   is 1.50 points, CI [-0.28,3.27]; no general significance claim is made.
+3. Keep the precision of the matching estimate: original 86.2808%, SD 0.0234
+   points; fresh 86.2834%, SD 0.0327. Original paired gain versus per-example
+   transfer is 16.5751 points, CI [14.6041,18.5462].
+4. Separate constant regional-label quality from final model accuracy. The
+   purity identity is exact; the sub-Gaussian bound is for uncentered argmax
+   under unwrapped arithmetic. Gaussian predictions model actual centered
+   projection/prior correction, with independent exact-DG validation.
+   Across 27 multi-trial conditions, centered MAE is 0.4643 points.
+5. Freeze public-only K selection. No private/test arrays are loaded by the
+   selector. Private margins in the conditional validation grid are offline
+   diagnostics and never deployment configuration inputs.
+6. Add official 62-class writer-partitioned Federated EMNIST, keeping all
+   original training records per chosen private writer, with disjoint writer
+   roles. Compare two actual cohort sizes and both budgets across all frozen
+   interfaces, including both head endpoints and accuracy/macro recall.
+7. Preserve the original full grids and strong DP-Head/public-only references.
+   Add a uniform-query / nearest-query propagation control at identical vote
+   count. Revise the paper around supervision resources, public geometry and
+   noise-supported resolution. Add the cited distillation/private-feature
+   literature and correct the Li et al. 2022 author attribution.
+
+Deferred to a separate method-design stage, without claiming them as results:
+Adaptive partition refinement, joint SDD/head hybrid, a new DP-FTRL mechanism,
+multiple new encoders/domains, and secure-transport timing/poisoning studies.
+They change the release/training design or require a separate accounting and
+protocol evaluation. Existing coordinate counts describe learning payloads.
+
+The paper retains eight main pages and twelve pages total. All original
+scientific records are immutable; this revision has a new source tree and
+new delivery names. No submission or external publication was performed.

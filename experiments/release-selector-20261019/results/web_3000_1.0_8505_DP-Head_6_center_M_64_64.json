@@ -1,0 +1,162 @@
+{
+  "dataset": "web",
+  "n": 3000,
+  "epsilon": 1.0,
+  "seed": 8505,
+  "method": "DP-Head",
+  "k": 6,
+  "decoder": "center",
+  "estimator": "M",
+  "proxy_r2": 64,
+  "proxy_r3": 64,
+  "clip": 7.505253314971924,
+  "public_clipping_source": "review-evidence-20261012/public-selection/web_aNone_n1000.json",
+  "accuracy": 0.3960852026939392,
+  "balanced_accuracy": 0.1672060489654541,
+  "per_class_recall": [
+    1.0,
+    0.0032362460624426603,
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "actual_clients": 3000,
+  "calibrated_clients": 3000,
+  "population": {
+    "actual_clients": 3000,
+    "unique_client_identifiers": 3000,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 54,
+    "distinct_author_hash": "961e5c544b6f7547f019702f9514bf09467d27243a372560bd329517c73b9f27",
+    "client_sample_indices_sha256": "bab4aa239fa1fc671bf51a6d3c7b6f5e8f821ecbda429f08bd05534ed0360e86",
+    "client_generation_seed": 8505,
+    "alpha": null
+  },
+  "trace": [
+    {
+      "round": 1,
+      "privacy": {
+        "epsilon_requested": 1.0,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 3000,
+        "calibrated_clients": 3000,
+        "honest_clients": 3000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 152453,
+        "sensitivity_integer_squared": 967779802564,
+        "dimension": 768,
+        "log_tau_upper": -229388528365.39227,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 0.006939902259793247,
+        "rho_total_upper": 0.02081970677937974,
+        "epsilon_upper": 0.9999943231855329,
+        "residual_std": 0.042471286549547876,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits",
+        "integer_report_radius": 491879
+      },
+      "diagnostics": {
+        "clip": 7.505253314971924,
+        "integer_report_radius": 491879,
+        "integer_ball_guard_fraction": 0.0,
+        "clipped_fraction": 0.1496666669845581,
+        "logical_report_coordinates": 768
+      }
+    },
+    {
+      "round": 2,
+      "privacy": {
+        "epsilon_requested": 1.0,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 3000,
+        "calibrated_clients": 3000,
+        "honest_clients": 3000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 152453,
+        "sensitivity_integer_squared": 967779802564,
+        "dimension": 768,
+        "log_tau_upper": -229388528365.39227,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 0.006939902259793247,
+        "rho_total_upper": 0.02081970677937974,
+        "epsilon_upper": 0.9999943231855329,
+        "residual_std": 0.042471286549547876,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits",
+        "integer_report_radius": 491879
+      },
+      "diagnostics": {
+        "clip": 7.505253314971924,
+        "integer_report_radius": 491879,
+        "integer_ball_guard_fraction": 0.0,
+        "clipped_fraction": 0.0,
+        "logical_report_coordinates": 768
+      }
+    },
+    {
+      "round": 3,
+      "privacy": {
+        "epsilon_requested": 1.0,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 3000,
+        "calibrated_clients": 3000,
+        "honest_clients": 3000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 152453,
+        "sensitivity_integer_squared": 967779802564,
+        "dimension": 768,
+        "log_tau_upper": -229388528365.39227,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 0.006939902259793247,
+        "rho_total_upper": 0.02081970677937974,
+        "epsilon_upper": 0.9999943231855329,
+        "residual_std": 0.042471286549547876,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits",
+        "integer_report_radius": 491879
+      },
+      "diagnostics": {
+        "clip": 7.505253314971924,
+        "integer_report_radius": 491879,
+        "integer_ball_guard_fraction": 0.0,
+        "clipped_fraction": 0.00033333332976326346,
+        "logical_report_coordinates": 768
+      }
+    }
+  ],
+  "head_local_endpoint": {
+    "accuracy": 0.40281578304370247,
+    "balanced_accuracy": 0.18000674879550935,
+    "steps": 180
+  },
+  "optimizer_steps": 180,
+  "batch_size": 128,
+  "release_rounds": 3,
+  "delta": 1e-05,
+  "private_model_released": false,
+  "global_endpoint_is_DP_postprocessing": true,
+  "final_label_release_supervises_local_model": false,
+  "selection_used_private_data": false,
+  "selection_used_final_test": false,
+  "seconds": 0.47513484954833984,
+  "metrics_and_clean_counts_are_offline_diagnostics": true,
+  "global_endpoint": {
+    "accuracy": 0.3960852026939392,
+    "balanced_accuracy": 0.1672060489654541,
+    "release": 3
+  }
+}

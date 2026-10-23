@@ -1,0 +1,292 @@
+{
+  "task": "web",
+  "seed": 9403,
+  "epsilon_total": 1.0,
+  "draw": 57,
+  "m": 6,
+  "missing_classes": 2,
+  "label_source": "web_random_57_m6.json",
+  "label_sample_sha256": "38ef611a6f9edf4be0cf0327b521c5cbd7bacd6141e188a8e9895a38725a3b10",
+  "cohort": {
+    "task": "web",
+    "seed": 9403,
+    "naming_clients": 3000,
+    "validation_clients": 1249,
+    "naming_sizes": [
+      1,
+      1.0,
+      70
+    ],
+    "validation_sizes": [
+      1,
+      1.0,
+      19
+    ],
+    "naming_indices_sha256": "4fc3f5532f56beaf30fd21f3c967f73d08a9a5bfa653fa0c9a5303a1b4ca4ad9",
+    "validation_indices_sha256": "b9b1b3e954d679a55fdeb951a5c38fd00e3909da2ce0efd7095dada50922ccc4",
+    "source_overlap_naming_validation": 0,
+    "naming_authors_sha256": "0daf04592e25947ada85d43bae810992941e8f5834c9872d9ee675a356a1da74",
+    "validation_authors_sha256": "a8554e1fcbbb1b7e1a54328be15f7c333cfa9335666562ff733430e2f9078860",
+    "author_overlap": 0
+  },
+  "naming": {
+    "certificate": {
+      "epsilon_requested": 1.0,
+      "delta": 1e-05,
+      "rounds": 1,
+      "actual_clients": 3000,
+      "calibrated_clients": 3000,
+      "honest_clients": 3000,
+      "colluders": 0,
+      "quantization_scale": 65536,
+      "sigma_share_integer": 28726,
+      "sensitivity_integer_squared": 51539607552,
+      "dimension": 36,
+      "log_tau_upper": -8144230508.285435,
+      "tau_certified_upper": 1e-30,
+      "rho_round_upper": 0.010409731902935924,
+      "rho_total_upper": 0.010409731902935924,
+      "epsilon_upper": 0.7027867029492699,
+      "residual_std": 0.008002664279629213,
+      "ring_bits": 64,
+      "accounting": "zcdp",
+      "rho_fraction": 0.5,
+      "sampler": "CKS exact rational rejection, ChaCha20 bits"
+    },
+    "noise_std": 0.008002664279629213,
+    "diagnostic_file": "diagnostics/web_s9403_e1_naming.npz",
+    "diagnostic_sha256": "7a48f4d84df0b629931199ffcfc6c93e27d92926b4776cf170f094d58f745c3b"
+  },
+  "comparator": "cluster-coverage",
+  "loo_choice": "cluster-coverage",
+  "loo_uses_private": false,
+  "gate_fires": true,
+  "candidate": "private-center",
+  "candidate_uses_private": true,
+  "candidate_loo_scores": {
+    "cluster-majority": 0.5,
+    "cluster-coverage": 0.75,
+    "prototype": 0.0,
+    "ridge-0.001": 0.125,
+    "ridge-0.01": 0.125,
+    "ridge-0.1": 0.125,
+    "ridge-1": 0.125,
+    "ridge-10": 0.125,
+    "graph-0.8-ordinary": 0.0,
+    "graph-0.8-classmass": 0.125,
+    "graph-0.95-ordinary": 0.0,
+    "graph-0.95-classmass": 0.0,
+    "count-matching": 0.75,
+    "uniform-empty-matching": 0.75,
+    "joint-0.01": 0.75,
+    "joint-0.03": 0.75,
+    "joint-0.1": 0.75,
+    "joint-0.3": 0.75,
+    "joint-1": 0.75,
+    "joint-3": 0.75,
+    "joint-10": 0.75,
+    "joint-30": 0.5,
+    "private-center": 0.5,
+    "private-coverage": 0.0
+  },
+  "privacy": {
+    "gain": {
+      "epsilon_requested": 1.0,
+      "delta": 1e-05,
+      "rounds": 1,
+      "actual_clients": 1249,
+      "calibrated_clients": 1249,
+      "honest_clients": 1249,
+      "colluders": 0,
+      "quantization_scale": 65536,
+      "sigma_share_integer": 18175,
+      "sensitivity_integer_squared": 4294967296,
+      "dimension": 1,
+      "log_tau_upper": -3260232580.882715,
+      "tau_certified_upper": 1e-30,
+      "rho_round_upper": 0.0052049742839516055,
+      "rho_total_upper": 0.0052049742839516055,
+      "epsilon_upper": 0.4947945206520154,
+      "residual_std": 0.007847173767591684,
+      "ring_bits": 64,
+      "accounting": "zcdp",
+      "rho_fraction": 0.25,
+      "sampler": "CKS exact rational rejection, ChaCha20 bits"
+    },
+    "classes": {
+      "epsilon_requested": 1.0,
+      "delta": 1e-05,
+      "rounds": 1,
+      "actual_clients": 1249,
+      "calibrated_clients": 1249,
+      "honest_clients": 1249,
+      "colluders": 0,
+      "quantization_scale": 65536,
+      "sigma_share_integer": 25704,
+      "sensitivity_integer_squared": 8589934592,
+      "dimension": 24,
+      "log_tau_upper": -6520804350.0221615,
+      "tau_certified_upper": 1e-30,
+      "rho_round_upper": 0.005204703547863896,
+      "rho_total_upper": 0.005204703547863896,
+      "epsilon_upper": 0.49478151678077487,
+      "residual_std": 0.01109786819929445,
+      "ring_bits": 64,
+      "accounting": "zcdp",
+      "rho_fraction": 0.25,
+      "sampler": "CKS exact rational rejection, ChaCha20 bits"
+    },
+    "total_rho_upper": 0.020819409734751423,
+    "total_rho_target": 0.0208199383395355,
+    "composition": "sequential"
+  },
+  "protected_validation": {
+    "released_gain": -0.09309244270416328,
+    "gain_lower": -0.13573673584541096,
+    "released_class_histogram": [
+      0.08240751536776296,
+      -0.00867542178273869,
+      0.0002593994140625,
+      0.2606509646193517,
+      0.15329320341038455,
+      0.06265398060636009,
+      -0.017486144677460718,
+      -0.002416667220495146,
+      0.10835103629778824,
+      -0.016818532951361088,
+      -0.009800992649588421,
+      0.0699744732309285,
+      0.024335105291264262,
+      0.004332506532569806,
+      0.030685754658414232,
+      0.002676775209229884,
+      0.01573071201101506,
+      0.07467892038239966,
+      0.02158191396867494,
+      0.006547681993250851,
+      0.06116670680294235,
+      -0.00196171341369971,
+      0.00400997067184998,
+      0.007446508964984487
+    ],
+    "numerator_radius": 0.05819407650872468,
+    "denominator_radius": 0.08231672903179081,
+    "recall_lower": [
+      0.4861777699473984,
+      0.0,
+      0.008458170780019382,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "recall_upper": [
+      1.0,
+      0.3366926770959039,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "minimum_recall_lower": 0.0
+  },
+  "decisions": {
+    "gated_gain_verified": false,
+    "gated_class_verified": false,
+    "uses_test_labels": false,
+    "uses_clean_statistics": false
+  },
+  "test": {
+    "public": {
+      "accuracy": 0.4720782959124928,
+      "balanced_accuracy": 0.3828613910136289,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.17486338797814208,
+        0.6813186813186813,
+        0.051470588235294115
+      ],
+      "minimum_recall": 0.051470588235294115
+    },
+    "loo": {
+      "accuracy": 0.4720782959124928,
+      "balanced_accuracy": 0.3828613910136289,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.17486338797814208,
+        0.6813186813186813,
+        0.051470588235294115
+      ],
+      "minimum_recall": 0.051470588235294115
+    },
+    "gated": {
+      "accuracy": 0.4323546344271733,
+      "balanced_accuracy": 0.29601023231535245,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.0,
+        0.33534743202416917,
+        0.6939890710382514,
+        0.0,
+        0.0
+      ],
+      "minimum_recall": 0.0
+    },
+    "gated_gain_verified": {
+      "accuracy": 0.4720782959124928,
+      "balanced_accuracy": 0.3828613910136289,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.17486338797814208,
+        0.6813186813186813,
+        0.051470588235294115
+      ],
+      "minimum_recall": 0.051470588235294115
+    },
+    "gated_class_verified": {
+      "accuracy": 0.4720782959124928,
+      "balanced_accuracy": 0.3828613910136289,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.33534743202416917,
+        0.17486338797814208,
+        0.6813186813186813,
+        0.051470588235294115
+      ],
+      "minimum_recall": 0.051470588235294115
+    }
+  },
+  "research_diagnostics": {
+    "clean_client_mean_gain": -0.08252763871934131,
+    "true_recall": [
+      0.7266982622432859,
+      0.0,
+      0.45751633986928103,
+      0.684971098265896,
+      0.0,
+      0.0
+    ],
+    "gain_lower_valid": true,
+    "false_gain_accept": false,
+    "clean_center_test": {
+      "accuracy": 0.4743811168681635,
+      "balanced_accuracy": 0.3182032280376002,
+      "per_class_recall": [
+        0.7467248908296943,
+        0.3074433656957929,
+        0.4773413897280967,
+        0.2568306010928962,
+        0.12087912087912088,
+        0.0
+      ],
+      "minimum_recall": 0.0
+    }
+  },
+  "server_view": "protected naming matrix, protected paired gain, protected class histogram"
+}

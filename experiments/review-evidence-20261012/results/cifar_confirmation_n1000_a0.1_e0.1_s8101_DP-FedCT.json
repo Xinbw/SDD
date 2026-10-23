@@ -1,0 +1,142 @@
+{
+  "dataset": "cifar10",
+  "actual_clients": 1000,
+  "calibrated_clients": 1000,
+  "alpha": 0.1,
+  "seed": 8101,
+  "method": "DP-FedCT",
+  "k": 20,
+  "epsilon": 0.1,
+  "delta": 1e-05,
+  "mode": "center",
+  "clip": null,
+  "public_development": false,
+  "evaluation_split": "test",
+  "accuracy": 0.48761917048692704,
+  "balanced_accuracy": 0.48848428383469583,
+  "initial_accuracy": 0.4071877248585224,
+  "initial_balanced_accuracy": 0.4072895862907171,
+  "population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "9647234f95519b9d9cd926f7d32e0d1c967fd6d07502ffbe5ef2e0a934af5d6d",
+    "client_generation_seed": 8101,
+    "alpha": 0.1
+  },
+  "rounds": 3,
+  "optimizer_steps_per_round": 60,
+  "batch_size": 128,
+  "lr": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "private_model": "128-dimensional frozen public features; independently trained no-intercept softmax heads",
+  "trace": [
+    {
+      "round": 1,
+      "privacy": {
+        "epsilon_requested": 0.1,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 1000,
+        "calibrated_clients": 1000,
+        "honest_clients": 1000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 10917380,
+        "sensitivity_integer_squared": 17179869184000,
+        "dimension": 20000,
+        "log_tau_upper": -1176350115343451.2,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.206974789943366e-05,
+        "rho_total_upper": 0.000216209243698301,
+        "epsilon_upper": 0.09999999364850275,
+        "residual_std": 5.267911816645669,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "logical_report_coordinates": 20000,
+        "pseudolabel_coverage": 1.0,
+        "pseudolabel_accuracy": 0.112,
+        "pseudolabel_balanced_accuracy": 0.11199999999999999
+      }
+    },
+    {
+      "round": 2,
+      "privacy": {
+        "epsilon_requested": 0.1,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 1000,
+        "calibrated_clients": 1000,
+        "honest_clients": 1000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 10917380,
+        "sensitivity_integer_squared": 17179869184000,
+        "dimension": 20000,
+        "log_tau_upper": -1176350115343451.2,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.206974789943366e-05,
+        "rho_total_upper": 0.000216209243698301,
+        "epsilon_upper": 0.09999999364850275,
+        "residual_std": 5.267911816645669,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "logical_report_coordinates": 20000,
+        "pseudolabel_coverage": 1.0,
+        "pseudolabel_accuracy": 0.1225,
+        "pseudolabel_balanced_accuracy": 0.12250000000000001
+      }
+    },
+    {
+      "round": 3,
+      "privacy": {
+        "epsilon_requested": 0.1,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 1000,
+        "calibrated_clients": 1000,
+        "honest_clients": 1000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 10917380,
+        "sensitivity_integer_squared": 17179869184000,
+        "dimension": 20000,
+        "log_tau_upper": -1176350115343451.2,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.206974789943366e-05,
+        "rho_total_upper": 0.000216209243698301,
+        "epsilon_upper": 0.09999999364850275,
+        "residual_std": 5.267911816645669,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "logical_report_coordinates": 20000,
+        "pseudolabel_coverage": 1.0,
+        "pseudolabel_accuracy": 0.108,
+        "pseudolabel_balanced_accuracy": 0.10800000000000001
+      }
+    }
+  ],
+  "seconds": 1.1989736557006836,
+  "diagnostics_are_offline_benchmark_measurements": true,
+  "configuration_override": "fixed-public-1k",
+  "experiment_roles": [
+    "fresh-seed fixed-resolution natural-author confirmation"
+  ],
+  "public_configuration_file": "cifar10_a0.1_n1000.json"
+}

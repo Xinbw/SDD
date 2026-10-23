@@ -1,0 +1,93 @@
+\subsection{Protected aggregate and whole-run client privacy}
+\label{sec:threat}
+\label{sec:threat:setting}
+
+A fixed cohort of $n$ clients participates in each of $T$ rounds. Replace-one
+adjacency changes the entire dataset of one honest client. Public features,
+partitions and configurations are independent of private datasets. The
+adversary sees the noisy sum and broadcasts; local models, individual reports
+and honest noise shares remain hidden by the aggregation interface.
+
+\paragraph{Aggregation assumptions.}
+A1: secure additive aggregation reveals the sum and metadata that is public or
+independent of protected data. A2: at most $t<n$ contributors disclose reports
+and noise to the server, leaving $h=n-t$ honest independent shares.
+A3: aggregation parties preserve that view against the stated coalition.
+A4: honest contributors use bounded reports and fresh independent noise;
+participation is fixed ($q=1$), with recalibration or abort if the required
+honest cohort is unavailable. Secret-sharing or split-and-mix protocols can
+instantiate the interface~\cite{bonawitz2017practical,corriganGibbs2017prio,ishai2006cryptography}.
+Experiments implement protected-sum arithmetic; transport is a deployment
+component. The guarantee concerns observation and collusion under A1--A4.
+
+\begin{lemma}[Report sensitivity]
+\label{lem:sens}
+For $R,R'\in(\Delta^{C-1})^K$, $\|R-R'\|_2\le\sqrt{2K}$,
+with equality for opposing one-hot rows. This holds for every public partition.
+\end{lemma}
+
+\begin{lemma}[Integer sensitivity]
+\label{lem:sens-int}
+One-hot reports have $\Delta_q=s\sqrt{2K}$ exactly.
+Rounded posteriors have $\Delta_q\le s\sqrt{2K}+\sqrt{KC}$.
+A parameter update clipped at $B$ and guarded after rounding in the integer
+ball $L_B=\lceil sB+\sqrt d/2\rceil$ has $\Delta_q\le2L_B$.
+\end{lemma}
+
+\paragraph{Release.}
+Each client submits shares of $sR_i+G_i$ modulo $2^{64}$, with
+$s=2^{16}$ and independent coordinates
+$G_i[j]\sim\mathcal N_{\mathbb Z}(0,b^2)$.
+The server projects the dequantised sum onto row simplexes and applies the
+specified decoder. The exact discrete-Gaussian sampler and integer guards
+are specified in Appendix~\ref{app:repro}.
+
+\begin{theorem}[One protected aggregate]
+\label{thm:round}
+Under A1--A4, the aggregate in dimension $d$ is $\rho_r$-zCDP, where
+\begin{equation}
+\rho_r=\frac{\Delta_q^2}{2hb^2}+\frac{d\tau_h(b)}4,
+\quad \tau_h(b)\le10(h-1)e^{-\pi^2b^2}.
+\label{eq:round-rho}
+\end{equation}
+For $h=1$, $\tau_h=0$; Appendix~\ref{app:proofs} gives its exact expression.
+\end{theorem}
+
+This applies the convolution guarantee of Kairouz et
+al.~\cite{kairouz2021distributed} to the regional integer query after the
+coalition subtracts its disclosed shares. Additional honest noise, modular
+addition, projection, matching and soft-target construction preserve privacy.
+
+\begin{theorem}[Adaptive whole run]
+\label{thm:run}
+Conditionally calibrated releases compose to
+$\rho_{\mathrm{total}}\le\sum_{r=1}^T\rho_r$.
+The complete server transcript is $(\varepsilon,\delta)$-DP whenever
+\begin{equation}
+\rho_{\mathrm{total}}+2\sqrt{\rho_{\mathrm{total}}\log(1/\delta)}
+\le\varepsilon.
+\label{eq:accounting}
+\end{equation}
+\end{theorem}
+
+Condition on data-independent training random tapes and each preceding public
+transcript: another client's unchanged private data and that transcript fix its response;
+the replaced client's report stays within the same bounded space.
+Adaptive composition therefore includes every broadcast~\cite{bun2016concentrated}.
+Public-only design consumes no client budget. Private local models are not
+released. Test metrics and clean-count diagnostics are offline measurements,
+outside the deployment transcript claimed to satisfy this guarantee.
+
+Writing $L=\log(1/\delta)$ and
+$\rho_\varepsilon=(\sqrt{L+\varepsilon}-\sqrt L)^2$,
+we round $b$ upward from $\Delta_q/\sqrt{2h\rho_\varepsilon/T}$ and verify
+Eq.~\eqref{eq:round-rho} including its convolution correction.
+Every release retains a numerical certificate with actual $n$, honest $h$,
+integer sensitivity, noise scale and composed budget. The averaging denominator
+and calibration always use the same participating population.
+For $t=0$, mean-noise standard deviation is bounded by
+\begin{equation}
+v=\frac{b\sqrt n}{sn}\approx\frac{\sqrt{TK/\rho_\varepsilon}}{n}.
+\label{eq:design-budget}
+\end{equation}
+This scale connects release resolution to target quality in \S\ref{sec:quality}.

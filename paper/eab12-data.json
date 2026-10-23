@@ -1,0 +1,82 @@
+{
+  "external": {
+    "cifar10": {
+      "SDD": 85.00177091002466,
+      "DP-FedCT": 69.68572934508323,
+      "PATE-DI": 80.48212373518943,
+      "DP-Head": 92.71510601043701
+    },
+    "mnist": {
+      "SDD": 54.95071742588282,
+      "DP-FedCT": 46.24737203419209,
+      "PATE-DI": 51.96975629621744,
+      "DP-Head": 67.25199818611145
+    }
+  },
+  "encoder": {
+    "E1": false,
+    "E2": true,
+    "success": false
+  },
+  "encoder_predictions": {
+    "E1 holds": false,
+    "E2 holds": true,
+    "partition ceilings lower than with DINOv2": true,
+    "random-acquisition joint gain at m=10 smaller than with DINOv2": true,
+    "directed m=10: joint exceeds directed public by at most 1 point": true
+  },
+  "femnist": {
+    "F1": true,
+    "F2": true,
+    "success": true,
+    "max_planner_gap_points": 0.6531214781867192
+  },
+  "femnist_predictions": {
+    "F1 holds": true,
+    "F2 holds": true,
+    "no frozen cell more than 1 point below fixed": true,
+    "gain>0 accepted more often than all recalls>0 at every eps (fixed)": true,
+    "no class target accepted in more than 5% of cases at eps<=3": true
+  },
+  "tau": {
+    "files_with_certificates": 15721,
+    "certificates": 47355,
+    "distinct_certificates": 443,
+    "violations": 0,
+    "max_log10_tau": -6601267.876067821,
+    "all_hold": true,
+    "check": "10 (h-1) exp(-pi^2 b^2) <= recorded tau_certified_upper / 4 for every distinct certificate",
+    "constant": "rho = Delta^2/(2 h b^2) + d tau, tau <= 10 (h-1) exp(-pi^2 b^2) (Kairouz et al. 2021, arXiv Prop. 14)"
+  },
+  "macros": {
+    "TauCerts": "47355",
+    "TauMaxLog": "-6.6\\times10^{6}",
+    "ExtSeeds": "5",
+    "ExtSDDCifar": "85.0",
+    "ExtFedCTCifar": "69.7",
+    "ExtPATECifar": "80.5",
+    "ExtHeadCifar": "92.7",
+    "ExtSDDMnist": "55.0",
+    "ExtFedCTMnist": "46.2",
+    "ExtPATEMnist": "52.0",
+    "ExtHeadMnist": "67.3",
+    "EncCeilOne": "61.9",
+    "EncCeilMany": "62.2",
+    "EncPublic": "42.6",
+    "EncJoint": "38.6",
+    "EncGain": "$-$4.0",
+    "EncGainCI": "[$-$5.4,$-$2.6]",
+    "EncDirected": "61.9",
+    "EncHead": "28.1",
+    "EncPrivRate": "24",
+    "FCCases": "27000",
+    "FCPlanGap": "0.7",
+    "FCGainOne": "99.0",
+    "FCGainOneTrue": "100.0",
+    "FCClassMax": "0.0",
+    "FCTail": "100.0",
+    "FCFA": "0",
+    "FCUtilFixed": "35.1",
+    "FCPub": "11.6"
+  }
+}

@@ -1,0 +1,95 @@
+{
+  "created_utc": "2026-10-12T13:15:40.347788+00:00",
+  "review": "SDD_WWW2027_审稿意见_20261012.md",
+  "review_sha256": "a73492847e17bf73cec8866cfe87906781d69a6f4837146307eca44b6453eed6",
+  "parent_archive": "sdd-www2027-paper-3fig-compiled-8pages-third-review.zip",
+  "parent_archive_sha256": "099c9b4d9898408f017f9ea63dbe2095e4383e2ac5d7e3b3c410c6555d3a54ad",
+  "stages": [
+    {
+      "id": "privacy",
+      "objective": "Exact integer discrete Gaussian sampling; explicit convolution and collusion correction; integer rounding slack incorporated into whole-run budget",
+      "status": "sampler_distribution_checks_passed_certificate_implemented"
+    },
+    {
+      "id": "public_features_and_splits",
+      "objective": "Fixed public feature map, public development/selection data, test-only final evaluation; private units exclude public-development/proxy records",
+      "status": "complete"
+    },
+    {
+      "id": "matched_population",
+      "objective": "Actual independent client learners and reports; actual population equals noise calibration at n=100,1000,10000",
+      "status": "planned"
+    },
+    {
+      "id": "semantic_controls",
+      "objective": "Same K, budget, client data and training: semantic means, size-matched random groups, centroid representative queries with propagation, weaker public partition features",
+      "status": "planned"
+    },
+    {
+      "id": "strong_baselines",
+      "objective": "Matched per-example DP-FedCT and low-dimensional classifier-parameter release; compatible PATE-DI where feasible",
+      "status": "planned"
+    },
+    {
+      "id": "natural_web_users",
+      "objective": "Usenet content-category learning with true author-based client units and disjoint public proxy/development users",
+      "status": "planned"
+    },
+    {
+      "id": "legacy_resnet_matching",
+      "objective": "Original architecture, n=100 actual/calibrated, corrected sampler and selected core budgets; isolated fork preserves historical results",
+      "status": "planned"
+    },
+    {
+      "id": "paper",
+      "objective": "Replace headline claims with validated results, disclose configuration and selection, keep main<=8 and total<=12 pages",
+      "status": "planned"
+    }
+  ],
+  "primary_budgets": [
+    0.01,
+    0.025,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    1.0
+  ],
+  "privacy_delta": 1e-05,
+  "rounds": 3,
+  "client_level_adjacency": "replace one entire client dataset",
+  "q": 1.0,
+  "selection_rule": "public-only development pilot; no access to final test accuracies during candidate selection",
+  "final_seeds": [
+    801,
+    802,
+    803
+  ],
+  "decisive_point_extra_seeds": [
+    804,
+    805
+  ],
+  "initial_configs_are_public_pilots": true,
+  "source_hashes": {
+    "train_sdd.py": "3984eda72b198f860a1b7e169d41bcb9995ef1fc2933fd39b97fa5fb75e72db8",
+    "sdd_core.py": "41069a259a9fc1caf96123f4c481aef841c604780d96765809c25131ae0a2c56",
+    "data.py": "fd6d5be274504ba680242c502be98afdae49c637ba7e1a7f2ec7cda4fef839bd",
+    "dp_utils.py": "049804f6e71be4410fceb98e55d0179173420c5e86bf2b066b27a036a423a127",
+    "train_fedct.py": "5a653dceeff37e5ecc07e6710897fd645cecd44d748f07079ca7ebf1d9aa3510",
+    "train_pate.py": "14192b891897e7e8a480ef7c06b69464a29b8fe13b7ebbbeb6eece3011a3f61a"
+  },
+  "no_historical_results_overwritten": true,
+  "frozen_head_protocol": {
+    "public_features": "DINOv2 ViT-S/14 and public-proxy PCA-128 for images; public TF-IDF/SVD-128 for Web",
+    "models": "independently initialized and trained no-intercept softmax classifiers",
+    "private_records_per_image_client": 600,
+    "optimizer_steps_per_round": 60,
+    "batch_size": 128,
+    "momentum": 0.9,
+    "initial_learning_rate": 0.1,
+    "T": 3,
+    "fixed_computation_per_round": true,
+    "public_development_users_disjoint_from_private_Web_authors": true,
+    "test_access_before_configuration_freeze": false
+  }
+}

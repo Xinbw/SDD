@@ -1,0 +1,256 @@
+{
+  "design_sha256": "9e0a75fce1cc6cbec38bf409d5ddd507aafb2d8aea77a73084c4836f51362be0",
+  "primary": {
+    "E1": false,
+    "E2": true,
+    "success": false
+  },
+  "predictions": {
+    "E1 holds": false,
+    "E2 holds": true,
+    "partition ceilings lower than with DINOv2": true,
+    "random-acquisition joint gain at m=10 smaller than with DINOv2": true,
+    "directed m=10: joint exceeds directed public by at most 1 point": true
+  },
+  "results": {
+    "resnet18": {
+      "ceilings": {
+        "one_to_one": 61.86461691048847,
+        "many_to_one": 62.23654847508058
+      },
+      "native_head": 28.14034217703942,
+      "random": {
+        "m10": {
+          "joint": 38.64416067443591,
+          "strongest_public": {
+            "name": "graph-0.8-classmass",
+            "accuracy": 42.59558641210017
+          },
+          "portfolio": 38.152243987106374,
+          "gain_vs_strongest": {
+            "mean": -3.9514257376642705,
+            "ci_low": -5.365898834614432,
+            "ci_high": -2.6007581205058283
+          },
+          "private_selected_rate": 24.0
+        },
+        "m30": {
+          "joint": 57.1525663277957,
+          "strongest_public": {
+            "name": "graph-0.95-classmass",
+            "accuracy": 62.37441110835606
+          },
+          "portfolio": 57.165137614678905,
+          "gain_vs_strongest": {
+            "mean": -5.221844780560376,
+            "ci_low": -6.265246094718571,
+            "ci_high": -4.191163525911234
+          },
+          "private_selected_rate": 15.5
+        },
+        "m50": {
+          "joint": 64.03493677163401,
+          "strongest_public": {
+            "name": "graph-0.95-classmass",
+            "accuracy": 67.07289858666005
+          },
+          "portfolio": 64.075378130424,
+          "gain_vs_strongest": {
+            "mean": -3.037961815026035,
+            "ci_low": -3.857333870567816,
+            "ci_high": -2.2419098685841825
+          },
+          "private_selected_rate": 2.8000000000000003
+        },
+        "m100": {
+          "joint": 69.98859409868585,
+          "strongest_public": {
+            "name": "graph-0.8-classmass",
+            "accuracy": 71.36647656831141
+          },
+          "portfolio": 69.98859409868584,
+          "gain_vs_strongest": {
+            "mean": -1.3778824696255887,
+            "ci_low": -1.7957103892883706,
+            "ci_high": -0.9925427721299268
+          },
+          "private_selected_rate": 0.0
+        },
+        "m200": {
+          "joint": 74.38085792214233,
+          "strongest_public": {
+            "name": "ridge-1",
+            "accuracy": 75.34341681130672
+          },
+          "portfolio": 74.38085792214233,
+          "gain_vs_strongest": {
+            "mean": -0.962558889164394,
+            "ci_low": -1.2202206793949915,
+            "ci_high": -0.7170778576741885
+          },
+          "private_selected_rate": 0.0
+        },
+        "m500": {
+          "joint": 79.55516984874784,
+          "strongest_public": {
+            "name": "ridge-1",
+            "accuracy": 79.97570047111333
+          },
+          "portfolio": 79.55516984874782,
+          "gain_vs_strongest": {
+            "mean": -0.4205306223654848,
+            "ci_low": -0.644210265311183,
+            "ci_high": -0.22017108851971248
+          },
+          "private_selected_rate": 0.0
+        }
+      },
+      "directed": {
+        "m10": {
+          "joint": 61.864616910488465,
+          "strongest_public": {
+            "name": "graph-0.8-ordinary",
+            "accuracy": 67.29481775353335
+          },
+          "portfolio": 61.864616910488465,
+          "gain_vs_strongest": {
+            "mean": -5.430200843044886,
+            "ci_low": -5.4302008430448865,
+            "ci_high": -5.430200843044886
+          },
+          "private_selected_rate": 0.0,
+          "joint_minus_directed_public": 0.0
+        },
+        "m30": {
+          "joint": 61.864616910488465,
+          "strongest_public": {
+            "name": "graph-0.8-classmass",
+            "accuracy": 67.17084056533598
+          },
+          "portfolio": 61.864616910488465,
+          "gain_vs_strongest": {
+            "mean": -5.306223654847509,
+            "ci_low": -5.30622365484751,
+            "ci_high": -5.306223654847509
+          },
+          "private_selected_rate": 0.0,
+          "joint_minus_directed_public": 0.0
+        },
+        "m50": {
+          "joint": 61.864616910488465,
+          "strongest_public": {
+            "name": "graph-0.8-ordinary",
+            "accuracy": 68.65856682370443
+          },
+          "portfolio": 61.864616910488465,
+          "gain_vs_strongest": {
+            "mean": -6.793949913215968,
+            "ci_low": -6.793949913215969,
+            "ci_high": -6.793949913215967
+          },
+          "private_selected_rate": 0.0,
+          "joint_minus_directed_public": 0.0
+        }
+      }
+    },
+    "dinov2": {
+      "ceilings": {
+        "one_to_one": 91.5943466402182,
+        "many_to_one": 91.5943466402182
+      },
+      "native_head": 34.31192660550458,
+      "random": {
+        "m10": {
+          "joint": 74.62199355318621,
+          "strongest_public": {
+            "name": "count-matching",
+            "accuracy": 61.62310934787999
+          },
+          "portfolio": 56.12521696007935,
+          "gain_vs_strongest": {
+            "mean": 12.998884205306226,
+            "ci_low": 8.15084180510786,
+            "ci_high": 18.441477188197386
+          },
+          "private_selected_rate": 75.0
+        },
+        "m30": {
+          "joint": 88.00590131415818,
+          "strongest_public": {
+            "name": "count-matching",
+            "accuracy": 90.06422018348623
+          },
+          "portfolio": 87.63823456484008,
+          "gain_vs_strongest": {
+            "mean": -2.0583188693280445,
+            "ci_low": -3.187547111331519,
+            "ci_high": -0.8699708653607753
+          },
+          "private_selected_rate": 9.700000000000001
+        },
+        "m50": {
+          "joint": 91.00570295065707,
+          "strongest_public": {
+            "name": "graph-0.95-classmass",
+            "accuracy": 93.00793454004464
+          },
+          "portfolio": 91.00570295065707,
+          "gain_vs_strongest": {
+            "mean": -2.0022315893875517,
+            "ci_low": -2.462441110835609,
+            "ci_high": -1.5169104884701217
+          },
+          "private_selected_rate": 0.0
+        },
+        "m100": {
+          "joint": 92.96702206793948,
+          "strongest_public": {
+            "name": "graph-0.95-classmass",
+            "accuracy": 94.39722291098438
+          },
+          "portfolio": 92.9670220679395,
+          "gain_vs_strongest": {
+            "mean": -1.4302008430448798,
+            "ci_low": -1.74666501363749,
+            "ci_high": -1.1192474584676415
+          },
+          "private_selected_rate": 0.0
+        },
+        "m200": {
+          "joint": 94.17728737912223,
+          "strongest_public": {
+            "name": "graph-0.95-classmass",
+            "accuracy": 94.85742623357302
+          },
+          "portfolio": 94.17728737912226,
+          "gain_vs_strongest": {
+            "mean": -0.6801388544507808,
+            "ci_low": -0.8673630052070419,
+            "ci_high": -0.5142387800644672
+          },
+          "private_selected_rate": 0.0
+        },
+        "m500": {
+          "joint": 94.99851227374162,
+          "strongest_public": {
+            "name": "ridge-1",
+            "accuracy": 95.18596578229608
+          },
+          "portfolio": 94.99851227374165,
+          "gain_vs_strongest": {
+            "mean": -0.18745350855442566,
+            "ci_low": -0.24027398958591561,
+            "ci_high": -0.13860649640466155
+          },
+          "private_selected_rate": 0.0
+        }
+      },
+      "directed": {
+        "m10": {
+          "portfolio": 91.5943466402182,
+          "note": "inherited public-only record (protocol cohorts not needed: public only)"
+        }
+      }
+    }
+  }
+}

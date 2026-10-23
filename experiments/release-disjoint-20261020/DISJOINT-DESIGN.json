@@ -1,0 +1,86 @@
+{
+  "design": {
+    "stage": "EAB round 5, step 2: verification-cost ladder with source-disjoint image clients",
+    "question": "Does the CIFAR verification ladder, and the private gain it certifies, survive when no private source image is reused across or within clients?",
+    "prior_knowledge_disclosed": "Designers know the reused-source CIFAR-1k ladder (tab-verify-ladder) and its 26.6-point eps=1 gain-policy improvement over the public fallback.",
+    "dataset": "cifar10",
+    "clients": 1000,
+    "records_per_client": 40,
+    "training_records_per_client": 32,
+    "heldout_records_per_client": 8,
+    "partition": "sequential: each client draws Dirichlet(alpha=.1) class proportions and 40 labels; images are taken WITHOUT replacement from per-class pools of the 45000 private images (renormalizing over non-exhausted classes); the first 32 are training, the last 8 held-out; 40000 images used, each exactly once; client seed = cohort seed",
+    "source_reuse": 0,
+    "cohort_seeds": [
+      9601,
+      9602,
+      9603,
+      9604,
+      9605,
+      9606,
+      9607,
+      9608,
+      9609,
+      9610
+    ],
+    "epsilon_total": [
+      0.1,
+      1.0,
+      3.0
+    ],
+    "delta_total": 1e-05,
+    "zcdp_budget_fractions": {
+      "naming": 0.5,
+      "gain": 0.25,
+      "classes": 0.25
+    },
+    "composition": "sequential, one total budget per deployment",
+    "teacher": {
+      "model": "linear softmax head on frozen 128-d DINOv2 features",
+      "private_steps": 180,
+      "batch": 128,
+      "learning_rate": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005
+    },
+    "naming": "K=C/M; one protected aggregate at rho fraction .5 (as release-value private_validation)",
+    "candidate_family": "as release-value private_validation.select: public count match, eight joint weights, private centered and coverage; exact LOO on the 10 labels",
+    "comparator": "fixed observed-count region matching (as release-value)",
+    "label_draws": "release-value-20261019/public/labels_{0..99}.json (the same 100 ten-label draws as the reused-source demonstration)",
+    "validation": {
+      "gain_report": "per-client held-out accuracy difference, s=2^16, integer sensitivity s",
+      "class_report": "C x 4 joint correctness histogram per client, normalized by its 8 records, squared sensitivity 2 s^2",
+      "bands": "gain lower and direct linear-sum class bands of release-value-20261019; non-degradation band of release-eab-20261020/thresholds.py; alpha=.025"
+    },
+    "ladder_targets": [
+      "gain>0",
+      "gain>=.10",
+      "gain>=.20",
+      "all recalls>0",
+      "all recalls>=.25",
+      "all recalls>=.50",
+      "non-degradation eta=.25",
+      "non-degradation eta=.50"
+    ],
+    "primary": {
+      "S1": "at eps=1, the gain-verified policy has unconditional test accuracy above the public fallback with crossed-bootstrap 95% lower bound > 0 (cohorts x draws, 2000 replicates, seed 20261025)",
+      "reported_against": "the reused-source ladder at the same eps (paired label draws, different cohorts)"
+    },
+    "predictions": [
+      "S1 holds",
+      "acceptance is monotone along the ladder at every eps (gain>0 >= gain>=.10 >= gain>=.20; recalls>0 >= >=.25 >= >=.50; eta=.50 >= eta=.25)",
+      "no false accept at eps >= 1 for any ladder rule",
+      "the eps=1 gain-policy improvement over the public fallback is smaller than in the reused-source demonstration (fewer training records per client)"
+    ],
+    "confound_disclosed": "source-disjointness at n=1000 forces 32 training records per client instead of 480; the contrast mixes source reuse with per-client data size",
+    "reporting": {
+      "all_cases_retained": true,
+      "no_reruns_with_new_seeds": true,
+      "test_labels": "loaded only after all protected decisions",
+      "amendments": "implementation fixes after this freeze are logged in AMENDMENTS.json with time and reason"
+    }
+  },
+  "frozen_utc": "2026-10-20T12:16:41Z",
+  "source_sha256": {
+    "design.py": "2f2fda4d20870e64fa02419aa884b3a3c6cc1c9636c03ca6338942f254e416b4"
+  }
+}

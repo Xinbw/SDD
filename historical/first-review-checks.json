@@ -1,0 +1,114 @@
+{
+  "main_table_numerical_rows_unchanged": {
+    "tab-main-a01.tex": true,
+    "tab-main-a10.tex": true
+  },
+  "other_generated_tables_and_macros_unchanged": {
+    "tab-fedavg.tex": true,
+    "tab-ablation.tex": true,
+    "tab-budget-targets.tex": true,
+    "tab-cohort-validation.tex": true,
+    "numbers.tex": true
+  },
+  "previous_eight_audit_rows_preserved": true,
+  "audit": {
+    "budgets": [
+      0.01,
+      0.025,
+      0.05,
+      0.1,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "settings": 2,
+    "rows": 14,
+    "raw_inputs_sha256": {
+      "mia_agg_cifar10_a0.1_K10_s42.json": "24f316220974b67ca67dd966a05baf59f6300c4b828997706170d50923fe7dfe",
+      "mia_agg_mnist_a1.0_K5_s42.json": "2298f034d1f4353682f1d8f20cefffa1ce88de140d81eb44a28764559f3df398",
+      "mia_agg_mnist_a1.0_K20_s42.json": "ce0d43e0f98c067bb0b0c15a9c6d4fcc64a9fe4274f296bda3fa0b7b84462df3",
+      "mia_agg_mnist_a1.0_K100_s42.json": "890fb3039eed2bd80fe7764a970b9471c53c0a39593547bd7aed17eaaa23cf37",
+      "mia_agg_mnist_a1.0_K2000_s42.json": "ddc716418b51e78d47979cde1a8e36991ea0ea0fc6b361c096d465cef5672875",
+      "mia_agg_mnist_a1.0_K500_s42.json": "f397afabf7fed129dec701522b596a840134b10e64e2feb027365ea1d4409753"
+    },
+    "all_rows_match_source": true,
+    "Gaussian_AUC_maximum_absolute_error": 1.2796600445952322e-09,
+    "Gaussian_TPR_maximum_absolute_error": 0.0,
+    "maximum_TPR_at_epsilon_le_0_25": 0.011467119436007719,
+    "numerical_mc_replay_checks": {
+      "mia_agg_cifar10_a0.1_K10_s42.json": {
+        "pairs": 10,
+        "absolute_tpr_difference": 0.0003583507422751306
+      },
+      "mia_agg_mnist_a1.0_K5_s42.json": {
+        "pairs": 9,
+        "absolute_tpr_difference": 0.00012954877773307776
+      },
+      "mia_agg_mnist_a1.0_K20_s42.json": {
+        "pairs": 11,
+        "absolute_tpr_difference": 0.0006758079133084207
+      },
+      "mia_agg_mnist_a1.0_K100_s42.json": {
+        "pairs": 19,
+        "absolute_tpr_difference": 2.0282433003827177e-06
+      },
+      "mia_agg_mnist_a1.0_K2000_s42.json": {
+        "pairs": 20,
+        "absolute_tpr_difference": 8.257976953190797e-05
+      },
+      "mia_agg_mnist_a1.0_K500_s42.json": {
+        "pairs": 20,
+        "absolute_tpr_difference": 0.00019779289455331382
+      }
+    }
+  },
+  "protected_tree_checks": {
+    "results": {
+      "files": 5,
+      "all_sha256_identical": true
+    },
+    "provenance": {
+      "files": 2,
+      "all_sha256_identical": true
+    },
+    "validation-experiments": {
+      "files": 94,
+      "all_sha256_identical": true
+    }
+  },
+  "references_unchanged": true,
+  "figure_hash_comparison_to_validated_parent": {
+    "fig-main-curves.pdf": false,
+    "fig-mechanism.pdf": true,
+    "fig-ablations.pdf": true
+  },
+  "figure_1_numerical_inputs_unchanged": true,
+  "secondary_MNIST_gain": {
+    "alpha": 0.1,
+    "epsilon": 1.0,
+    "SDD": 0.9763,
+    "PATE_DI": 0.7735,
+    "gain_percentage_points": 20.28,
+    "precision": "four-decimal frozen means"
+  },
+  "MNIST_singleton_partition": {
+    "source": "data/mnist/cluster_result/2000_C_2000.npy",
+    "sha256": "551322de316625ec7282eef8b421201dc1989fc4f29c1cd976b568b8c9f5d29e",
+    "samples": 2000,
+    "clusters": 2000,
+    "all_clusters_size_one": true
+  },
+  "citation_keys_resolve": true,
+  "training_and_DP_sources_unchanged": true,
+  "new_training_runs_in_this_editorial_revision": 0,
+  "compile": {
+    "pdf_pages": 12,
+    "main_body_pages": 8,
+    "conclusion_page": 8,
+    "conclusion_complete_on_page_8": true,
+    "references_begin_page": 9,
+    "overfull_boxes": 0,
+    "undefined_references": 0,
+    "reference_count": 27
+  }
+}

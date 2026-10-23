@@ -1,0 +1,156 @@
+{
+  "dataset": "cifar10",
+  "n": 1000,
+  "epsilon": 0.1,
+  "seed": 8804,
+  "steps": 180,
+  "method": "regional",
+  "k": 10,
+  "estimator": "M",
+  "releases": 1,
+  "privacy": {
+    "epsilon_requested": 0.1,
+    "delta": 1e-05,
+    "rounds": 1,
+    "actual_clients": 1000,
+    "calibrated_clients": 1000,
+    "honest_clients": 1000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 445701,
+    "sensitivity_integer_squared": 85899345920,
+    "dimension": 100,
+    "log_tau_upper": -1960590808939.7788,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.00021620844050503443,
+    "rho_total_upper": 0.00021620844050503443,
+    "epsilon_upper": 0.099999807502313,
+    "residual_std": 0.21506199881205854,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits"
+  },
+  "population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "40e468553cf75b3f5c96e9274f562bfb6c33bf554978406306985a1e108b7f26",
+    "client_generation_seed": 8804,
+    "alpha": 0.1
+  },
+  "endpoints": {
+    "raw": {
+      "accuracy": 0.28316389784279694,
+      "balanced_accuracy": 0.2843848194732871,
+      "per_class_recall": [
+        0.2780612244897959,
+        0.8235294117647058,
+        0.0,
+        0.0,
+        0.6024691358024692,
+        0.5760598503740648,
+        0.49489795918367346,
+        0.020050125313283207,
+        0.04878048780487805,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        7,
+        6,
+        1,
+        5,
+        8,
+        8,
+        4,
+        4,
+        4,
+        0
+      ]
+    },
+    "center": {
+      "accuracy": 0.2687825440119018,
+      "balanced_accuracy": 0.26964776906388377,
+      "per_class_recall": [
+        0.2780612244897959,
+        0.8308823529411765,
+        0.21549636803874092,
+        0.0,
+        0.24444444444444444,
+        0.5760598503740648,
+        0.49489795918367346,
+        0.020050125313283207,
+        0.036585365853658534,
+        0.0
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        7,
+        6,
+        1,
+        5,
+        8,
+        1,
+        1,
+        2,
+        4,
+        0
+      ]
+    },
+    "coverage": {
+      "accuracy": 0.2667989090007439,
+      "balanced_accuracy": 0.26828107419024183,
+      "per_class_recall": [
+        0.2780612244897959,
+        0.0,
+        0.21549636803874092,
+        0.00980392156862745,
+        0.24444444444444444,
+        0.5760598503740648,
+        0.49489795918367346,
+        0.0,
+        0.012195121951219513,
+        0.8518518518518519
+      ],
+      "minimum_recall": 0.0,
+      "labels": [
+        3,
+        6,
+        7,
+        5,
+        9,
+        8,
+        1,
+        2,
+        4,
+        0
+      ]
+    }
+  },
+  "logical_report_coordinates": 100,
+  "public_task_labels": 0,
+  "all_training_before_release_private_only": true,
+  "private_model_published": false,
+  "diagnostic_file": "diagnostics/cifar10_1000_0.1_8804_T1_s180_regional_K10_M.npz",
+  "diagnostic_sha256": "f18be1c7d531e9621b4f1c096ccca91187c354fdb235c69ddbcf5475dde91657",
+  "private_local_only_endpoint": {
+    "accuracy": 0.32042054940760134,
+    "balanced_accuracy": 0.3205723585039377,
+    "per_class_recall": [
+      0.3368443803796545,
+      0.3438063823163975,
+      0.27682325649610723,
+      0.30326226554298774,
+      0.2962592724263668,
+      0.3312219562288374,
+      0.3397678498686291,
+      0.28521303077321497,
+      0.3228658552579582,
+      0.3696592756141909
+    ]
+  }
+}

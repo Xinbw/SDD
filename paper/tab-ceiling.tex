@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{Partition ceilings and the marginal value of regional supervision at random $m=C$. Ceil.: best one-to-one / many-to-one regional naming of the fixed public partition, an offline diagnostic computed with test labels. Room: one-to-one ceiling minus the strongest public learner. Named: fixed zero-label private naming (centered). $v$: calibrated mean-noise standard deviation of the naming release. Joint and Head (joint) as in Table~\ref{tab:joint-controls}. \%; Usenet uses balanced accuracy.}
+\label{tab:ceiling}\small
+\centering
+\setlength{\tabcolsep}{2.6pt}
+\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+Task/$\varepsilon$ & Ceil. & Pub. & Room & Named & $v$ & Joint & Head \\
+\midrule
+CIFAR 1k/0.1 & 91.6/91.6 & 61.6 & +30.0 & 50.3 & 0.215 & 74.6 & 76.6 \\
+CIFAR 10k/0.1 & 91.6/91.6 & 61.6 & +30.0 & 91.6 & 0.022 & 87.4 & 91.1 \\
+MNIST 10k/0.1 & 52.6/54.1 & 46.2 & +6.4 & 52.6 & 0.022 & 44.4 & 72.2 \\
+Usenet 3k/1 & 42.4/42.5 & 32.1 & +10.3 & 20.7 & 0.006 & 28.2 & 31.8 \\
+FEMNIST 1k/0.1 & 24.6/42.9 & 37.3 & -12.7 & 7.1 & 0.535 & 36.0 & 36.0 \\
+FEMNIST 1k/1 & 24.6/42.9 & 37.3 & -12.7 & 35.5 & 0.055 & 35.9 & 38.1 \\
+FEMNIST 2k/0.1 & 24.6/42.9 & 37.3 & -12.7 & 19.8 & 0.268 & 36.0 & 35.9 \\
+FEMNIST 2k/1 & 24.6/42.9 & 37.3 & -12.7 & 35.6 & 0.027 & 35.8 & 38.5 \\
+\bottomrule\end{tabular}
+\end{table}

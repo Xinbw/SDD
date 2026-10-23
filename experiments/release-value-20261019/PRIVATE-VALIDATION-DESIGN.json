@@ -1,0 +1,79 @@
+{
+  "design": {
+    "dataset": "cifar10",
+    "clients": 1000,
+    "private_seeds": [
+      8901,
+      8902,
+      8903,
+      8904,
+      8905,
+      8906,
+      8907,
+      8908,
+      8909,
+      8910
+    ],
+    "epsilon_total": [
+      0.1,
+      1.0,
+      3.0
+    ],
+    "delta_total": 1e-05,
+    "zcdp_budget_fractions": {
+      "naming": 0.5,
+      "gain": 0.25,
+      "classes": 0.25
+    },
+    "public_labels": 10,
+    "public_draws": 100,
+    "public_label_seed": 12000001,
+    "source_pool_partition_seed": 2026101901,
+    "source_pool_partition": "stratified 80/20 private source split, globally disjoint training and held-out sources",
+    "per_client_training_records": 480,
+    "per_client_heldout_records": 120,
+    "dirichlet_alpha": 0.1,
+    "private_training_steps": 180,
+    "all_private_steps_before_naming": true,
+    "batch": 128,
+    "learning_rate": 0.1,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "naming": "K=C/M; one protected aggregate; rho fraction .5",
+    "public_baseline": "fixed observed-count region matching; frozen comparator from completed development study",
+    "candidate_family": "restricted regional demonstration: public count match; eight existing joint weights; fixed private centered and coverage",
+    "candidate_weights": [
+      0.01,
+      0.03,
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0,
+      30.0
+    ],
+    "candidate_choice": "exact LOO accuracy; public-first fixed ties; no external public validation labels",
+    "verification_target": "finite actual held-out cohort mean candidate-minus-public-baseline utility; not unseen-population or per-client benefit",
+    "gain_report": "round half-up s*(1+paired gain)/2; integer sensitivity s",
+    "class_report": "C x 4 joint correctness histogram per client normalized by 120, exact largest-remainder integer simplex; squared sensitivity 2*s*s",
+    "validation_noise": "independent exact distributed discrete Gaussian shares for each of the two validation reports",
+    "gain_alpha": 0.025,
+    "class_alpha": 0.025,
+    "gain_lower": "released paired gain - 2*v_gain*sqrt(2 log(1/alpha_gain)) - 1/s",
+    "class_coordinate_radius": "v_class*sqrt(2 log(2*D/alpha_class)) + 1/s; raw unprojected coordinates",
+    "gain_policy": "private candidate selected AND gain lower > 0, otherwise public baseline",
+    "class_checked_policy": "gain policy AND positive simultaneous lower class recall in every class, otherwise public baseline",
+    "class_recall_threshold": 0.0,
+    "family_failure_probability_upper": 0.05,
+    "private_local_heldout_utility": "offline context only; never a selection/validation input",
+    "test_labels": "loaded only after candidate selection, protected validation and publication decisions",
+    "privacy_counterfactual_scope": "one label set, one cohort, one total epsilon; all research cases are separate deployments",
+    "no_public_annotations_for_private_verification": true,
+    "all_cases_retained": true
+  },
+  "utc": "2026-10-19T13:16:48Z",
+  "source_sha256": {
+    "study.py": "26b3db9e2cda1e45ab3379fccd406d8490971aaf63232f35277d792a876ccda7",
+    "private_validation.py": "807779810c91743b3bd1b6e6b8478db9e1df2787dbee5cd47e0a9c5a52de2d8b"
+  }
+}

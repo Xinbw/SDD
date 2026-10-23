@@ -1,0 +1,14 @@
+\begin{table}[t]
+\centering
+\caption{Matched DP-Head endpoints. Each method uses 180 steps. Head-local evaluates client models before the third aggregation, with the first two DP broadcasts and all three releases charged; no extra adaptation is added. Mean $\pm$ sample SD in percent, with the same replications as Table~\ref{tab:attribution}.}
+\label{tab:head-local}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrr@{}}\toprule
+task, cohort & SDD & Head-global & Head-local \\\midrule
+CIFAR, 10k & 85.0\,$\pm$\,2.9 & 92.7\,$\pm$\,0.5 & 91.5\,$\pm$\,0.4 \\
+MNIST, 10k & 55.0\,$\pm$\,1.1 & 67.3\,$\pm$\,1.0 & 65.0\,$\pm$\,1.0 \\
+CIFAR, 1k & 45.6\,$\pm$\,5.8 & 23.1\,$\pm$\,7.6 & 27.2\,$\pm$\,7.0 \\
+Usenet, 1k, $0.25$ & 24.8\,$\pm$\,3.0 & 22.7\,$\pm$\,4.7 & 22.8\,$\pm$\,2.6 \\
+Usenet, 3k, $1$ & 26.3\,$\pm$\,1.6 & 16.8\,$\pm$\,0.1 & 18.3\,$\pm$\,0.3 \\
+\bottomrule\end{tabular}
+\end{table}

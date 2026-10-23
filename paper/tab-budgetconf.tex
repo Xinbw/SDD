@@ -1,0 +1,18 @@
+\begin{table}[t]
+\caption{Budget split selected on independent development cohorts, frozen, then confirmed on new cohorts and the test split (acceptance \% / test accuracy \%, label draws 50--99). $\phi$: frozen naming share; $\Delta$: frozen minus fixed accuracy with crossed-bootstrap 95\% interval; FA: false accepts; Best: confirmation-best share, not used (--: all shares tie).}
+\label{tab:budgetconf}\small\setlength{\tabcolsep}{1.8pt}
+\centering
+\begin{tabular}{@{}llrrrrrr@{}}\toprule
+Target & $\varepsilon$ & $\phi$ & Fixed & Frozen & $\Delta$ accuracy & FA & Best \\
+\midrule
+gain $>0$ & .1 & .3 & 3.8/63.8 & 4.0/63.8 & +0.0 [$-$1.0, +1.0] & 0 & .5 \\
+ & 1 & .5 & 88.0/90.2 & 87.6/90.0 & $-$0.1 [$-$0.7, +0.2] & 0 & .6 \\
+ & 3 & .2 & 88.0/90.6 & 88.0/90.6 & +0.0 [$-$0.2, +0.2] & 0 & .4 \\
+all recalls $>0$ & .1 & .5 & 0.0/62.8 & 0.0/62.8 & +0.0 [+0.0, +0.0] & 0 & -- \\
+ & 1 & .2 & 5.4/64.5 & 78.2/87.2 & +22.8 [+18.9, +26.7] & 0 & .3 \\
+ & 3 & .2 & 83.8/89.6 & 83.6/89.5 & $-$0.1 [$-$0.8, +0.3] & 0 & .6 \\
+all recalls $\ge.50$ & .1 & .5 & 0.0/62.8 & 0.0/62.8 & +0.0 [+0.0, +0.0] & 0 & -- \\
+ & 1 & .5 & 0.0/62.8 & 0.0/62.8 & +0.0 [+0.0, +0.0] & 0 & -- \\
+ & 3 & .1 & 0.0/62.8 & 76.2/87.2 & +24.4 [+19.9, +28.6] & 0 & .1 \\
+\bottomrule\end{tabular}
+\end{table}

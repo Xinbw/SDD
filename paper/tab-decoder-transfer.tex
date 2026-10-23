@@ -1,0 +1,12 @@
+\begin{table*}[t]
+\caption{Fixed taxonomy resolution without public task labels, five paired seeds. MNIST/CIFAR-10: accuracy at $\varepsilon=0.1$; Web: balanced accuracy at $\varepsilon=1$, $K=6$. -- denotes an unrun prespecified cell.}
+\label{tab:decoder-transfer}\small
+\centering
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Task/cohort & Centered hard & Weighted matching & Projected soft & Centered soft \\
+\midrule
+mnist, 10k & 53.34$\pm$1.12 & 52.53$\pm$0.55 & 47.97$\pm$1.38 & 49.38$\pm$2.54 \\
+cifar10, 1k & 50.61$\pm$11.47 & 52.23$\pm$10.24 & -- & -- \\
+web, 3k & 19.53$\pm$3.61 & 14.90$\pm$1.10 & 19.19$\pm$0.08 & 18.94$\pm$0.59 \\
+\bottomrule\end{tabular}
+\end{table*}

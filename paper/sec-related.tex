@@ -1,0 +1,42 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Differential privacy in data management}
+Differential privacy~\cite{dwork2006calibrating,dwork2014algorithmic} is built into query engines
+(PINQ \cite{mcsherry2009pinq}, elastic-sensitivity SQL
+\cite{johnson2018flex}, PrivateSQL \cite{kotsogiannis2019privatesql}),
+synthetic data \cite{zhang2014privbayes} and benchmark methodology
+\cite{hay2016dpbench}. Federated databases add secure computation \cite{bater2017smcql,bater2018shrinkwrap};
+local DP supports collection without a trusted curator
+\cite{wang2017ldp,wang2019multidim}. Here protected answers become supervision, and verification shares their
+budget.
+
+\paragraph{Data acquisition, labelling and valuation}
+Labelling is a first-class pipeline cost
+\cite{roh2021survey,whang2023datacentric}: weak supervision creates labels
+\cite{ratner2017snorkel}, active learning chooses them
+\cite{settles2009active}, and valuation and marketplaces price data
+\cite{ghorbani2019shapley,jia2019shapley,agarwal2019marketplace}.
+
+\paragraph{Private evaluation and certification}
+Confusion-matrix metrics~\cite{boyd2015classifier}, federated precision,
+recall and ROC-AUC~\cite{cormode2022federated,wang2019federated} and
+federated A/B tests~\cite{chen2024federated} can be released privately. Private tuning and validation charge selection
+\cite{chaudhuri2013stability,liu2019private,papernot2022hyperparameter,mohapatra2022honest},
+emit-or-abstain rules release a claim only when a private lower bound passes
+a threshold \cite{takahashi2026evidence,takahashi2026privcert}, and simultaneous group bounds
+support non-private fairness audits \cite{cherian2023fairness}. Here the same budget also names the candidate.
+
+\paragraph{Private learning, distillation and cluster reuse}
+DP-SGD and client-private federated averaging bound contributions~\cite{abadi2016deep,mcmahan2018learning,kairouz2021advances,li2023fedsurvey};
+secure aggregation with distributed discrete-Gaussian noise removes a trusted
+curator~\cite{bonawitz2017practical,kairouz2021distributed,canonne2020discrete},
+DP-FTRL uses correlated noise~\cite{kairouz2021ftrl}. Public features help private learning~\cite{tramer2021features,li2022large}. Prediction exchange~\cite{li2019fedmd,lin2020feddf,itahara2021dsfl,abourayya2025little,wang2026fedakd}
+and PATE-style teacher votes~\cite{papernot2017semi,papernot2018scalable,zhu2020privateknn}
+transfer knowledge without parameters. NoiseCluster reuses a noisy cluster majority under label privacy
+($\sqrt2$ sensitivity~\cite{tang2022labels}); replacing a whole client gives
+$\sqrt{2K}$, so the two budgets are not interchangeable.
+Prio, Prochlo, split-and-mix and shuffling support aggregate-only
+interfaces~\cite{corriganGibbs2017prio,bittau2017prochlo,ishai2006cryptography,erlingsson2019amplification,feldman2021hiding},
+and browser reporting, summary releases and data markets bounded
+contributions~\cite{erlingsson2014rappor,ghazi2025sandbox,aksu2023summary,xing2026xemis}.

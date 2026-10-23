@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\caption{Comparison conditions and seed identities. Seeds are replications; the writer grid and mixture study reuse specified paired subsets. Public labels used for selection are listed separately from the protected client supervision used for targets.}
+\label{tab:study-map}\small
+\centering
+\begin{tabular}{@{}llll@{}}\toprule
+Condition & Configuration resource & Seed group & Reported endpoints \\
+\midrule
+Fixed CIFAR matching & K=10, M, matching; no task labels & 801--805; 8201--8205; 8601--8610 & Public NN; private client \\
+Public rule, four tasks & Development/validation; joint K/e/d & 8501--8510, eight settings & NN; public student; client \\
+CIFAR mixture intervention & Fixed K=10, M, matching; six mixtures & 8601--8610 (same ten as above) & NN; client, fixed 180 steps \\
+Natural-writer K grid & Five fixed K; M, centered & 8501--8505 (paired subset) & NN/client; accuracy/macro \\
+Point-query placement & Ten point queries, centered; paired replay & 8201--8205 & Private client \\
+FEMNIST source controls & 5000 development labels; validation & 8501--8510 & Public-only; Local+Public \\
+\bottomrule\end{tabular}
+\end{table*}

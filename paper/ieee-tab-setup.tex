@@ -1,0 +1,14 @@
+\begin{table}[t]
+\caption{Evaluated Settings}
+\label{tab:setup}\small\setlength{\tabcolsep}{2pt}
+\centering
+\begin{tabular}{@{}lrlllll@{}}\toprule
+Task & $C$ & Features & Private & $n$ & $\varepsilon$ & Splits \\
+\midrule
+CIFAR & 10 & DINOv2/128 & 45000 img. & 1k, 10k & .1 & 2000/5000/4033 \\
+MNIST & 10 & DINOv2/128 & 53000 img. & 10k & .1 & 2000/5000/5000 \\
+Usenet & 6 & TF-IDF/128 & 4249 authors & 3k & 1 & 1500/1500/1737 \\
+FEMNIST & 62 & DINOv2/128 & 2600 writers & 1k, 2k & .1, 1 & 2000/5000/4549 \\
+Verif. & 10 & DINOv2/128 & 480/120 rec. & 1k & .1, 1, 3 & as CIFAR \\
+\bottomrule\end{tabular}
+\end{table}

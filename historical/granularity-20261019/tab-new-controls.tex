@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\caption{Semantic attribution at actual $n=10^4$, $\alpha=0.1$, $\varepsilon=0.1$, five seeds. Purity is public; pseudo-label accuracy and flips use the first release. Full controls at both budgets and heterogeneity levels are in the artifact.}
+\label{tab:new-controls}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}llrrrrr@{}}\toprule
+task & grouping & $K$ & purity & pseudo & flips & accuracy \\\midrule
+CIFAR & SDD & 10 & 0.925 & 0.906 & 0.020 & 0.850\,$\pm$\,0.029 \\
+CIFAR & random & 10 & 0.139 & 0.121 & 0.660 & 0.489\,$\pm$\,0.009 \\
+CIFAR & representative & 10 & 0.925 & 0.876 & 0.120 & 0.833\,$\pm$\,0.029 \\
+CIFAR & weak & 10 & 0.240 & 0.222 & 0.380 & 0.549\,$\pm$\,0.005 \\
+MNIST & SDD & 20 & 0.624 & 0.552 & 0.210 & 0.550\,$\pm$\,0.011 \\
+MNIST & random & 20 & 0.145 & 0.116 & 0.680 & 0.378\,$\pm$\,0.014 \\
+MNIST & representative & 20 & 0.624 & 0.556 & 0.200 & 0.555\,$\pm$\,0.013 \\
+MNIST & weak & 20 & 0.683 & 0.513 & 0.340 & 0.512\,$\pm$\,0.014 \\
+\bottomrule\end{tabular}
+\end{table*}

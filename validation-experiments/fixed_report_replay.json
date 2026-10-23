@@ -1,0 +1,224 @@
+{
+  "scope": "fixed seed-42 round-1 reports, paired rounded-Gaussian noise replay",
+  "trials": 20000,
+  "replay_seed": 20261009,
+  "trained_clients": 100,
+  "K": 10,
+  "C": 10,
+  "T": 3,
+  "quantization_bits": 16,
+  "sampler": "independent float64 Gaussian draws rounded to integer noise per client",
+  "source_sha256": {
+    "logs/dp_v2/round1_clean_reports_K10.npy": "96cb83171ea9c691f44048b3545416ab62af44074882e1a4fc6eca97a6bfecb3",
+    "data/cifar10/cluster_result/10_C_2000.npy": "ee0dc8b618520e45e7599e8f3ec58d9dd1379fae42ab3b4fc2deb38af4d06d9a",
+    "data/cifar10/proxy_cifar10_src_idx_2000.npy": "29a232eefe2068a68a8ee8c9d53d41eaf837673a1d6b6d04f345f22adead530c"
+  },
+  "clean_vote_pseudo_label_accuracy": 0.658,
+  "clean_vote_margins": [
+    0.04999999701976776,
+    0.15000000596046448,
+    0.06000000238418579,
+    0.09000000357627869,
+    0.06999999284744263,
+    0.01000000536441803,
+    0.01000000536441803,
+    0.11000001430511475,
+    0.01000000536441803,
+    0.019999995827674866
+  ],
+  "conditions": {
+    "cohort100": {
+      "epsilon": 1.0,
+      "cohort": 100,
+      "aggregate_sigma": 37.95953711053704,
+      "residual_std": 0.3795953711053704,
+      "pseudo_label_accuracy": {
+        "mean": 0.15827492499999998,
+        "std": 0.1044780217873415,
+        "mean_ci95": [
+          0.1568269334932606,
+          0.15972291650673937
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.832864995059371,
+        "std": 0.11710711380555384,
+        "mean_ci95": [
+          0.831241973267148,
+          0.8344880168515939
+        ]
+      }
+    },
+    "cohort300": {
+      "epsilon": 1.0,
+      "cohort": 300,
+      "aggregate_sigma": 37.95953711053704,
+      "residual_std": 0.1265317903684568,
+      "pseudo_label_accuracy": {
+        "mean": 0.302910275,
+        "std": 0.12642577559881196,
+        "mean_ci95": [
+          0.3011581031444433,
+          0.3046624468555567
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.6647750031437725,
+        "std": 0.14517490004119044,
+        "mean_ci95": [
+          0.6627629816807392,
+          0.6667870246068057
+        ]
+      }
+    },
+    "cohort1000": {
+      "epsilon": 1.0,
+      "cohort": 1000,
+      "aggregate_sigma": 37.95953711053704,
+      "residual_std": 0.03795953711053704,
+      "pseudo_label_accuracy": {
+        "mean": 0.59915035,
+        "std": 0.09604671581297522,
+        "mean_ci95": [
+          0.5978192104323838,
+          0.6004814895676163
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.2961000064302236,
+        "std": 0.12306724849784674,
+        "mean_ci95": [
+          0.29439438138550955,
+          0.29780563147493766
+        ]
+      }
+    },
+    "cohort3000": {
+      "epsilon": 1.0,
+      "cohort": 3000,
+      "aggregate_sigma": 37.95953711053704,
+      "residual_std": 0.01265317903684568,
+      "pseudo_label_accuracy": {
+        "mean": 0.67148535,
+        "std": 0.05539175748897472,
+        "mean_ci95": [
+          0.670717659408091,
+          0.6722530405919089
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.12061000236161053,
+        "std": 0.09039710685556676,
+        "mean_ci95": [
+          0.1193571623793691,
+          0.12186284234385196
+        ]
+      }
+    },
+    "cohort10000": {
+      "epsilon": 1.0,
+      "cohort": 10000,
+      "aggregate_sigma": 37.95953711053704,
+      "residual_std": 0.003795953711053704,
+      "pseudo_label_accuracy": {
+        "mean": 0.6603972,
+        "std": 0.014885730126805018,
+        "mean_ci95": [
+          0.6601908943059747,
+          0.6606035056940254
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.009075000135228039,
+        "std": 0.02975212027423254,
+        "mean_ci95": [
+          0.008662656785616521,
+          0.009487343484839556
+        ]
+      }
+    },
+    "eps0_25": {
+      "epsilon": 0.25,
+      "cohort": 10000,
+      "aggregate_sigma": 149.4796722949386,
+      "residual_std": 0.014947967229493861,
+      "pseudo_label_accuracy": {
+        "mean": 0.66951335,
+        "std": 0.06045523892578029,
+        "mean_ci95": [
+          0.6686754831357077,
+          0.6703512168642923
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.14191000296138226,
+        "std": 0.094540992874819,
+        "mean_ci95": [
+          0.14059973164900916,
+          0.14322027427375536
+        ]
+      }
+    },
+    "eps0_5": {
+      "epsilon": 0.5,
+      "cohort": 10000,
+      "aggregate_sigma": 75.13698526476821,
+      "residual_std": 0.007513698526476821,
+      "pseudo_label_accuracy": {
+        "mean": 0.670248625,
+        "std": 0.03796834375984511,
+        "mean_ci95": [
+          0.6697224106024771,
+          0.670774839397523
+        ]
+      },
+      "cluster_flip_fraction": {
+        "mean": 0.05925500095151365,
+        "std": 0.06993990086684425,
+        "mean_ci95": [
+          0.05828568337921582,
+          0.06022431852381147
+        ]
+      }
+    }
+  },
+  "paired_comparisons": {
+    "cohort3000 minus cohort1000": {
+      "pseudo_label_gain_points": {
+        "mean": 7.2335,
+        "std": 8.827777338188625,
+        "mean_ci95": [
+          7.111153248114693,
+          7.3558467518853075
+        ]
+      },
+      "fraction_all_cluster_labels_identical": 0.1086,
+      "fraction_accuracy_lower": 0.13955,
+      "fraction_accuracy_higher": 0.74915,
+      "fraction_accuracy_equal": 0.1113
+    },
+    "eps0_5 minus eps0_25": {
+      "pseudo_label_gain_points": {
+        "mean": 0.0735275000000009,
+        "std": 5.13716783416812,
+        "mean_ci95": [
+          0.002329986251980623,
+          0.14472501374802116
+        ]
+      },
+      "fraction_all_cluster_labels_identical": 0.3719,
+      "fraction_accuracy_lower": 0.24535,
+      "fraction_accuracy_higher": 0.3816,
+      "fraction_accuracy_equal": 0.37305
+    }
+  },
+  "margin_summary": {
+    "median_convention": "arithmetic mean of the two middle observations for even K",
+    "vote_median": 0.05499999999999999,
+    "mean_posterior_median": 0.040740328707455545,
+    "legacy_posterior_lower_median": 0.040241552896732175,
+    "sigma": 37.95953711053704,
+    "vote_operating_cohort": 690.1734020097645,
+    "vote_operating_cohort_rounded": 690.0
+  }
+}

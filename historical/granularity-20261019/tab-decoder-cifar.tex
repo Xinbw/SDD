@@ -1,0 +1,13 @@
+\begin{table*}[t]
+\caption{CIFAR-10, actual 10k clients, $\varepsilon=0.1$, fixed $K=C=10$, no public task labels. Accuracy (\%, mean$\pm$sample SD); complete means all ten classes occur among first-release regional targets. Every prespecified decoder and both disjoint seed groups are retained.}
+\label{tab:decoder-cifar}\small
+\centering
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Decoder & Original five & Fresh five & Complete orig. & Complete fresh \\
+\midrule
+Centered hard & 84.15$\pm$3.01 & 85.42$\pm$1.91 & 3/5 & 4/5 \\
+Weighted matching & 86.28$\pm$0.02 & 86.28$\pm$0.03 & 5/5 & 5/5 \\
+Projected soft & 74.02$\pm$1.47 & 74.52$\pm$2.64 & 4/5 & 5/5 \\
+Centered soft & 79.82$\pm$1.63 & 79.16$\pm$4.21 & 3/5 & 4/5 \\
+\bottomrule\end{tabular}
+\end{table*}

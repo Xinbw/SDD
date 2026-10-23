@@ -1,0 +1,72 @@
+\section{Introduction}
+\label{sec:intro}
+
+Public representations can encode useful geometry before any private task
+labels are available. In community-content learning, users retain labelled
+post histories and local models; a coordinator supplies a public feature map,
+an unlabelled proxy and a class taxonomy. Protected aggregation can collect
+bounded contributions without exposing individual reports~\cite{corriganGibbs2017prio,bittau2017prochlo,bonawitz2017practical}.
+The learning question is what supervision those contributions should carry.
+With strong public features, the choice is between releasing parameters,
+querying every proxy example, and reusing one target over a semantic region.
+
+\paragraph{The gap: release resolution needs a utility criterion.}
+PATE aggregates teacher votes~\cite{papernot2017semi,papernot2018scalable},
+and federated distillation transfers predictions on public
+examples~\cite{li2019fedmd,lin2020feddf,itahara2021dsfl,abourayya2025little}.
+A joint per-example vote report has replace-one whole-client sensitivity
+$\sqrt{2|P|}$, even when related queries share a useful target.
+A coarser release reduces sensitivity but can assign a common target to
+examples from different classes. A release rule must account for both public
+geometry and the noise that the actual cohort can average.
+Public representations are an explicit resource: prior work establishes their
+importance for private learning~\cite{tramer2021features,li2022large}.
+Our question concerns the private supervision exchanged on top of them.
+
+\paragraph{The idea: choose the unit of private supervision.}
+Semantic-DP Distillation (SDD) forms $K$ public regions and releases one class
+vote per client per region. Every proxy example inherits its region's target.
+The report has $KC$ coordinates and tight whole-client sensitivity
+$\sqrt{2K}$, independently of proxy size at fixed $K$.
+A conditional quality model separates regional impurity from target decoding
+and explains when additional budget stabilizes targets, when additional
+regions supply useful resolution, and when the cohort cannot support that
+resolution. A public-only predictor evaluates candidate $K$ without consulting
+private margins or final-test labels. At $K=C$, weighted matching offers a
+coverage-constrained decoder using the same protected matrix.
+
+\paragraph{The evidence: compact supervision with a verified mechanism.}
+At actual 10k strongly heterogeneous CIFAR-10 clients, $\varepsilon=0.1$ and
+$\delta=10^{-5}$, a fixed $K=C=10$ matching decoder reaches
+\textbf{$86.3\%$ accuracy without public task labels}, with five original and
+five independent confirmation seeds. Its 100-coordinate report uses
+\textbf{$200\times$ fewer coordinates} than per-example DP-FedCT.
+On the original paired seeds, the gain over per-example transfer is
+16.6 points ($95\%$ interval $[14.6,18.5]$); independent local learning gives
+$42.4\%$. Replaying regional targets identifies the mechanism: matching
+repairs repeated-class assignments in three of ten seeds and leaves the
+other seven endpoints unchanged.
+
+Matched partitions and query controls separate semantic reuse from simply
+reducing the number of queries. A Gaussian approximation predicts regional
+release-label quality across participation, resolution and privacy budgets,
+validated against independent exact distributed noise. Distinct Usenet authors
+and official Federated EMNIST writers supply natural client boundaries.
+Together with a compact DP-Head baseline, these studies characterize which
+released object the available geometry and aggregation resources support.
+
+\paragraph{Contributions.}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{A regional interface for whole-client private supervision.}
+SDD reuses targets across public examples with a $KC$-coordinate report and
+$\sqrt{2K}$ sensitivity. Established distributed integer noise protects its
+adaptive transcript under an aggregate-only interface (\S\ref{sec:method}).
+\item \textbf{A quality criterion for release granularity.}
+An exact regional-label decomposition, an uncentered margin bound and an
+independently checked Gaussian approximation connect public geometry to
+noise-supported resolution (\S\ref{sec:quality}).
+\item \textbf{Conditional decoding and empirical release choices.}
+Paired decoder controls, independent seed confirmation, and natural client
+studies identify when semantic reuse, class coverage and parameter averaging
+supply useful private supervision (\S\ref{sec:eval}).
+\end{itemize}

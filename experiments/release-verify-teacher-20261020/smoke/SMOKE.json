@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "quantize equals release-value quantize (1000 clients x 120)",
+    "class bands equal linear_bands.bands",
+    "LOO selection reproduces 6 recorded old-cohort MNIST hybrid choices and metrics exactly; public learners on extended queries equal recorded test metrics"
+  ],
+  "tasks": [
+    "mnist",
+    "cifar10",
+    "web"
+  ],
+  "seeds": "first seed per task",
+  "epsilon": [
+    1.0
+  ],
+  "draws": [
+    0,
+    1
+  ],
+  "seconds": 13.33065128326416,
+  "note": "draws 0-1 are secondary draws; primary draws 50-99 are not touched by the smoke test"
+}

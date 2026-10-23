@@ -1,0 +1,22 @@
+{
+  "tab-main-a01.tex": {
+    "caption": "Mean client accuracy under strong heterogeneity ($\\alpha=0.1$). Cluster-level release yields gains up to 45.1 percentage points over per-example transfer in the measured privacy-budget grid.",
+    "note": "Mean client accuracy over seeds 42/43/44, mean\\,$\\pm$\\,std across seeds. Bold highlights SDD where its mean is the largest. Asterisks on each baseline denote its paired test against SDD: $^{*}p<0.05$, $^{**}p<0.01$ (per-cell tests). $K$ is selected per $\\varepsilon$ on seed 42 and fixed for seeds 43/44. $\\delta=10^{-5}$, $T=3$, $t=0$. Consensus uses 100 trained clients, with residual noise calibrated to deployment cohort $n=10^4$."
+  },
+  "tab-main-a10.tex": {
+    "caption": "Mean client accuracy under mild heterogeneity ($\\alpha=1.0$). The complete grid supports utility-target budget comparisons and records the resolution selected at each budget.",
+    "note": "Mean client accuracy over seeds 42/43/44, mean\\,$\\pm$\\,std across seeds. Bold highlights SDD where its mean is the largest. Asterisks on each baseline denote its paired test against SDD: $^{*}p<0.05$, $^{**}p<0.01$ (per-cell tests). $K$ is selected per $\\varepsilon$ on seed 42 and fixed for seeds 43/44. $\\delta=10^{-5}$, $T=3$, $t=0$. Consensus uses 100 trained clients, with residual noise calibrated to deployment cohort $n=10^4$."
+  },
+  "tab-fedavg.tex": {
+    "caption": "Parameter-release noise scale on CIFAR-10, $\\alpha=0.1$, with the same aggregate-only trust model and zCDP calibration. Two schedules locate the relationship between utility and the noise-to-clipped-signal ratio.",
+    "note": "Random-guess accuracy is 0.10. Ratios use $T=3$ and are independent of clipping norm $B=56$. Entries with $\\pm$ use three seeds; other numerical entries use one seed. The $T=20$, $E=3$ schedule is measured at $\\varepsilon=1,10$. Residual noise is calibrated to deployment cohort $n=10^4$."
+  },
+  "tab-ablation.tex": {
+    "caption": "Consensus extraction and release design on CIFAR-10, $\\alpha=0.1$, $T=3$, seed 42. Hard CE gains 5.38 points over soft KL at $\\varepsilon=0.1$; full coverage gains 15.02 points over filtering at thresholds 0.4/0.6. Encoding and $K$ test the report interface and semantic resolution.",
+    "note": "Reference accuracies are 0.4280 at $\\varepsilon=1$ and 0.4202 at $\\varepsilon=0.1$, with $K=10$ and no filtering. Accuracy is for the listed variant. Loss and coverage give reference minus variant (design gain); encoding and $K$ give variant minus reference. Values use one seed, with residual noise calibrated to $n=10^4$. Fixed-$K$ choices preserve probability-unit sensitivity; the $K$ sweep changes it."
+  },
+  "tab-mia.tex": {
+    "caption": "Audit of fixed round-1 reports under a replace-one adversary knowing all other reports. The strongest client pair attains the sensitivity bound under strong heterogeneity; the corresponding Gaussian test remains close to the random-guess TPR at small budgets.",
+    "note": "Worst case over all $4950$ client pairs, seed 42, with $T=3$ independent fixed-report releases. Reports are in probability units: $\\mu=\\lVert R_i-R_j\\rVert_2\\sqrt{T}/\\sigma$. Random guessing has AUC 0.500 and TPR 0.010 at 1\\% FPR. $\\varepsilon_{\\mathrm{GDP}}$ converts $\\mu$ to $(\\varepsilon,10^{-5})$. Recorded integer-noise replays differ from their corresponding Gaussian TPR by less than 0.001. All seven budgets are displayed."
+  }
+}

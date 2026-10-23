@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Usenet family recall and protected target allocation, 3k/$\varepsilon=1$, ten seeds, public-selected configuration ($K=5$ for SDD). Target \% and $N_c$ apply to SDD-M/R, DP-FedCT and DP-Head, which label all 1500 proxy items. Target \% divides talk/alt--soc/misc target counts by 1500; $N_c$ counts distinct target classes. Both average releases 1/2 within each seed, then ten seeds. Recalls first average evaluated models within each seed; min recall takes the six-class minimum before summarizing seeds (percent mean $\pm$ SD). Other recall columns are seed means.}
+\label{tab:web-recall}\label{tab:target-coverage}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrrrrr@{}}\toprule
+method & comp & rec & sci & talk & alt/soc & misc & target \% & $N_c$ & min recall \\\midrule
+Local & 35.5 & 20.3 & 20.2 & 11.4 & 6.8 & 8.1 & -- & -- & 6.8\,$\pm$\,0.3 \\
+SDD-M & 41.9 & 14.6 & 20.7 & 27.2 & 21.2 & 17.6 & 46.1 & 3.8 & 2.3\,$\pm$\,0.8 \\
+SDD-R & 78.4 & 44.2 & 28.4 & 2.1 & 2.2 & 2.6 & 1.3 & 3.0 & 1.8\,$\pm$\,0.4 \\
+DP-FedCT & 57.3 & 24.7 & 24.3 & 9.2 & 5.5 & 6.6 & 41.4 & 6.0 & 5.5\,$\pm$\,0.3 \\
+PATE-DI & 64.3 & 28.0 & 21.7 & 14.0 & 5.8 & 6.5 & -- & -- & 5.7\,$\pm$\,0.4 \\
+Head-global & 100.0 & 0.6 & 0.0 & 0.0 & 0.0 & 0.0 & 1.7 & 4.6 & 0.0\,$\pm$\,0.0 \\
+Head-local & 99.0 & 3.7 & 1.5 & 1.5 & 2.0 & 2.0 & -- & -- & 1.4\,$\pm$\,0.3 \\
+Local+Pub & 78.7 & 58.1 & 36.3 & 41.4 & 25.1 & 6.6 & -- & -- & 6.6\,$\pm$\,0.2 \\
+Public-only & 85.1 & 81.0 & 56.6 & 67.8 & 62.7 & 56.1 & -- & -- & 55.7\,$\pm$\,1.2 \\
+\bottomrule\end{tabular}
+\end{table*}

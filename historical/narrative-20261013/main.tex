@@ -1,0 +1,85 @@
+% ---------------------------------------------------------------------------
+% The Web Conference 2027 (ACM Web 2027), Security and Privacy track.
+% Full papers: 8 pages main + references + optional appendix, 12 pages total.
+% Abstract 18 Oct 2026, full paper 25 Oct 2026 (AoE). Double-blind.
+%   latexmk -pdf main.tex
+%
+% Active tables and figures are GENERATED from recorded experiments: run
+%   python experiments/review-narrative-20261013/src/export_tables.py --paper paper
+%   python experiments/review-round4-20261013/src/export_mechanism.py --paper paper
+% from the packaged project root. Never edit numerical table cells by hand.
+% ---------------------------------------------------------------------------
+\documentclass[sigconf,anonymous,review,balance=false]{acmart}
+
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\setlength{\emergencystretch}{2em}
+
+\settopmatter{printacmref=false}
+\setcopyright{none}
+\renewcommand\footnotetextcopyrightpermission[1]{}
+\pagestyle{plain}
+\acmConference[The Web Conference 2027]{The Web Conference 2027}{}{}
+\acmYear{2027}
+
+\begin{document}
+
+\title[Semantic-DP Distillation]{Semantic-DP Distillation: Learning through Semantic Clusters
+at Small Privacy Budgets}
+
+\author{Anonymous Author(s)}
+
+\begin{abstract}
+Community-content learning needs shared supervision when labels remain with
+clients and public proxies are unlabelled. Joint per-example vote reports make
+whole-client sensitivity grow with proxy size, although related examples can
+share supervision. Semantic-DP Distillation (SDD) makes public semantic regions
+the unit of private knowledge exchange: each client casts one class vote per
+region, and the released regional target supervises every proxy example in
+that region. For $K$ fixed public regions, the report contains $KC$ coordinates
+with tight replace-one sensitivity $\sqrt{2K}$. Established distributed integer
+noise and adaptive accounting provide whole-run client privacy under protected
+aggregation. On frozen public representations with $10^4$ strongly
+heterogeneous CIFAR-10 clients, a fixed configuration using no public task
+labels achieves $84.2\%$ accuracy over five seeds at $\varepsilon=0.1$ and
+$\delta=10^{-5}$, versus $42.4\%$ for independent learning and $69.7\%$ for
+per-example DP-FedCT. The 100-coordinate report gains $14.4$ percentage points
+with $200\times$ fewer coordinates. Separate public-configured controls yield
+$85.0\%$ for semantic regions versus $48.9\%$ for size-matched random regions.
+With public configuration selection, a ten-seed Usenet study of 3000 distinct
+authors reaches $26.3\%$ balanced accuracy at $\varepsilon=1$, gaining $5.1$
+points over per-example transfer using 30 rather than 9000 coordinates.
+Semantic reuse extends the supervision supplied by each bounded private report.
+\end{abstract}
+
+\ccsdesc[500]{Security and privacy~Privacy-preserving protocols}
+\ccsdesc[300]{Computing methodologies~Machine learning}
+
+\keywords{differential privacy, federated learning, distributed DP,
+knowledge distillation, semantic partition, private aggregation}
+
+
+\maketitle
+% Review headers show the venue name without unspecified date/location fields.
+\makeatletter
+\fancyhead[LE]{\ACM@linecountL\@headfootfont The Web Conference 2027}
+\fancyhead[RO]{\@headfootfont The Web Conference 2027\ACM@linecountR}
+\makeatother
+
+\input{sec-intro}
+\input{sec-related}
+\input{sec-method}
+\input{sec-threat-model}
+\input{sec-eval}
+\input{sec-conclusion}
+
+\clearpage
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\input{sec-appendix}
+
+\end{document}

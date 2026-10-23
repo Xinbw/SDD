@@ -1,0 +1,300 @@
+
+
+\section{Evaluation}
+\label{sec:eval}
+
+The central comparison measures the task supervision clients supply through
+an unlabelled proxy. Matched region controls identify the role of semantic
+geometry, and accuracy--report-size operating points characterize release
+resources. Natural-author results connect these choices to the allocation of
+supervision.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig-ablations.pdf}
+\Description{Matched image controls compare semantic means, random regions,
+semantic representatives and pixel-PCA regions. Web panels compare both regional
+estimators, random representatives and baselines, with ten-seed error bars.}
+\caption{Public-configured semantic controls and natural-author transfer, means with sample SD.
+(a,b) Images: five seeds, actual $n=10^4$, $\alpha=0.1$, $\varepsilon=0.1$,
+fixed $K$ and learner features; purity is public. (c) Usenet: 3k authors,
+$\varepsilon=1$. (d) Fixed $K=5$, $\varepsilon=0.25$ separates participation
+from resolution. Web uses ten fresh seeds. M/R share sensitivity and report size.}
+\label{fig:semantic}
+\end{figure*}
+
+\subsection{Experimental setup}
+\label{sec:eval:setup}
+
+\paragraph{Public features and private learners.}
+CIFAR-10 and MNIST use a frozen public DINOv2 ViT-S/14
+extractor~\cite{oquab2023dinov2}, followed by a $128$-component PCA fitted
+on the public proxy alone and per-example feature normalisation.
+Each client's separately initialised softmax classifier trains on its own
+$600$ draws with replacement from the private image pool, with a Dirichlet
+label mixture $\alpha\in\{0.1,1.0\}$. There are $45000$/$53000$ eligible private CIFAR-10/MNIST images after excluding
+the $5000$ public development images and the proxy. Overlap between constructed
+clients is possible; the protected unit is one complete constructed dataset.
+
+The image proxy contains $2000$ unlabelled examples. Public validation and
+final test use different halves of the official test split after removing
+proxy examples: $3967/4033$ CIFAR-10 examples and $5000/5000$ MNIST examples.
+Public development labels train the pilot teachers. Client-report methods use
+private labels and released proxy targets; public-supervised references are
+defined below. The selector omits final-test arrays; final evaluation follows configuration
+and schedule freezes.
+
+\paragraph{Natural-author Web content.}
+The 20 Newsgroups corpus supplies Usenet posts and From-header author
+identifiers. We define six public content families: comp, rec, sci, talk,
+alt/soc and misc. Each client comprises all training posts of one selected
+author identifier; no author is duplicated to enlarge the cohort.
+There are $4249$ eligible private authors, with a median of one training post.
+Separate public authors supply $1500$ proxy and $1500$ development posts.
+Validation and test contain $1747$ and $1737$ posts from disjoint held-out
+authors absent from both private and public training authors.
+Headers and quoted lines are removed from model input.
+TF-IDF is fitted on public proxy/development text, and its $128$-dimensional
+SVD is fitted on the proxy. The predeclared primary Web metric is mean client
+balanced accuracy over the six families; standard accuracy is also retained
+in the artifact.
+
+\paragraph{Identical local resources.}
+All private learners use three rounds of 60 SGD steps, batch size 128,
+learning rate 0.1, momentum 0.9 and weight decay $5\times10^{-4}$.
+Round~1 is private; later batches mix 64 private and 64 labelled proxy items.
+PATE samples answered queries, using private-only batches when none qualify.
+Client weights, momentum and draws are independent. Final metrics average
+third-round client models; DP-Head additionally evaluates its final broadcast
+and the local endpoint preceding it. All three releases are charged, with no
+extra adaptation or cohort-dependent training steps.
+
+\paragraph{Privacy and configurations.}
+Image curves use actual $n=10^4$ at seven budgets
+$\varepsilon\in\{0.01,0.025,0.05,0.1,0.25,0.5,1\}$, $\delta=10^{-5}$.
+Additional cohorts are 100/1000 image clients and 100/1000/3000 distinct authors.
+Every release samples one noise share per actual contributor, certified under
+\S\ref{sec:threat}. A public pilot selects $K\in\{5,10,20,50,100\}$ and
+ordinary/centered consensus by validation transfer, using public teachers and
+five deployment-noise repeats. Configurations freeze before private test
+metrics; each actual cohort forms its own consensus.
+
+\paragraph{Matched release interfaces.}
+DP-FedCT retains FedCT's hard-label co-training~\cite{abourayya2025little}
+but replaces its native local randomised response with the same aggregate-only
+distributed-DP layer as SDD. It reports all $|P|C$ one-hot coordinates, uses
+the same local trainer, and receives the same public consensus correction.
+This matches the privacy unit while varying granularity.
+
+DP-Head privately averages clipped $128\times C$ classifier updates, adds exact
+noise shares, and broadcasts the resulting head. Its public pilot selects the
+clipping radius from six public-teacher norm quantiles. Rounded updates are guarded by integer radius $L_B=\lceil sB+\sqrt{128C}/2\rceil$ and use sensitivity $2L_B$. It shares the feature map and private optimisation budget.
+
+PATE-DI uses two protected stages: noisy maximum vote confidence screens
+queries, then noisy vote counts answer a capped subset. Its public pilot tunes
+three thresholds, two answer-cap fractions and two screening-budget fractions.
+Screening and answers are both included in data-independent R\'enyi
+accounting~\cite{papernot2018scalable,mironov2017renyi}. Protected maximum
+computation requires a richer secure functionality than SDD's additive sum;
+the evaluation grants this ideal functionality to the baseline. The configured protocol and tighter conversion are in
+Appendix~\ref{app:baselines}.
+
+
+
+\input{tab-narrative-core}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig-mechanism.pdf}
+\Description{The left panel relates accuracy to report coordinates and shows the public-only
+reference. The right compares actual cohorts, incorporating the independent
+ten-seed 1k confirmation and DP-Head local endpoint.}
+\caption{Public-configured CIFAR-10 release resources, $\alpha=0.1$, means with sample SD.
+(a) Actual 10k clients, three seeds; dotted line: public-only head with all
+5000 development labels, 600 steps and zero private coordinates.
+(b) Actual cohorts, fixed client steps; $\varepsilon=0.1$ at 1k uses ten fresh
+seeds, other points three. Open triangle is DP-Head's matched local endpoint.
+Solid/dashed curves use $\varepsilon=0.1/0.025$ in (a) and
+$\varepsilon=0.1/1$ in (b); public settings are fixed per cohort.}
+\label{fig:mechanism}
+\end{figure*}
+
+\paragraph{Replications and uncertainty.}
+Complete budget curves use independent population/training/noise seeds
+$801$--$803$. The predeclared $\varepsilon=0.1$ image and Web comparisons and
+semantic controls use five seeds, $801$--$805$. Curves show means and sample
+standard deviations. Independent confirmations use ten fresh seeds
+($8101$--$8110$) and frozen configurations: actual $n=1000$ CIFAR-10 at $0.1$,
+and Web cohorts $1000/3000$ at fixed $K=5$ and budgets $0.25/1$.
+Both estimators retain frozen settings. Paired $95\%$ intervals use seeds
+as replications. For paired differences $d_j$, intervals are
+$\bar d\pm t_{0.975,m-1}s_d/\sqrt m$, with $m=5$ or $10$ seeds;
+gains are computed before rounding and measured in percentage points.
+The independent ten-seed group supplies the primary estimate
+at overlapping settings; three-seed curves retain the initial scan.
+Table~\ref{tab:seed-reconciliation} retains the initial, confirmation and pooled groups.
+The artifact contains every result, configuration and schedule.
+
+\paragraph{Knowledge-source references.}
+Local-only uses the same clients and 180 steps, with private data throughout.
+Public-only trains a head on all existing public development labels, using the
+same feature map. Public validation chooses learning rate from $0.03,0.1,0.3$
+and training length from $60,180,600$ steps over five public seeds, before test
+access. We report both the 180-step reference and the selected 600-step model.
+Local+Public holds the client's 180-step schedule and proxy mixing fixed but
+obtains proxy labels from that public model, isolating the source of shared
+supervision. These references transmit no private model or report.
+Public-configured runs make the same labelled development pool available to
+the public pilot and public-supervised references. The no-public-task-label
+condition fixes $K=C$ and centered consensus;
+public task labels select neither settings nor training targets. Images use
+$\alpha=0.1$, $\varepsilon=0.1$. Public-configured Web confirmation uses
+$K=5$ selected with labelled public teachers; the fixed check uses $K=6$.
+Both estimators share each rule, with no routing. Benchmark labels serve offline
+evaluation. The two conditions jointly vary resolution and selection resources.
+
+\subsection{Client-sourced supervision without public task labels}
+\label{sec:eval:main}
+
+Regional client reports raise strongly heterogeneous CIFAR-10 accuracy from
+$42.4\%$ independent local learning to $84.2\%$ at $\varepsilon=0.1$,
+using 100 report coordinates. With actual 10k clients, fixed $K=C=10$ and
+centered consensus, five seeds give $84.2\%\pm3.0\%$, versus
+$69.7\%\pm1.6\%$ for per-example DP-FedCT and
+$42.4\%\pm0.1\%$ for Local-only (Table~\ref{tab:core-supervision}).
+The paired gains are 14.4 points ($95\%$ interval $[12.2,16.7]$) over
+per-example transfer and 41.8 points ($[38.0,45.6]$) over independent learning.
+A released regional target supervises every proxy item in its region:
+100 coordinates supply targets to all 2000 proxy examples with
+$200\times$ fewer coordinates than the per-example interface.
+
+The same fixed rule gives MNIST $51.6\%$, versus $33.3\%$ local and
+$46.2\%$ per-example accuracy. Public task labels determine neither the
+configuration nor the training targets; private client reports supply task
+supervision through the unlabelled proxy. The complete fixed-rule image and
+Web conditions appear in Table~\ref{tab:label-free}.
+
+\subsection{Semantic structure and release resolution}
+\label{sec:eval:semantic}
+
+At matched report size, privacy budget and local computation, semantic grouping
+improves CIFAR-10 accuracy by \textbf{36.1 percentage points} over size-matched
+random regions. This separate public-configured, five-seed comparison at
+10k/$\varepsilon=0.1$ gives $85.0\%$ versus $48.9\%$, with paired interval
+$[32.0,40.1]$ (Figure~\ref{fig:semantic}(a)). Their public purities are
+$0.925$ and $0.139$. Pixel-PCA regions give $54.9\%$ at purity $0.240$,
+using the same learner features. These controls show that semantic geometry
+increases the usefulness of a fixed-size regional report; every partition
+satisfies the same $\sqrt{2K}$ sensitivity bound.
+
+MNIST similarly gives $55.0\%$ for semantic means versus $37.8\%$ for random
+groups. Centroid representatives reach $83.3\%$ on CIFAR-10 and $55.5\%$ on
+MNIST through the same compact interface (Figure~\ref{fig:semantic}(a,b)).
+Regional reuse supports both pooled and representative model opinions.
+Public geometry is task-specific: pixel-PCA regions can have higher MNIST
+purity, while the public visual representation supplies the stronger CIFAR-10
+partition. Table~\ref{tab:new-controls} relates these geometries to first-release
+pseudo-label correctness, noise flips and downstream learning.
+
+Regional transfer also forms useful low-budget operating points. In the
+public-configured, three-seed strongly heterogeneous CIFAR-10 scan, the first
+\emph{tested} budget reaching $80\%$ is $\varepsilon=0.05$, compared with
+$\varepsilon=0.25$ for per-example DP-FedCT: a $5\times$ difference between
+measured operating budgets. Figure~\ref{fig:main-results} shows all seven
+budgets and both heterogeneity levels; Table~\ref{tab:new-cifar10} gives the
+exact CIFAR grid. Five-seed $\varepsilon=0.1$ comparisons across the four
+image settings are in Table~\ref{tab:new-effects}.
+
+\input{tab-new-effects}
+
+\subsection{Participation and release resources}
+\label{sec:scale}
+
+Regional reports and clipped-head averaging offer different
+accuracy--report-size operating points. At 10k/$\varepsilon=0.1$, the
+public-configured regional interface reaches $85.0\%$ with 100 coordinates;
+the matched local head reaches $91.5\%$ with 1280, and its global broadcast
+reaches $92.7\%$. Both local endpoints use 180 steps
+(Table~\ref{tab:head-local}). The regional report provides a
+$12.8\times$ smaller learning payload while retaining separately trained
+client models.
+
+At 1k/$\varepsilon=0.1$, the independent ten-seed public-configured estimate
+is $45.6\%$ with 200 coordinates, versus $27.2\%$ for the local head and
+$23.1\%$ for its global broadcast. The paired local-head gain is
+\textbf{18.4 points} ($[12.1,24.8]$), with $6.4\times$ fewer coordinates.
+Per-example DP-FedCT gives $46.7\%$ with 20000 coordinates, placing
+regional transfer at a $100\times$ smaller report size.
+Figure~\ref{fig:mechanism} places accuracy alongside report coordinates and
+actual participation, with fixed client steps and each cohort's own consensus.
+Its public-configured 1k rule uses $K=20$; the fixed no-task-label rule instead
+uses $K=10$, yielding $45.5\%$ with 100 coordinates versus $46.6\%$ with
+20000 per-example coordinates (Table~\ref{tab:label-free}).
+
+\subsection{Natural-author transfer and supervision allocation}
+\label{sec:eval:web}
+
+With public-configured resolution $K=5$, regional transfer reaches
+\textbf{$26.3\%$ balanced accuracy} for 3000 distinct authors at
+$\varepsilon=1$, gaining \textbf{5.1 points} over per-example transfer with
+30 rather than 9000 coordinates. Ten seeds give DP-FedCT $21.3\%$,
+with paired interval $[3.6,6.5]$. Local-only gives $17.0\%$; the paired
+local gain is 9.3 points ($[8.2,10.4]$). Matched random representatives give
+$18.2\%$, so semantic assignment adds 8.1 points ($[7.0,9.2]$) at the same
+query count, budget, propagation rule and estimator
+(Figure~\ref{fig:semantic}(c), Table~\ref{tab:new-confirmation}).
+
+\paragraph{Regional resolution allocates shared supervision.}
+At the same $K=5$, SDD-M gives $23.9\%$. With five regions for six families,
+each release represents at most $\min(K,C)=5$ class targets. In releases 1/2
+that supervise subsequent learning, SDD-R allocates $98.7\%$ of the 1500
+proxy targets to comp/rec/sci; SDD-M allocates $46.1\%$ to talk/alt--soc/misc.
+Both give every proxy item a target, with distinct class-recall profiles:
+R's comp/rec/sci recalls are $78.4\%$, $44.2\%$ and $28.4\%$, and its
+other-three-family mean is $2.3\%$, versus M's $22.0\%$.
+Per-run minimum recalls are $1.8\%$ for R and $2.3\%$ for M: each seed
+first averages evaluated client models' recalls, then takes the six-class
+minimum, before the ten-seed summary (Table~\ref{tab:web-recall}). Both
+estimators' macro gains coexist with uneven per-run class recall. Local models
+also learn from private examples and targets that can change across releases.
+
+DP-Head gives $16.8\%$ globally and $18.3\%$ at the matched local endpoint;
+R's paired gains are 9.6 points ($[8.4,10.7]$) and 8.1 points ($[6.9,9.2]$).
+DP-Head's comp target share evolves from $64.7\%$ to $95.4\%$ to $99.8\%$ across
+broadcasts. The public pilot selects balanced validation accuracy, while client
+cross-entropy is unweighted; these are the observed supervision allocations
+under the frozen clipping setting.
+
+\paragraph{Participation at fixed resolution.}
+At fixed $K=5$ and $\varepsilon=0.25$, Figure~\ref{fig:semantic}(d) compares
+1000/3000 distinct authors with ten seeds per point, separating participation
+from resolution in the natural-author task.
+
+\paragraph{Taxonomy resolution without public task labels.}
+At 3k/$\varepsilon=1$, the fixed $K=C=6$ rule gives M $20.3\%$,
+R $17.6\%$, DP-FedCT $21.3\%$ and Local-only $17.0\%$.
+M adds 3.3 local points ($[0.8,5.7]$) (Table~\ref{tab:label-free}).
+This taxonomy-based rule and the public-selected $K=5$ condition jointly vary
+resolution and selection resources, so their difference does not isolate a
+public-label effect. The image results establish the core no-task-label
+supervision gain; the natural-author results characterize the allocation
+produced by each specified regional rule.
+
+\subsection{Supervision resources and whole-run privacy}
+\label{sec:eval:checks}
+
+Public task labels provide a direct route to supervision. The public-configured
+pilot and public-model references access the same labelled development pool.
+Training on its 5000 image labels gives CIFAR-10 $95.6\%$ at 180 steps and
+$95.9\%$ at 600; MNIST gives $84.9/89.0\%$. With 1500 public Web labels,
+balanced accuracies are $65.6/68.2\%$. Public-source proxy labels give local
+CIFAR-10 $87.0\%$ and Web $41.0\%$. These models use zero private report
+coordinates (Table~\ref{tab:attribution}). The fixed no-task-label experiment
+measures supervision supplied by client reports when the labelled-public
+training route is unavailable.
+
+Whole-run client privacy follows \S\ref{sec:threat}'s aggregation assumptions.
+At $\varepsilon=1$, $10\%$ collusion calibration increases the mean-noise
+bound by about $1.054$; both CIFAR-10 settings retain their five-seed accuracy.
+Appendices~\ref{app:proofs}--\ref{app:repro} and the artifact link integer
+calibration and implementation checks to frozen configurations and outputs.

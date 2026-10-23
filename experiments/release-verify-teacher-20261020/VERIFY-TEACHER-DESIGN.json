@@ -1,0 +1,310 @@
+{
+  "design": {
+    "stage": "EAB round 3, step 2: does private verification separate good from poor teacher content? Confirmation of the gated selection rule on new independent cohorts.",
+    "question": "With the frozen gated rule as candidate and the within-budget public portfolio as comparator, does total-budget private verification accept on MNIST (good teacher) and reject on Usenet (poor teacher content)?",
+    "prior_knowledge_disclosed": "The designers have seen all existing records: the old-cohort selection-rule study (release-eab2-20261020), and old-cohort test metrics showing protected centered naming above the LOO public portfolio on MNIST/CIFAR-10k and below it on Usenet (full naming budget). The predictions below are therefore informed; the new evidence is the protected verification on new cohorts.",
+    "tasks": [
+      {
+        "dataset": "mnist",
+        "classes": 10,
+        "naming_clients": 10000,
+        "validation_clients": 10000,
+        "label_draw_source": "release-frontier-20261019/confirmation/samples (seed 11000001), q=1, m=C",
+        "public_records": "release-frontier-20261019/analysis/joint-confirmation"
+      },
+      {
+        "dataset": "cifar10",
+        "classes": 10,
+        "naming_clients": 10000,
+        "validation_clients": 10000,
+        "label_draw_source": "release-frontier-20261019/confirmation/samples (seed 11000001), q=1, m=C",
+        "public_records": "release-frontier-20261019/analysis/joint-confirmation"
+      },
+      {
+        "dataset": "web",
+        "classes": 6,
+        "naming_clients": 3000,
+        "validation_clients": 1249,
+        "label_draw_source": "release-frontier-20261019/public samples (development draws), q=1, m=C",
+        "public_records": "release-frontier-20261019/analysis/joint-naming"
+      }
+    ],
+    "epsilon_total": [
+      0.1,
+      1.0
+    ],
+    "delta_total": 1e-05,
+    "zcdp_budget_fractions": {
+      "naming": 0.5,
+      "gain": 0.25,
+      "classes": 0.25
+    },
+    "composition": "naming, gain and class releases composed sequentially into one total (epsilon, delta) per deployment, although naming and validation clients are disjoint; no parallel-composition credit is claimed",
+    "cohorts": {
+      "seeds": {
+        "mnist": [
+          9201,
+          9202,
+          9203,
+          9204,
+          9205,
+          9206,
+          9207,
+          9208,
+          9209,
+          9210
+        ],
+        "cifar10": [
+          9301,
+          9302,
+          9303,
+          9304,
+          9305,
+          9306,
+          9307,
+          9308,
+          9309,
+          9310
+        ],
+        "web": [
+          9401,
+          9402,
+          9403,
+          9404,
+          9405,
+          9406,
+          9407,
+          9408,
+          9409,
+          9410
+        ]
+      },
+      "independent_of_all_previous_cohorts": true,
+      "images": "naming clients: 600 records with replacement under Dirichlet alpha=.1 from the TRAINING source pool; validation clients: a disjoint set of n constructed clients, 120 records each with replacement under their own Dirichlet alpha=.1 proportions from the HELD-OUT source pool; pools = stratified 80/20 split of the private pool, seed 2026101901 (the CIFAR-1k verification split rule, applied per task)",
+      "usenet": "naming clients: 3000 From-header authors drawn without replacement from the 4249 eligible authors (cohort seed); validation clients: the remaining 1249 authors with all their posts",
+      "client_unit": "a complete client dataset; naming and validation clients are different clients",
+      "validation_population_seed": "cohort seed + 500000"
+    },
+    "teacher": {
+      "model": "linear softmax head on the frozen 128-d features",
+      "private_steps": 180,
+      "batch": 128,
+      "learning_rate": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0005,
+      "release_rounds": 1,
+      "naming": "K=C public partition, M votes, one protected aggregate at rho fraction .5, centered and coverage decoders as in release-frontier-20261019"
+    },
+    "label_draws": {
+      "m": "C (q=1)",
+      "draws": "the 100 existing random draws per task listed in tasks.label_draw_source; public learner outputs reused and asserted equal on test",
+      "primary_draws": [
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99
+      ],
+      "secondary_draws": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49
+      ],
+      "reason": "draws 50-99 were never used to select the gated rule; draws 0-49 selected it on old cohorts"
+    },
+    "candidate": {
+      "rule": "cover-noise-0.03 (frozen in release-eab2-20261020): if the m=C labels miss a class and the naming noise std v <= 0.03, the protected centered naming; otherwise exact LOO over the frozen family (14 public learners, 8 joint weights, private centered and coverage)",
+      "v": "residual_std of the naming certificate at rho fraction .5 (public function of n, epsilon, K)",
+      "gate_status_now": {
+        "mnist/0.1": false,
+        "mnist/1": true,
+        "cifar10/0.1": false,
+        "cifar10/1": true,
+        "web/0.1": false,
+        "web/1": true
+      }
+    },
+    "comparator": "the LOO-selected public portfolio on the same m=C labels (deployable public fallback); its predictions on validation records are the same public models queried inductively",
+    "validation": {
+      "gain_report": "per-client held-out accuracy difference d_i=u_i(f)-u_i(b) in [-1,1], report round half-up s(1+d_i)/2, s=2^16, integer sensitivity s",
+      "class_report": "C x 4 joint correctness histogram per client normalized by its record count, exact largest-remainder integer simplex, squared sensitivity 2 s^2",
+      "gain_lower": "released gain - 2 v_g sqrt(2 log(1/alpha)) - 1/s, alpha=.025",
+      "class_bands": "direct linear-sum bands of release-value-20261019/linear_bands.py, alpha=.025",
+      "noise": "independent exact distributed discrete Gaussian shares; deterministic research keys",
+      "releases_always_made": true
+    },
+    "policies": {
+      "public": "publish the comparator b",
+      "loo": "publish the LOO choice (no verification)",
+      "gated": "publish the gated candidate (no verification)",
+      "gated_gain_verified": "publish the gated candidate iff it uses private votes and gain lower > 0, else b",
+      "gated_class_verified": "additionally every class recall lower > 0, else b"
+    },
+    "primary": {
+      "epsilon": 1.0,
+      "draws": "50-99",
+      "cases": "cases whose gated candidate uses private votes",
+      "C1": "MNIST: gain-verified acceptance rate >= 50%",
+      "C2": "Usenet: gain-verified acceptance rate <= 10%",
+      "success": "C1 and C2",
+      "informativeness": "expected Usenet gain band radius at epsilon=1 is recorded below (must be < .10 for the test to be informative)"
+    },
+    "predictions": [
+      "C1 holds",
+      "C2 holds",
+      "CIFAR-10k at epsilon=1: acceptance >= 50%",
+      "test utility of gated_gain_verified minus LOO > 0 on MNIST and >= 0 on Usenet at epsilon=1 (verification removes the gate loss on Usenet)",
+      "new cohorts reproduce the gate direction at epsilon=1: gated above LOO on MNIST, below LOO on Usenet",
+      "at epsilon=.1 the gate is closed on all three tasks (v > .03), so the candidate is the LOO choice"
+    ],
+    "reporting": {
+      "utility": "task metric on test (balanced accuracy for Usenet, accuracy otherwise) and both metrics for all tasks; mean over cohorts x draws",
+      "intervals": "crossed bootstrap over cohorts x label draws, 2000 replicates, seed 20261022",
+      "offline_diagnostics": "clean held-out gain and recalls from unreleased counts; false accepts; test labels loaded only after all decisions",
+      "all_cases_retained": true,
+      "no_reruns_with_new_seeds": true,
+      "amendments": "any implementation fix made after this freeze is logged in AMENDMENTS.json with time and reason; none may depend on primary outcomes"
+    },
+    "expected_noise_scales": {
+      "mnist/0.1": {
+        "naming_noise_std": 0.0304144287109375,
+        "gate_open": false,
+        "gain_band_radius": 0.05226370528574386,
+        "class_numerator_radius": 0.07392122022377597,
+        "class_mass": 0.1
+      },
+      "mnist/1": {
+        "naming_noise_std": 0.003099517822265625,
+        "gate_open": true,
+        "gain_band_radius": 0.005340236900096276,
+        "class_numerator_radius": 0.007560421245720086,
+        "class_mass": 0.1
+      },
+      "cifar10/0.1": {
+        "naming_noise_std": 0.0304144287109375,
+        "gate_open": false,
+        "gain_band_radius": 0.05226370528574386,
+        "class_numerator_radius": 0.07392122022377597,
+        "class_mass": 0.1
+      },
+      "cifar10/1": {
+        "naming_noise_std": 0.003099517822265625,
+        "gate_open": true,
+        "gain_band_radius": 0.005340236900096276,
+        "class_numerator_radius": 0.007560421245720086,
+        "class_mass": 0.1
+      },
+      "web/0.1": {
+        "naming_noise_std": 0.07852952110031192,
+        "gate_open": false,
+        "gain_band_radius": 0.4183356733574768,
+        "class_numerator_radius": 0.570775147923144,
+        "class_mass": 0.16666666666666666
+      },
+      "web/1": {
+        "naming_noise_std": 0.008002664279629213,
+        "gate_open": true,
+        "gain_band_radius": 0.04264429314124767,
+        "class_numerator_radius": 0.05819407650872468,
+        "class_mass": 0.16666666666666666
+      }
+    }
+  },
+  "frozen_utc": "2026-10-20T09:02:44Z",
+  "source_sha256": {
+    "design.py": "d6e57426ffe12a919041d8e1f859dfa83a1c87dea30e7079efc1f1f57ce2b8c7"
+  },
+  "selection_rule_design_sha256": "3f13699116954c4462b0efcbce8677c6663f30ed49a14f2da94b50116957a001"
+}

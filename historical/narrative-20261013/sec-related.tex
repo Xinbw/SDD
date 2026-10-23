@@ -1,0 +1,60 @@
+\section{Related Work}
+\label{sec:related}
+
+We organise related work by the released object and aggregation interface,
+which together determine the cost of private knowledge transfer.
+
+\paragraph{Parameter-level release.}
+DP-SGD establishes the clip-and-noise template for example-level
+privacy~\cite{abadi2016deep}; DP-FedAvg extends it to client-level
+privacy~\cite{mcmahan2018learning,kairouz2021advances} in federated
+averaging~\cite{mcmahan2017communication}. Secure aggregation and distributed
+discrete Gaussian noise support this release without a trusted
+curator~\cite{bonawitz2017practical,kairouz2021distributed,canonne2020discrete}.
+Noise occupies all released model coordinates, making cohort size an important
+resource. SDD uses the same aggregate-only privacy interface for a compact
+semantic report. Our clipped-head baseline controls for low-dimensional parameter release
+using the same public features.
+
+\paragraph{Per-example knowledge transfer.}
+PATE returns noisy arg-max answers from teacher votes on individual
+queries~\cite{papernot2017semi,papernot2018scalable}; federated co-training
+shares hard labels on a public unlabelled set~\cite{abourayya2025little}.
+Recent distillation work at this venue calibrates and decouples global knowledge
+for individual clients~\cite{wang2026fedakd}. Under client-level adjacency, a
+joint release of per-example vote vectors has sensitivity $\sqrt{2|P|}$.
+Data-dependent PATE accounting additionally exploits teacher agreement.
+SDD chooses a public semantic partition before privatisation, replacing the
+per-example release unit with a designer-selected number of regions. This
+makes $K$, rather than $|P|$, the sensitivity variable.
+
+\paragraph{Cluster-level label privacy.}
+NoiseCluster~\cite{tang2022labels} assigns one noisy majority label to an
+unsupervised cluster and reuses it across its examples. This establishes
+cluster-level label reuse as a prior design idea. Its adjacency changes one
+label while holding features fixed, giving sensitivity $\sqrt{2}$ for the
+cluster-count vector. SDD protects a whole client's features and labels:
+replacing its trained model can change all $K$ public-region opinions, giving
+$\sqrt{2K}$. Its contribution is a regional model-report interface for
+adaptive client collaboration, with distributed aggregation and whole-run
+client privacy. These different protected units preclude a direct comparison
+at the same numerical $\varepsilon$.
+
+\paragraph{Aggregate-only infrastructure on the Web.}
+Prio, Prochlo and split-and-mix protocols provide building blocks for private
+aggregation~\cite{corriganGibbs2017prio,bittau2017prochlo,ishai2006cryptography}.
+Browser-facing systems incorporate budgeted reporting and summary
+releases~\cite{ghazi2025sandbox,aksu2023summary}, while recent Web Conference
+work uses distributed noise sharing in data markets~\cite{xing2026xemis}.
+Shuffling can also amplify local randomisers
+under a different accounting route~\cite{erlingsson2019amplification,feldman2021hiding}.
+SDD analyses distributed noise under an aggregate-only interface: anonymity
+supports that interface, and the accountant operates on the released sum.
+
+\paragraph{Sensitivity design and verifiability.}
+Recent Web privacy methods design sensitivity for node-level graph
+learning~\cite{wei2026sagd} and adapt budgets in federated
+unlearning~\cite{wang2026diary}. SDD bounds an entire client's regional
+report. Explicit convolution accounting and per-release certificates connect
+that bound to the implemented aggregate mechanism, applying the established
+discrete-Gaussian sampler and convolution analysis~\cite{canonne2020discrete,kairouz2021distributed}.

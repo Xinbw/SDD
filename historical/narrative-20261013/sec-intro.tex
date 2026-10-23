@@ -1,0 +1,76 @@
+\section{Introduction}
+\label{sec:intro}
+
+Community-content classifiers can share public examples while users retain
+labelled post histories and local models on their devices. A coordinator
+supplies an unlabelled public proxy, a public feature map and a class taxonomy;
+useful task supervision must come from clients through protected aggregates.
+Prio and Prochlo provide protected Web sums~\cite{corriganGibbs2017prio,bittau2017prochlo},
+and browser reporting protects user contributions~\cite{erlingsson2014rappor,ghazi2025sandbox,aksu2023summary}.
+For collaborative learning, those sums must carry reusable supervision.
+The design question is how to preserve that supervision at small whole-client
+privacy budgets while histories and model parameters remain local.
+
+\paragraph{The gap: related examples can share supervision.}
+Knowledge transfer queries client models on public examples: PATE aggregates
+teacher votes~\cite{papernot2017semi,papernot2018scalable}, and federated
+co-training shares hard labels~\cite{abourayya2025little}. Joint per-example
+voting represents each proxy item separately, with replace-one whole-client
+sensitivity $\sqrt{2|P|}$, even when task-related examples can share a target.
+NoiseCluster provides cluster-level label reuse under label
+privacy~\cite{tang2022labels}. Client collaboration protects an entire local
+dataset and its adaptively trained model response. The unit of private
+knowledge exchange therefore determines both report size and sensitivity.
+
+\paragraph{The idea: one released target, many learning examples.}
+Semantic-DP Distillation (SDD) exchanges model opinions over a fixed public
+semantic partition. Each client votes once per region using pooled predictions
+(SDD-M) or a public centroid representative (SDD-R); every proxy example
+inherits its released regional target. A $K$-region report contains $KC$
+coordinates with tight whole-client sensitivity $\sqrt{2K}$.
+At fixed $K$, additional proxy examples can enter local learning without
+enlarging the report or its sensitivity, independently of model parameter
+dimension. For $K=10$, $|P|=2000$ and $C=10$, 100 report coordinates supply
+targets to all 2000 examples, compared with 20000 per-example coordinates.
+Established distributed integer noise~\cite{kairouz2021distributed} and
+conditional composition protect the complete adaptive release sequence under
+an aggregate-only interface.
+
+\paragraph{The evidence: client-sourced supervision at 100 coordinates.}
+With frozen public representations and actual $10^4$ strongly heterogeneous
+CIFAR-10 clients, the fixed $K=C=10$ configuration without public task labels
+reaches \textbf{$84.2\%$ accuracy at $\varepsilon=0.1$ over five seeds},
+versus $42.4\%$ for independent local learning and $69.7\%$ for per-example
+DP-FedCT. A 100-coordinate report gains \textbf{14.4 percentage points with
+$200\times$ fewer coordinates}; its paired $95\%$ interval is $[12.2,16.7]$.
+The paired local gain is 41.8 points ($[38.0,45.6]$).
+Public task labels select neither this configuration nor its training targets.
+
+Separate public-configured controls identify why regional reuse is useful:
+semantic grouping gives $85.0\%$ accuracy versus $48.9\%$ for size-matched
+random groups. The \textbf{36.1-point gain} ($[32.0,40.1]$) holds report size,
+privacy, participation and local computation fixed. Semantic structure
+increases the usefulness of a fixed-size regional report.
+On natural Web contributions, a ten-seed, public-configured $K=5$ study of
+3000 distinct Usenet authors gives $26.3\%$ balanced accuracy at
+$\varepsilon=1$, versus $21.3\%$ for per-example transfer, with 30 rather
+than 9000 coordinates. These results connect regional supervision reuse to
+client-sourced learning and compact release resources.
+
+\paragraph{Contributions.}
+\begin{itemize}[leftmargin=1.2em,itemsep=1pt,topsep=2pt]
+\item \textbf{Regional model reports for client-private learning.}
+A $K$-region vote interface reuses released targets across public examples.
+Its $KC$-coordinate report has tight whole-client sensitivity $\sqrt{2K}$,
+independent of proxy size and model dimension at fixed $K$ (\S\ref{sec:method}).
+\item \textbf{Client-level privacy for adaptive distillation.}
+We establish client-level privacy for SDD's complete adaptive learning run
+under protected aggregation and bounded collusion, applying established
+distributed discrete Gaussian accounting to integer regional reports
+(\S\ref{sec:threat}).
+\item \textbf{Semantic reuse as a learning resource.}
+Client-sourced supervision reaches $84.2\%$ with 100 coordinates without
+public task labels. Matched structure controls and natural-author results
+identify how semantic regions support compact knowledge transfer
+(\S\ref{sec:eval}).
+\end{itemize}

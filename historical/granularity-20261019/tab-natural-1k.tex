@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\caption{Federated EMNIST, 1000 distinct private writers. Five paired seeds, 180 steps per client; accuracy and macro recall (\%, mean$\pm$sample SD). Settings match Table~\ref{tab:natural-main}. Both cohorts and all per-seed outcomes are retained in the artifact.}
+\label{tab:natural-1k}\small
+\centering
+\begin{tabular}{@{}rrlrrr@{}}\toprule
+Writers & $\varepsilon$ & Method & Coords. & Accuracy & Macro recall \\
+\midrule
+1k & 0.1 & Local-only & 0 & 32.21$\pm$0.13 & 11.95$\pm$0.04 \\
+1k & 0.1 & SDD & 3844 & 31.48$\pm$0.37 & 11.47$\pm$0.04 \\
+1k & 0.1 & SDD-Match & 3844 & 31.61$\pm$0.33 & 11.56$\pm$0.10 \\
+1k & 0.1 & DP-FedCT & 124000 & 31.71$\pm$0.18 & 11.68$\pm$0.06 \\
+1k & 0.1 & DP-Head global & 7936 & 3.35$\pm$0.92 & 2.33$\pm$0.44 \\
+1k & 0.1 & DP-Head local & 7936 & 4.82$\pm$1.02 & 2.86$\pm$0.76 \\
+1k & 1.0 & Local-only & 0 & 32.21$\pm$0.13 & 11.95$\pm$0.04 \\
+1k & 1.0 & SDD & 3844 & 32.46$\pm$0.65 & 10.34$\pm$0.21 \\
+1k & 1.0 & SDD-Match & 3844 & 33.44$\pm$0.34 & 11.85$\pm$0.11 \\
+1k & 1.0 & DP-FedCT & 124000 & 32.87$\pm$0.16 & 11.69$\pm$0.06 \\
+1k & 1.0 & DP-Head global & 7936 & 30.00$\pm$2.85 & 9.24$\pm$0.97 \\
+1k & 1.0 & DP-Head local & 7936 & 30.25$\pm$2.31 & 9.31$\pm$0.77 \\
+\bottomrule\end{tabular}
+\end{table*}

@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\caption{Public-only naming and learning with 1/3/5 supplied labels per class, 50 independent draws. Count match uses raw observed counts, with zero evidence in empty regions. Ridge and graph parameters use exact LOO within the stated budget. All arms share public representations and unlabelled features; test queries are inductive. Mean$\pm$sample SD accuracy, \%.}
+\label{tab:fewshot}\small
+\centering
+\begin{tabular}{@{}lrrrrrr@{}}\toprule
+Task & Labels/class & Majority naming & Count match & Class centroid & Ridge & Graph SSL \\
+\midrule
+CIFAR & 1 & 83.69$\pm$7.76 & 83.41$\pm$9.33 & 71.64$\pm$4.81 & 71.73$\pm$4.92 & 87.03$\pm$4.87 \\
+CIFAR & 3 & 91.59$\pm$0.00 & 91.59$\pm$0.00 & 85.22$\pm$2.18 & 85.72$\pm$1.96 & 92.61$\pm$1.32 \\
+CIFAR & 5 & 91.59$\pm$0.00 & 91.59$\pm$0.00 & 89.09$\pm$1.32 & 89.11$\pm$1.36 & 93.50$\pm$0.91 \\
+MNIST & 1 & 38.28$\pm$6.32 & 35.76$\pm$7.12 & 45.26$\pm$3.79 & 47.06$\pm$4.52 & 58.36$\pm$5.68 \\
+MNIST & 3 & 46.40$\pm$4.39 & 45.03$\pm$5.84 & 57.07$\pm$3.59 & 64.14$\pm$3.80 & 69.26$\pm$3.26 \\
+MNIST & 5 & 49.59$\pm$3.29 & 48.05$\pm$3.57 & 61.51$\pm$2.48 & 71.54$\pm$2.75 & 72.41$\pm$2.13 \\
+\bottomrule\end{tabular}
+\end{table*}

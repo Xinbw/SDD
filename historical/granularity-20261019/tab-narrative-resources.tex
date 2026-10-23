@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\caption{Public-configured supervision-source and parameter-endpoint references, percent mean $\pm$ sample SD (Web: balanced accuracy). Images use $\alpha=0.1$, $\varepsilon=0.1$, five seeds at 10k and ten elsewhere; Web uses ten. M/R denote image/Web SDD. All share public features. Pub heads use all 5000 image/1500 Web development labels, learning rate 0.3 and zero private report coordinates; Local+Pub uses their proxy targets. Client methods use 180 steps. Head-local precedes the third aggregation, retaining two broadcasts with all three releases charged.}
+\label{tab:attribution}\label{tab:head-local}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrrrr@{}}\toprule
+\multicolumn{1}{c}{} & \multicolumn{5}{c}{supervision sources} & \multicolumn{2}{c}{parameter endpoints} \\ \cmidrule(lr){2-6}\cmidrule(lr){7-8}
+task / variant, cohort & SDD & Local & Local+Pub & Pub (180) & Pub (600) & Head-global & Head-local \\\midrule
+CIFAR (M), 10k & 85.0\,$\pm$\,2.9 & 42.4\,$\pm$\,0.1 & 87.0\,$\pm$\,0.0 & 95.6\,$\pm$\,0.1 & 95.9\,$\pm$\,0.1 & 92.7\,$\pm$\,0.5 & 91.5\,$\pm$\,0.4 \\
+MNIST (M), 10k & 55.0\,$\pm$\,1.1 & 33.3\,$\pm$\,0.1 & 64.1\,$\pm$\,0.1 & 84.9\,$\pm$\,0.1 & 89.0\,$\pm$\,0.1 & 67.3\,$\pm$\,1.0 & 65.0\,$\pm$\,1.0 \\
+CIFAR (M), 1k & 45.6\,$\pm$\,5.8 & 42.3\,$\pm$\,0.4 & 87.0\,$\pm$\,0.1 & 95.6\,$\pm$\,0.1 & 95.9\,$\pm$\,0.1 & 23.1\,$\pm$\,7.6 & 27.2\,$\pm$\,7.0 \\
+Usenet (R), 1k, $0.25$ & 24.8\,$\pm$\,3.0 & 17.1\,$\pm$\,0.0 & 41.0\,$\pm$\,0.4 & 65.6\,$\pm$\,0.4 & 68.2\,$\pm$\,0.5 & 22.7\,$\pm$\,4.7 & 22.8\,$\pm$\,2.6 \\
+Usenet (R), 3k, $1$ & 26.3\,$\pm$\,1.6 & 17.0\,$\pm$\,0.0 & 41.0\,$\pm$\,0.3 & 65.6\,$\pm$\,0.4 & 68.2\,$\pm$\,0.5 & 16.8\,$\pm$\,0.1 & 18.3\,$\pm$\,0.3 \\
+\bottomrule\end{tabular}
+\end{table*}

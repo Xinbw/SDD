@@ -1,0 +1,142 @@
+{
+  "dataset": "web",
+  "actual_clients": 100,
+  "calibrated_clients": 100,
+  "alpha": null,
+  "seed": 803,
+  "method": "DP-FedCT",
+  "k": 100,
+  "epsilon": 1.0,
+  "delta": 1e-05,
+  "mode": "raw",
+  "clip": null,
+  "public_development": false,
+  "evaluation_split": "test",
+  "accuracy": 0.2670581537485123,
+  "balanced_accuracy": 0.1817491890490055,
+  "initial_accuracy": 0.22887738324701787,
+  "initial_balanced_accuracy": 0.17051329970359802,
+  "population": {
+    "actual_clients": 100,
+    "unique_client_identifiers": 100,
+    "per_client_records_min": 1,
+    "per_client_records_median": 1.0,
+    "per_client_records_max": 11,
+    "distinct_author_hash": "5390afdba3583391debe35ccfb2609e1e701c57a48c5742fb7cce2bf21f9e635",
+    "client_sample_indices_sha256": "ce6e7631a93b6742d125c122071fdf0beb79d1a85ff0b86dc18b53cf75109054",
+    "client_generation_seed": 803,
+    "alpha": null
+  },
+  "rounds": 3,
+  "optimizer_steps_per_round": 60,
+  "batch_size": 128,
+  "lr": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "private_model": "128-dimensional frozen public features; independently trained no-intercept softmax heads",
+  "trace": [
+    {
+      "round": 1,
+      "privacy": {
+        "epsilon_requested": 1.0,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 100,
+        "calibrated_clients": 100,
+        "honest_clients": 100,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 3046818,
+        "sensitivity_integer_squared": 12884901888000,
+        "dimension": 9000,
+        "log_tau_upper": -91620523876749.23,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 0.006939978020234382,
+        "rho_total_upper": 0.020819934060703146,
+        "epsilon_upper": 0.9999998951025338,
+        "residual_std": 4.649075317382812,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "logical_report_coordinates": 9000,
+        "pseudolabel_coverage": 1.0,
+        "pseudolabel_accuracy": 0.182,
+        "pseudolabel_balanced_accuracy": 0.18189263277384493
+      }
+    },
+    {
+      "round": 2,
+      "privacy": {
+        "epsilon_requested": 1.0,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 100,
+        "calibrated_clients": 100,
+        "honest_clients": 100,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 3046818,
+        "sensitivity_integer_squared": 12884901888000,
+        "dimension": 9000,
+        "log_tau_upper": -91620523876749.23,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 0.006939978020234382,
+        "rho_total_upper": 0.020819934060703146,
+        "epsilon_upper": 0.9999998951025338,
+        "residual_std": 4.649075317382812,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "logical_report_coordinates": 9000,
+        "pseudolabel_coverage": 1.0,
+        "pseudolabel_accuracy": 0.18,
+        "pseudolabel_balanced_accuracy": 0.17371606441322152
+      }
+    },
+    {
+      "round": 3,
+      "privacy": {
+        "epsilon_requested": 1.0,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 100,
+        "calibrated_clients": 100,
+        "honest_clients": 100,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 3046818,
+        "sensitivity_integer_squared": 12884901888000,
+        "dimension": 9000,
+        "log_tau_upper": -91620523876749.23,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 0.006939978020234382,
+        "rho_total_upper": 0.020819934060703146,
+        "epsilon_upper": 0.9999998951025338,
+        "residual_std": 4.649075317382812,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "logical_report_coordinates": 9000,
+        "pseudolabel_coverage": 1.0,
+        "pseudolabel_accuracy": 0.16466666666666666,
+        "pseudolabel_balanced_accuracy": 0.17105380852973848
+      }
+    }
+  ],
+  "seconds": 0.18964862823486328,
+  "diagnostics_are_offline_benchmark_measurements": true,
+  "experiment_roles": [
+    "natural-author Web content task"
+  ],
+  "configuration_override": null,
+  "public_configuration_file": "web_aNone_n100.json"
+}

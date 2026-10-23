@@ -1,0 +1,80 @@
+[
+  {
+    "dataset": "cifar10",
+    "actual_clients": 10000,
+    "alpha": 0.1,
+    "epsilon": 0.1,
+    "delta": 1e-05,
+    "k": 10,
+    "mode": "center",
+    "public_task_labels_for_training_or_configuration": 0,
+    "seeds": [
+      801,
+      802,
+      803,
+      804,
+      805
+    ],
+    "methods": {
+      "Local-only": {
+        "mean": 0.4237019982902706,
+        "sd": 0.000886356405075232
+      },
+      "DP-FedCT": {
+        "mean": 0.69705662404418,
+        "sd": 0.015830472085542776
+      },
+      "SDD": {
+        "mean": 0.8415037239861489,
+        "sd": 0.03011018526736987
+      }
+    },
+    "sdd_gain_vs_per_example": 0.14444709994196892,
+    "paired_ci_low": 0.12165849926480996,
+    "paired_ci_high": 0.16723570061912787,
+    "report_coordinates": {
+      "Local-only": 0,
+      "SDD": 100,
+      "DP-FedCT": 20000
+    }
+  },
+  {
+    "dataset": "mnist",
+    "actual_clients": 10000,
+    "alpha": 0.1,
+    "epsilon": 0.1,
+    "delta": 1e-05,
+    "k": 10,
+    "mode": "center",
+    "public_task_labels_for_training_or_configuration": 0,
+    "seeds": [
+      801,
+      802,
+      803,
+      804,
+      805
+    ],
+    "methods": {
+      "Local-only": {
+        "mean": 0.3325981396202743,
+        "sd": 0.0005252934081839844
+      },
+      "DP-FedCT": {
+        "mean": 0.4624737203419209,
+        "sd": 0.010684432565808246
+      },
+      "SDD": {
+        "mean": 0.5157948590725661,
+        "sd": 0.017831008025327687
+      }
+    },
+    "sdd_gain_vs_per_example": 0.053321138730645166,
+    "paired_ci_low": 0.04055319575245339,
+    "paired_ci_high": 0.06608908170883694,
+    "report_coordinates": {
+      "Local-only": 0,
+      "SDD": 100,
+      "DP-FedCT": 20000
+    }
+  }
+]

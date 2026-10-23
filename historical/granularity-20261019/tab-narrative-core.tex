@@ -1,0 +1,11 @@
+\begin{table*}[t]
+\centering
+\caption{Client-sourced supervision without public task labels, actual $10^4$ clients, $\alpha=0.1$, $\varepsilon=0.1$, $\delta=10^{-5}$, five seeds. Fixed $K=C=10$ and centered consensus; 180 client steps. Accuracy is percent mean $\pm$ sample SD. SDD uses 100 report coordinates per client per round, DP-FedCT 20000, Local-only zero. Gain and paired $95\%$ interval are percentage points relative to DP-FedCT.}
+\label{tab:core-supervision}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+task & Local-only & DP-FedCT & SDD-M & gain & paired $95\%$ interval \\\midrule
+CIFAR-10 & 42.4\,$\pm$\,0.1 & 69.7\,$\pm$\,1.6 & \textbf{84.2\,$\pm$\,3.0} & 14.4 & [12.2,16.7] \\
+MNIST & 33.3\,$\pm$\,0.1 & 46.2\,$\pm$\,1.1 & \textbf{51.6\,$\pm$\,1.8} & 5.3 & [4.1,6.6] \\
+\bottomrule\end{tabular}
+\end{table*}

@@ -1,0 +1,96 @@
+{
+  "values": {
+    "BCCases": "54000",
+    "BCCohorts": "10",
+    "BCRecTrain": "16",
+    "BCRecHeld": "4",
+    "BCPhiRecallOne": ".2",
+    "BCFixedRecallOne": "5.4",
+    "BCFrozenRecallOne": "78.2",
+    "BCFixedRecallOneUtil": "64.5",
+    "BCFrozenRecallOneUtil": "87.2",
+    "BCDiffRecallOneUtil": "+22.8",
+    "BCDiffRecallOneUtilCI": "[+18.9, +26.7]",
+    "BCDiffRecallOneAcc": "+72.8",
+    "BCDiffRecallOneAccCI": "[+62.0, +83.0]",
+    "BCPhiHalfThree": ".1",
+    "BCFrozenHalfThree": "76.2",
+    "BCFrozenHalfThreeUtil": "87.2",
+    "BCFixedHalfThreeUtil": "62.8",
+    "BCDevRecallOne": "69.4",
+    "BCFalseAccepts": "0",
+    "BCGainMaxDiff": "0.1",
+    "BCMaxRegret": "1.5",
+    "BCPilotRecallOne": "86.2",
+    "BCPilotHalfThree": "84.2",
+    "BCPilotSubsamples": "50",
+    "BCPoolImages": "22500",
+    "PointRegionMaxGap": "2.3",
+    "PointRegionSettings": "8",
+    "HeadMnistTenK": "72.2",
+    "RegionMnistTenK": "44.4"
+  },
+  "primary": {
+    "H1": true,
+    "cell": {
+      "accept_diff": {
+        "mean": 0.728,
+        "ci_low": 0.6200000000000004,
+        "ci_high": 0.8300000000000006
+      },
+      "utility_diff": {
+        "mean": 22.762509298289118,
+        "ci_low": 18.919706174063965,
+        "ci_high": 26.65903173816018
+      }
+    }
+  },
+  "predictions": {
+    "H1 holds": true,
+    "eps=3 recall>=.50 acceptance gain lower bound > 0": true,
+    "no cell more than 1 point below fixed": true,
+    "false-accept rate <= 5% in every frozen cell": true,
+    "class phi below .5 at eps<=1": false
+  },
+  "selection": {
+    "gain>0|0.1": {
+      "primary_phi": 0.3,
+      "secondary_phi": 0.3
+    },
+    "gain>0|1": {
+      "primary_phi": 0.5,
+      "secondary_phi": 0.6
+    },
+    "gain>0|3": {
+      "primary_phi": 0.2,
+      "secondary_phi": 0.9
+    },
+    "all recalls>0|0.1": {
+      "primary_phi": 0.5,
+      "secondary_phi": 0.5
+    },
+    "all recalls>0|1": {
+      "primary_phi": 0.2,
+      "secondary_phi": 0.2
+    },
+    "all recalls>0|3": {
+      "primary_phi": 0.2,
+      "secondary_phi": 0.3
+    },
+    "all recalls>=.50|0.1": {
+      "primary_phi": 0.5,
+      "secondary_phi": 0.5
+    },
+    "all recalls>=.50|1": {
+      "primary_phi": 0.5,
+      "secondary_phi": 0.5
+    },
+    "all recalls>=.50|3": {
+      "primary_phi": 0.1,
+      "secondary_phi": 0.1
+    }
+  },
+  "selection_frozen_utc": "2026-10-21T02:30:50Z",
+  "design_frozen_utc": "2026-10-21T02:27:35Z",
+  "cases": 54000
+}

@@ -1,0 +1,20 @@
+{
+  "amendments": [
+    {
+      "utc": "2026-10-21T02:27:54Z",
+      "before_implementation": true,
+      "field": "evaluation_records.development",
+      "correction": "The phrase \"never used before for CIFAR selection\" is wrong: the public validation split was used in earlier public-design phases (review-evidence-20261012 select_public.py, release-granularity public_design.py, release-selector selection.py) to choose public partitions/configurations. It is disjoint from the test split and from every private record, which is the property this study relies on. Procedure unchanged."
+    },
+    {
+      "utc": "2026-10-21T02:31:09Z",
+      "before_confirmation": true,
+      "field": "source file name",
+      "correction": "src/select.py renamed to src/freeze_selection.py (content and sha unchanged, recorded in SELECTION.json) because it shadowed the Python standard-library module select and the confirmation run failed at import before computing anything."
+    }
+  ],
+  "notes": [
+    "2026-10-21T02:29:12Z: smoke test (dev, seed 9701, draws 0-1) into smoke/; one fix before it passed: naming scores moved to host memory (.cpu().numpy()), no change of procedure"
+  ],
+  "design_sha256": "b872819217030c7c3c352c0caa420d937c4168394986ae2d1e0eab0d8ceeec1d"
+}

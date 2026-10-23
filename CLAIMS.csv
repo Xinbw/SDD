@@ -1,0 +1,27 @@
+claim,value,paper,record,generator,check
+Ten random CIFAR-1k labels: joint naming over strongest public learner (eps=.1),13.0 points,"Abstract, Finding 1, Sec. VI-B",experiments/release-frontier-20261019 (joint frontier records),export_joint.py -> joint-values.tex,quick/verify (re-aggregation)
+Ten feature-directed labels reach the CIFAR partition classifier,91.6%,"Abstract, Finding 1, Sec. VI-B",experiments/release-frontier-20261019,export_eab.py -> eab-values.tex,quick/verify
+Pooled point vs regional joint naming: max gap over 8 settings,2.3 points,"Abstract, Finding 2, Table IV",paper/joint-data.json (frontier controls),export_eab8.py -> eab8-values.tex,quick/verify
+Pooled point / regional noise ratio on CIFAR,.88-1.07,"Abstract, Finding 2, Eq. (12)",public partition region sizes,manuscript formula,by hand from Eq. (12)
+Mean-gain rule publishes classifiers with some class recall <10% (eps=1),12.7%,"Abstract, Finding 3, Fig. 5a",experiments/release-eab2-20261020/analysis/published-minimum-recall.json,export_eab3.py -> eab3-values.tex,quick/verify
+Mean-gain acceptance at eps=1 (fixed 50/25/25),86.8%,"Finding 3, Table V",experiments/release-value-20261019 (3000 cases),export_value.py,verify (certificates and decisions re-derived)
+Budget-split confirmation: all-recall acceptance fixed -> frozen (eps=1),5.4% -> 78.2%,"Abstract, Finding 3, Table VII",experiments/release-budgetconf-20261021/results/confirm_*.json,analyze.py -> export_eab8.py,quick (check_budgetconf.py) + smoke (replay_budgetconf.py)
+Budget-split confirmation: test accuracy difference (eps=1),+22.8 [+18.9; +26.7],"Finding 3, Table VII",same,same,same
+Budget-split confirmation: recall>=.5 acceptance at eps=3,76.2%,"Finding 3, Table VII",same,same,same
+Budget-split confirmation: false accepts in frozen cells,0,"Abstract, Table VII",same,same,same
+Frozen split selection uses development records only,SELECTION.json sha ee686e13,Sec. VI-D,experiments/release-budgetconf-20261021/SELECTION.json,freeze_selection.py,quick (re-derived from dev records)
+Retrospective allocation (test-selected phi): all-recall acceptance eps=1,7.8% -> 81.8%,Table VI (Opt.),experiments/release-allocation-20261019,cost_table.py -> export_eab6.py,quick/verify
+Gated rule + verification: MNIST over LOO,+10.6 points,"Sec. VI-E, Table IX",experiments/release-verify-teacher-20261020,analyze.py -> export_eab4/5.py,quick + smoke (replay_vt.py)
+Gated rule + verification: pre-registered Usenet criterion (<=10% acceptance),not met (20.6%),"Sec. VI-E, Table IX",same,same,same
+Source-disjoint ladder: gain policy over fallback at eps=1,+26.6 points,"Sec. VI-D, Table VI",experiments/release-disjoint-20261020,analyze.py -> export_eab5.py,quick + smoke (replay_disjoint.py)
+Gaussian-approximation calculator: 24 ladder cells,within 1.1 points,Sec. VI-D,experiments/release-eab6-20261020/analysis/calculator-24.json,calc24.py,quick/verify
+Weaker encoder (ResNet-18): random-label joint naming minus strongest public (eps=.1; registered E1 fails),-4.0 [-5.4; -2.6],"Abstract, Finding 1, Sec. VI-B",experiments/release-encoder-20261022/analysis/encoder-analysis.json,analyze.py -> export_eab12.py -> eab12-values.tex,quick/verify (hash-checked re-analysis)
+Weaker encoder: ten feature-directed labels reach the one-to-one partition ceiling (E2 holds),61.9%,"Finding 1, Sec. VI-B",same,same,same
+Published protocols on the same protected sum (CIFAR-10; 10^4 clients; eps=.1; 5 seeds): DP-FedCT / PATE-DI / regional / DP-Head,69.7 / 80.5 / 85.0 / 92.7%,Sec. VI-C,experiments/review-evidence-20261012/results (seeds 801-805),export_eab12.py,quick/verify
+FEMNIST replication: frozen planner prediction vs confirmation acceptance (max gap over fixed and frozen cells; cells near 0 or 100%),0.7 points,"Finding 3, Sec. VI-D, Table VII",experiments/release-femnistconf-20261022 (PREDICTIONS.json; analysis/femnistconf-analysis.json),predict.py; analyze.py -> export_eab12.py,quick/verify
+FEMNIST replication: mean-gain acceptance at eps=1 and share of published classifiers with some class recall <10%,99.0% and 100%,"Finding 3, Sec. VI-D",same,same,same
+FEMNIST replication: false accepts over 27000 cases,0,Sec. VI-D,same,same,same
+Corrected convolution constant (rho = Delta^2/(2hb^2) + d tau): every recorded certificate holds,all (count in eab12-values.tex),"Sec. IV-D, Eq. (5)",experiments/release-eab12-20261022/analysis/tau-recheck.json,recheck_tau.py,quick/verify
+FEMNIST: strongest public learner on the same confirmation label draws (verification is against the count-matching comparator),37.2% vs 35.1% published,"Sec. VI-D",experiments/release-frontier-20261019/public/femnist62_random_{50..99}_m62.json,ledger.py -> export_eab13.py,quick/verify
+Pilot ledger of the CIFAR split selection: labels and releases; budget if one population answered all configurations,100 + 3967 labels; 267 releases; 97.1 x deployment rho (eps ~11.7 at eps=1),"Sec. VI-D, Table X",experiments/release-budgetconf-20261021 (design; pilot analysis),ledger.py -> export_eab13.py,quick/verify
+Smallest integer noise scale over all recorded certificates (bound needs b >= 1/2),1241,"Theorem 1",all recorded certificates,ledger.py -> export_eab13.py,quick/verify

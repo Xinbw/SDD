@@ -1,0 +1,2042 @@
+{
+  "dataset": "mnist",
+  "alpha": 1.0,
+  "target_private_clients": 10000,
+  "public_bootstrap_teachers": 1000,
+  "public_population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "d0963f051e79aeede169844139d090b0b821da9f2fce29479a4e40dbfdd6b8ba",
+    "client_generation_seed": 1729,
+    "alpha": 1.0
+  },
+  "candidate_clusters": [
+    5,
+    10,
+    20,
+    50,
+    100
+  ],
+  "noise_repeats": [
+    91001,
+    91002,
+    91003,
+    91004,
+    91005
+  ],
+  "selection_seed": 1729,
+  "objective": "validation accuracy",
+  "selection_uses_only_public_data": true,
+  "test_access": false,
+  "public_pilot_noise_is_a_design_surrogate_not_a_private_DP_evaluation": true,
+  "budgets": {
+    "0.01": {
+      "k": 10,
+      "mode": "center",
+      "clip": 8.321219682693481,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.25,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.22432,
+          "repeats": [
+            0.2356,
+            0.1448,
+            0.3136,
+            0.2766,
+            0.151
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.23880000000000004,
+          "repeats": [
+            0.2544,
+            0.1968,
+            0.3136,
+            0.2766,
+            0.1526
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.27487999999999996,
+          "repeats": [
+            0.2302,
+            0.3154,
+            0.3328,
+            0.2256,
+            0.2704
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.30240000000000006,
+          "repeats": [
+            0.2088,
+            0.296,
+            0.3898,
+            0.3378,
+            0.2796
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.28935999999999995,
+          "repeats": [
+            0.3462,
+            0.3136,
+            0.2788,
+            0.2082,
+            0.3
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.29196,
+          "repeats": [
+            0.352,
+            0.3136,
+            0.2602,
+            0.234,
+            0.3
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.17987999999999998,
+          "repeats": [
+            0.225,
+            0.2322,
+            0.0566,
+            0.1808,
+            0.2048
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.18316000000000002,
+          "repeats": [
+            0.2248,
+            0.2108,
+            0.066,
+            0.2086,
+            0.2056
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.1916,
+          "repeats": [
+            0.1486,
+            0.1682,
+            0.1604,
+            0.2478,
+            0.233
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.19524000000000002,
+          "repeats": [
+            0.1486,
+            0.1888,
+            0.1608,
+            0.2332,
+            0.2448
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.29412000000000005,
+          "repeats": [
+            0.3074,
+            0.307,
+            0.2266,
+            0.311,
+            0.3186
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.33512,
+          "repeats": [
+            0.3054,
+            0.3282,
+            0.4146,
+            0.3164,
+            0.311
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.31908000000000003,
+          "repeats": [
+            0.2626,
+            0.325,
+            0.2894,
+            0.3948,
+            0.3236
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.30372,
+          "repeats": [
+            0.3012,
+            0.2228,
+            0.3472,
+            0.3072,
+            0.3402
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.27964,
+          "repeats": [
+            0.2524,
+            0.336,
+            0.2332,
+            0.2742,
+            0.3024
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.23323999999999998,
+          "repeats": [
+            0.1794,
+            0.265,
+            0.1936,
+            0.22,
+            0.3082
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1692,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.14950000000000002,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1106,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.1365,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1692,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.14950000000000002,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1106,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.1365,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1692,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.14950000000000002,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1106,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.1365,
+          "coverage": 0.5
+        }
+      ]
+    },
+    "0.025": {
+      "k": 10,
+      "mode": "center",
+      "clip": 8.06071662902832,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.25,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.34208,
+          "repeats": [
+            0.3518,
+            0.349,
+            0.349,
+            0.3342,
+            0.3264
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.34792,
+          "repeats": [
+            0.3654,
+            0.3482,
+            0.349,
+            0.3342,
+            0.3428
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.5256000000000001,
+          "repeats": [
+            0.4916,
+            0.5114,
+            0.5678,
+            0.4784,
+            0.5788
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.53376,
+          "repeats": [
+            0.5304,
+            0.54,
+            0.5678,
+            0.4784,
+            0.5522
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.49892000000000003,
+          "repeats": [
+            0.552,
+            0.3946,
+            0.479,
+            0.4984,
+            0.5706
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.51564,
+          "repeats": [
+            0.556,
+            0.3946,
+            0.4936,
+            0.5634,
+            0.5706
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.43339999999999995,
+          "repeats": [
+            0.5316,
+            0.4064,
+            0.4808,
+            0.3634,
+            0.3848
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.44071999999999995,
+          "repeats": [
+            0.5576,
+            0.421,
+            0.461,
+            0.3446,
+            0.4194
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.33276000000000006,
+          "repeats": [
+            0.327,
+            0.3938,
+            0.3352,
+            0.314,
+            0.2938
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.33684000000000003,
+          "repeats": [
+            0.3338,
+            0.3924,
+            0.3174,
+            0.3324,
+            0.3082
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.5986800000000001,
+          "repeats": [
+            0.6356,
+            0.6166,
+            0.5878,
+            0.5972,
+            0.5562
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.56972,
+          "repeats": [
+            0.5384,
+            0.545,
+            0.546,
+            0.5662,
+            0.653
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.5454800000000001,
+          "repeats": [
+            0.5046,
+            0.5426,
+            0.5616,
+            0.542,
+            0.5766
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.55064,
+          "repeats": [
+            0.5686,
+            0.5554,
+            0.5156,
+            0.5784,
+            0.5352
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.5074,
+          "repeats": [
+            0.5136,
+            0.4898,
+            0.4568,
+            0.5798,
+            0.497
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.50412,
+          "repeats": [
+            0.537,
+            0.4272,
+            0.4824,
+            0.5362,
+            0.5378
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.2178,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.19240000000000002,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1763,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.1618,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.2178,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.19240000000000002,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1763,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.1618,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.2178,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.19240000000000002,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.1763,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.1618,
+          "coverage": 0.5
+        }
+      ]
+    },
+    "0.05": {
+      "k": 50,
+      "mode": "raw",
+      "clip": 8.06071662902832,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.25,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.34531999999999996,
+          "repeats": [
+            0.3444,
+            0.3444,
+            0.328,
+            0.3654,
+            0.3444
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.357,
+          "repeats": [
+            0.3654,
+            0.3654,
+            0.3444,
+            0.3654,
+            0.3444
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.56184,
+          "repeats": [
+            0.5788,
+            0.5622,
+            0.5788,
+            0.5502,
+            0.5392
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.5642,
+          "repeats": [
+            0.5732,
+            0.5622,
+            0.5732,
+            0.5732,
+            0.5392
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.58712,
+          "repeats": [
+            0.5808,
+            0.6386,
+            0.608,
+            0.5736,
+            0.5346
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.5947199999999999,
+          "repeats": [
+            0.6058,
+            0.6386,
+            0.5946,
+            0.5572,
+            0.5774
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.66304,
+          "repeats": [
+            0.6314,
+            0.6666,
+            0.6712,
+            0.6536,
+            0.6924
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.6592800000000001,
+          "repeats": [
+            0.6326,
+            0.6666,
+            0.6352,
+            0.6622,
+            0.6998
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.56092,
+          "repeats": [
+            0.5952,
+            0.5674,
+            0.546,
+            0.5102,
+            0.5858
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.56576,
+          "repeats": [
+            0.5928,
+            0.588,
+            0.546,
+            0.5102,
+            0.5918
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.7091200000000001,
+          "repeats": [
+            0.6868,
+            0.7312,
+            0.7118,
+            0.7408,
+            0.675
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.6887199999999999,
+          "repeats": [
+            0.6882,
+            0.6554,
+            0.7176,
+            0.6676,
+            0.7148
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.70616,
+          "repeats": [
+            0.6958,
+            0.7176,
+            0.7184,
+            0.7058,
+            0.6932
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.7005600000000001,
+          "repeats": [
+            0.7228,
+            0.6796,
+            0.7166,
+            0.6926,
+            0.6912
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.68168,
+          "repeats": [
+            0.702,
+            0.695,
+            0.6746,
+            0.66,
+            0.6768
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.68672,
+          "repeats": [
+            0.7152,
+            0.7004,
+            0.6556,
+            0.6992,
+            0.6632
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.3781,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.30410000000000004,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.3115,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.2274,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.3781,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.30410000000000004,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.3115,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.2274,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.3781,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.30410000000000004,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.3115,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.2274,
+          "coverage": 0.5
+        }
+      ]
+    },
+    "0.1": {
+      "k": 100,
+      "mode": "center",
+      "clip": 8.321219682693481,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.25,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.3444,
+          "repeats": [
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.3654,
+          "repeats": [
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.56516,
+          "repeats": [
+            0.5502,
+            0.5788,
+            0.5502,
+            0.5678,
+            0.5788
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.57088,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5502,
+            0.5678,
+            0.5788
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.6195600000000001,
+          "repeats": [
+            0.6236,
+            0.6204,
+            0.613,
+            0.6102,
+            0.6306
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.62956,
+          "repeats": [
+            0.6306,
+            0.638,
+            0.631,
+            0.6176,
+            0.6306
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.69728,
+          "repeats": [
+            0.6898,
+            0.6918,
+            0.6826,
+            0.7002,
+            0.722
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.7072399999999999,
+          "repeats": [
+            0.6966,
+            0.7048,
+            0.693,
+            0.7198,
+            0.722
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.70792,
+          "repeats": [
+            0.7136,
+            0.6948,
+            0.7292,
+            0.6848,
+            0.7172
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.7120000000000001,
+          "repeats": [
+            0.7094,
+            0.7128,
+            0.7292,
+            0.6888,
+            0.7198
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.7515600000000001,
+          "repeats": [
+            0.7396,
+            0.7392,
+            0.7558,
+            0.7422,
+            0.781
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.7624,
+          "repeats": [
+            0.767,
+            0.7348,
+            0.7694,
+            0.7712,
+            0.7696
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.75604,
+          "repeats": [
+            0.7648,
+            0.7786,
+            0.7396,
+            0.7392,
+            0.758
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.7550399999999999,
+          "repeats": [
+            0.7462,
+            0.7428,
+            0.7656,
+            0.7656,
+            0.755
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.75324,
+          "repeats": [
+            0.7416,
+            0.7562,
+            0.7404,
+            0.765,
+            0.763
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.74904,
+          "repeats": [
+            0.7424,
+            0.75,
+            0.7522,
+            0.7582,
+            0.7424
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.5673,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.5334,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.4962,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.4094,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.5673,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.5334,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.4962,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.4094,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.5673,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.5334,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.4962,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.4094,
+          "coverage": 0.5
+        }
+      ]
+    },
+    "0.25": {
+      "k": 100,
+      "mode": "center",
+      "clip": 8.06071662902832,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.25,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.3444,
+          "repeats": [
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.3654,
+          "repeats": [
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.5788,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.5788,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.6158,
+          "repeats": [
+            0.62,
+            0.613,
+            0.613,
+            0.613,
+            0.62
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.6258000000000001,
+          "repeats": [
+            0.6274,
+            0.638,
+            0.613,
+            0.62,
+            0.6306
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.7166399999999999,
+          "repeats": [
+            0.708,
+            0.7162,
+            0.7162,
+            0.7266,
+            0.7162
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.7236800000000001,
+          "repeats": [
+            0.7128,
+            0.721,
+            0.7266,
+            0.7266,
+            0.7314
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.74164,
+          "repeats": [
+            0.7362,
+            0.739,
+            0.7412,
+            0.744,
+            0.7478
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.74604,
+          "repeats": [
+            0.7472,
+            0.7398,
+            0.7414,
+            0.751,
+            0.7508
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.7727600000000001,
+          "repeats": [
+            0.7694,
+            0.7704,
+            0.7826,
+            0.7686,
+            0.7728
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.7718,
+          "repeats": [
+            0.7712,
+            0.7676,
+            0.7786,
+            0.7676,
+            0.774
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.7704799999999998,
+          "repeats": [
+            0.7694,
+            0.7678,
+            0.7682,
+            0.7714,
+            0.7756
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.77092,
+          "repeats": [
+            0.7828,
+            0.7712,
+            0.7644,
+            0.7628,
+            0.7734
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.7716799999999999,
+          "repeats": [
+            0.7704,
+            0.7716,
+            0.7712,
+            0.7694,
+            0.7758
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.7726,
+          "repeats": [
+            0.774,
+            0.7604,
+            0.7688,
+            0.7732,
+            0.7866
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7169000000000001,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7111,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7144999999999999,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7142999999999999,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7169000000000001,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7111,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7144999999999999,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7142999999999999,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7169000000000001,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7111,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7144999999999999,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7142999999999999,
+          "coverage": 0.5
+        }
+      ]
+    },
+    "0.5": {
+      "k": 100,
+      "mode": "center",
+      "clip": 8.06071662902832,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.5,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.3444,
+          "repeats": [
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.3654,
+          "repeats": [
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.5788,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.5788,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.6186,
+          "repeats": [
+            0.62,
+            0.62,
+            0.62,
+            0.62,
+            0.613
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.62424,
+          "repeats": [
+            0.62,
+            0.6306,
+            0.6306,
+            0.62,
+            0.62
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.7208,
+          "repeats": [
+            0.7266,
+            0.7266,
+            0.708,
+            0.7266,
+            0.7162
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.7208,
+          "repeats": [
+            0.7266,
+            0.7266,
+            0.708,
+            0.7266,
+            0.7162
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.7363600000000001,
+          "repeats": [
+            0.7338,
+            0.7336,
+            0.7398,
+            0.7372,
+            0.7374
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.74824,
+          "repeats": [
+            0.743,
+            0.7522,
+            0.7524,
+            0.7422,
+            0.7514
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.77388,
+          "repeats": [
+            0.7722,
+            0.778,
+            0.7754,
+            0.7696,
+            0.7742
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.7712399999999999,
+          "repeats": [
+            0.7672,
+            0.771,
+            0.7706,
+            0.7758,
+            0.7716
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.76868,
+          "repeats": [
+            0.766,
+            0.7676,
+            0.764,
+            0.769,
+            0.7768
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.77224,
+          "repeats": [
+            0.7754,
+            0.772,
+            0.7712,
+            0.77,
+            0.7726
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.7713999999999999,
+          "repeats": [
+            0.7756,
+            0.7706,
+            0.7698,
+            0.7684,
+            0.7726
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.77084,
+          "repeats": [
+            0.7714,
+            0.7716,
+            0.7684,
+            0.7722,
+            0.7706
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7172000000000001,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7025,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7468,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7388,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7172000000000001,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7025,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7468,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7388,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7172000000000001,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7025,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7468,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7388,
+          "coverage": 0.5
+        }
+      ]
+    },
+    "1.0": {
+      "k": 100,
+      "mode": "center",
+      "clip": 8.321219682693481,
+      "pate": {
+        "threshold": 0.1,
+        "cap_fraction": 0.5,
+        "screen_rho_fraction": 0.25
+      },
+      "semantic_candidates": [
+        {
+          "k": 5,
+          "mode": "raw",
+          "score": 0.3444,
+          "repeats": [
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444,
+            0.3444
+          ]
+        },
+        {
+          "k": 5,
+          "mode": "center",
+          "score": 0.3654,
+          "repeats": [
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654,
+            0.3654
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "raw",
+          "score": 0.5788,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788
+          ]
+        },
+        {
+          "k": 10,
+          "mode": "center",
+          "score": 0.5788,
+          "repeats": [
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788,
+            0.5788
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "raw",
+          "score": 0.6186,
+          "repeats": [
+            0.62,
+            0.613,
+            0.62,
+            0.62,
+            0.62
+          ]
+        },
+        {
+          "k": 20,
+          "mode": "center",
+          "score": 0.6278400000000001,
+          "repeats": [
+            0.6306,
+            0.6306,
+            0.6306,
+            0.6274,
+            0.62
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "raw",
+          "score": 0.7266,
+          "repeats": [
+            0.7266,
+            0.7266,
+            0.7266,
+            0.7266,
+            0.7266
+          ]
+        },
+        {
+          "k": 50,
+          "mode": "center",
+          "score": 0.7266,
+          "repeats": [
+            0.7266,
+            0.7266,
+            0.7266,
+            0.7266,
+            0.7266
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "raw",
+          "score": 0.73616,
+          "repeats": [
+            0.735,
+            0.7372,
+            0.7376,
+            0.7372,
+            0.7338
+          ]
+        },
+        {
+          "k": 100,
+          "mode": "center",
+          "score": 0.74836,
+          "repeats": [
+            0.7486,
+            0.7468,
+            0.748,
+            0.7512,
+            0.7472
+          ]
+        }
+      ],
+      "head_candidates": [
+        {
+          "clip": 8.06071662902832,
+          "score": 0.7731999999999999,
+          "repeats": [
+            0.7728,
+            0.7746,
+            0.7754,
+            0.7726,
+            0.7706
+          ]
+        },
+        {
+          "clip": 8.321219682693481,
+          "score": 0.77424,
+          "repeats": [
+            0.7734,
+            0.7742,
+            0.7766,
+            0.7738,
+            0.7732
+          ]
+        },
+        {
+          "clip": 8.567173957824707,
+          "score": 0.7722800000000001,
+          "repeats": [
+            0.774,
+            0.7734,
+            0.7718,
+            0.771,
+            0.7712
+          ]
+        },
+        {
+          "clip": 8.720840120315552,
+          "score": 0.7715599999999999,
+          "repeats": [
+            0.772,
+            0.7734,
+            0.7708,
+            0.7712,
+            0.7704
+          ]
+        },
+        {
+          "clip": 8.974543437957763,
+          "score": 0.7732,
+          "repeats": [
+            0.775,
+            0.774,
+            0.7738,
+            0.7738,
+            0.7694
+          ]
+        },
+        {
+          "clip": 9.664966583251953,
+          "score": 0.7734,
+          "repeats": [
+            0.773,
+            0.7732,
+            0.7718,
+            0.7742,
+            0.7748
+          ]
+        }
+      ],
+      "pate_candidates": [
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.6973,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.6853,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7431,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.1,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7377,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.6973,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.6853,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7431,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.2,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7377,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.25,
+          "score": 0.6973,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.25,
+          "screen_rho_fraction": 0.5,
+          "score": 0.6853,
+          "coverage": 0.25
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.25,
+          "score": 0.7431,
+          "coverage": 0.5
+        },
+        {
+          "threshold": 0.3,
+          "cap_fraction": 0.5,
+          "screen_rho_fraction": 0.5,
+          "score": 0.7377,
+          "coverage": 0.5
+        }
+      ]
+    }
+  },
+  "seconds": 227.1973683834076,
+  "configuration_frozen": true
+}

@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Regional estimators and decoder allocation at T=1/180, K=C, ten paired cohorts. M pools regional probabilities; R queries the public centroid representative. M/R are separate protected protocols; centered/coverage decoding shares each source matrix. Every entry is a public NN classifier, mean$\pm$sample SD (\%); Web uses balanced accuracy. No test metric routes a deployment choice.}
+\label{tab:release-variants}\small
+\centering
+\begin{tabular}{@{}lrrrr@{}}\toprule
+Task, clients, $\varepsilon$ & M/center & R/center & M/coverage & R/coverage \\
+\midrule
+CIFAR, 1k, 0.1 & 52.21$\pm$11.95 & 57.88$\pm$10.46 & 49.93$\pm$14.23 & 59.04$\pm$17.41 \\
+CIFAR, 10k, 0.1 & 91.59$\pm$0.00 & 87.81$\pm$3.99 & 91.59$\pm$0.00 & 91.59$\pm$0.00 \\
+MNIST, 10k, 0.1 & 52.91$\pm$1.34 & 52.04$\pm$3.32 & 49.88$\pm$0.00 & 50.79$\pm$1.63 \\
+Usenet, 3k, 1 & 20.68$\pm$5.60 & 13.36$\pm$3.08 & 15.98$\pm$6.07 & 15.15$\pm$5.89 \\
+FEMNIST, 1k, 0.1 & 7.07$\pm$1.36 & 7.18$\pm$1.25 & 4.98$\pm$1.25 & 4.59$\pm$1.41 \\
+FEMNIST, 1k, 1 & 35.49$\pm$0.92 & 36.03$\pm$0.82 & 15.77$\pm$0.62 & 16.12$\pm$1.37 \\
+FEMNIST, 2k, 0.1 & 19.80$\pm$3.26 & 19.40$\pm$2.70 & 9.13$\pm$1.44 & 9.51$\pm$1.89 \\
+FEMNIST, 2k, 1 & 35.57$\pm$0.50 & 36.19$\pm$0.71 & 17.92$\pm$0.53 & 17.96$\pm$0.53 \\
+\bottomrule\end{tabular}
+\end{table*}

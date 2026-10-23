@@ -1,0 +1,93 @@
+\section{Release Resolution and Target Quality}
+\label{sec:quality}
+
+Choosing $K$ balances the task resolution supplied by public geometry against
+the reliability of a noisy regional decision. We analyze the released target
+itself, the common supervision subsequently combined with private examples.
+
+\subsection{An exact geometry--decoding decomposition}
+
+Fix a partition and a labelled diagnostic proxy. Let $w_k=|P_k|/|P|$,
+$a_{kc}=\Pr_P(y=c\mid k)$, $a_k^*=\max_c a_{kc}$, and
+$Q_{kc}=\Pr(\hat y_k=c\mid q)$ for clean mean regional votes $q$ and the
+specified release/decoder. For any hard decoder, including coupled matching,
+\begin{equation}
+\mathbb E[\operatorname{Acc}_{P}]=\sum_k w_k\sum_c a_{kc}Q_{kc}.
+\label{eq:quality-exact}
+\end{equation}
+Writing $\operatorname{Pur}(K)=\sum_k w_ka_k^*$ gives the exact identity
+\begin{equation}
+1-\mathbb E[\operatorname{Acc}_{P}]
+=1-\operatorname{Pur}(K)+\sum_{k,c}w_k(a_k^*-a_{kc})Q_{kc}.
+\label{eq:quality-decomposition}
+\end{equation}
+The first term is the impurity of constant regional labels; the second
+measures the decoder's allocation among classes. It includes both clean
+teacher disagreement with the regional majority and noise-induced changes.
+Thus a flip probability alone is insufficient: an alternative class can
+still be correct for part of a mixed region.
+
+Purity bounds a constant hard-label classifier on this same proxy.
+Final local models also receive private examples and make nonconstant
+predictions, so Eq.~\eqref{eq:quality-exact} is a release-label model, with
+local-model accuracy evaluated separately. Partitions fitted at different
+$K$ need not be nested; both purity and teacher margins are measured for each
+candidate rather than assumed monotone.
+
+\subsection{Noise-supported regional margins}
+
+For one release, the mean-noise coordinate is sub-Gaussian with variance proxy
+$v^2=nb^2/(s^2n^2)$, retaining exact integer calibration.
+Let $c_k=\arg\max_c q_{kc}$ and $m_{kc}=q_{k,c_k}-q_{kc}$.
+
+\begin{theorem}[Uncentered regional target bound]
+\label{thm:quality}
+For coordinate arg-max of the uncentered noisy vote matrix and $c\ne c_k$,
+\begin{equation}
+\Pr(\hat y_k=c\mid q)\le\exp[-m_{kc}^2/(4v^2)].
+\label{eq:margin-tail}
+\end{equation}
+Consequently the conditional expected proxy-label accuracy is at least
+\begin{equation}
+\sum_k w_k\left[a_{k,c_k}-\sum_{c\ne c_k}
+(a_{k,c_k}-a_{kc})_+ e^{-m_{kc}^2/(4v^2)}\right]_+.
+\label{eq:quality-lower}
+\end{equation}
+\end{theorem}
+
+Independent discrete-Gaussian coordinates have sub-Gaussian parameter $v$;
+a competitor must overcome margin $m_{kc}$ with a difference of parameter
+$\sqrt2v$. Chernoff's bound gives Eq.~\eqref{eq:margin-tail}; summing only
+positive correctness losses gives Eq.~\eqref{eq:quality-lower}.
+The theorem concerns unwrapped coordinate arg-max; simplex projection
+preserves its winning coordinate. The modular wrap probability certified in
+Appendix~\ref{app:proofs} supplies an additive error bound for ring arithmetic.
+Centered decoding couples regions through the released prior;
+matching couples them through assignment, so these decoders use the general
+identity rather than the uncentered tail bound.
+
+Without collusion, $v\approx\sqrt{TK/\rho_\varepsilon}/n$.
+For two classes under continuous independent Gaussian noise, the clean winner
+flips with probability $\Phi[-m_k/(\sqrt2v)]$.
+For multiple classes, we simulate all competitors and the actual projection
+and prior correction. This Gaussian approximation predicts $Q_{kc}$ in
+Eq.~\eqref{eq:quality-exact}; independent exact-noise trials check its accuracy.
+When all relevant margins dominate $v$, decoding stabilizes. Further budget
+then preserves regional targets; additional task resolution requires changing
+the partition or target representation.
+
+\subsection{Public-only resolution selection}
+
+The deployment rule trains teachers on labelled public development examples,
+forms their regional votes, and estimates $a_{kc}$ on public validation
+examples assigned to the nearest public centroid. For each candidate $K$,
+it simulates Gaussian noise at the actual deployment certificate's $v$,
+applies centered decoding, and computes expected validation label quality
+using validation region frequencies as weights.
+It selects the largest expectation, breaking ties toward smaller $K$.
+This directly evaluates the geometry--noise tradeoff without private-count
+access. It is a public design surrogate, rather than an optimizer of final
+local-model accuracy. The no-public-task-label condition instead fixes
+$K=C$ and its decoder; benchmark labels enter offline diagnostics alone.
+
+

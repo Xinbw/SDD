@@ -1,0 +1,44 @@
+\section{Lessons for Data Platforms}
+\label{sec:discussion}
+
+Only the first two rows of Table~\ref{tab:information} support decisions.
+
+\begin{table}[t]
+\caption{What the Platform Can Use, and When}
+\label{tab:information}\small\setlength{\tabcolsep}{3pt}
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.42\columnwidth}>{\raggedright\arraybackslash}p{.16\columnwidth}>{\raggedright\arraybackslash}p{.36\columnwidth}@{}}\toprule
+Information & Available & Use \\\midrule
+Acquisition contract, report dimension, calibrated noise scale $v$, a pilot
+population's protected decisions and validation labels & before deployment & choose comparable
+configurations and the budget split \\
+Protected gain and class statistics of the candidate & after
+verification & publish the candidate or fall back \\
+True partition ceilings, clean teacher statistics, test accuracy & offline
+only & explain losses, analyse sensitivity (Opt.\ in Table~\ref{tab:cost}) \\
+\bottomrule\end{tabular}
+\end{table}
+
+\paragraph{Buy: fix the acquisition contract before the privacy budget}
+Private queries pay where labels are only passively available; the per-draw
+distribution (median \GainMedian{}, fifth percentile \GainFifth{}) states
+what one deployment should expect.
+
+\paragraph{Release: choose the interface by payload and partition fit}
+The regional report's advantage over pooled per-example votes is payload,
+not noise; a head pays where the partition bounds naming, and $v\approx\sqrt{TK/\rho_\varepsilon}/n$ predicts the noise term before any
+private data are touched.
+
+\paragraph{Verify: budget evidence for the declared target}
+Mean gain is cheap but certifies no class. A small pilot chooses the split
+for class targets, and the calculator turns $n$, $C$ and expected effects
+into a budget. The verified metric must be the one
+the platform reports: a balanced-accuracy rule publishes no Usenet candidate.
+
+\paragraph{Scope}
+Coverage is for the finite held-out cohort; tasks are benchmark-scale with
+frozen encoders (DINOv2, ResNet-18 and TF-IDF); image clients are simulated
+privacy units built from public benchmarks (with source-disjoint controls),
+Usenet authors and FEMNIST writers natural; tabular data are not covered.
+Zero-shot heads on other encoders change the representation resource and are
+not in $\mathcal H_{\mathrm{pub}}$.

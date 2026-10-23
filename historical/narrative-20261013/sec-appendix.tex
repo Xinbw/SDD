@@ -1,0 +1,188 @@
+\appendix
+
+\section{Supplementary Results}
+\label{app:full-results}
+The exact CIFAR-10 budget grid complements Figure~\ref{fig:main-results}.
+All MNIST/Web grids and per-seed records are included in the anonymous artifact.
+\input{tab-narrative-resources}
+\input{tab-new-confirmation}
+\input{tab-new-controls}
+\input{tab-new-legacy}
+\input{tab-round2-label-free}
+\input{tab-budget-cifar}
+\input{tab-round2-web-recall}
+\input{tab-round2-seeds}
+
+\paragraph{Consensus correction.}
+Ordinary consensus gives the same five-seed CIFAR-10 results as the selected
+mode at $\varepsilon=0.1$. MNIST's correction changes mean accuracy by $0.4$
+and $0.5$ points in the two regimes. The structure controls and shared
+post-processing comparison address distinct design choices.
+
+
+\section{Proofs and Integer Calibration}
+\label{app:proofs}
+
+\begin{proof}[Proof of Lemma~\ref{lem:sens}]
+Squared Euclidean distance decomposes over rows:
+$\|R-R'\|_2^2=\sum_{k=1}^K\|R[k,\cdot]-R'[k,\cdot]\|_2^2$.
+For simplex vectors $p,p'$, $\|p\|_2^2\le1$, $\|p'\|_2^2\le1$ and
+$\langle p,p'\rangle\ge0$, so $\|p-p'\|_2^2\le2$.
+Distinct one-hot rows attain equality. Repeating them across all $K$ rows
+attains $2K$. Statistical independence between rows is unnecessary.
+\end{proof}
+
+\begin{proof}[Proof of Lemma~\ref{lem:sens-int}]
+Write $\operatorname{round}(sR)=sR+e$, with $|e_j|\le1/2$.
+Then $\|e-e'\|_2\le\sqrt d$, giving
+$\Delta_q\le s\sqrt{2K}+\sqrt d$. One-hot votes have zero rounding error.
+Two updates clipped to a radius-$B$ ball differ by at most $2B$,
+giving $2sB+\sqrt d$ after rounding. The implemented guard confines
+integer reports to radius $L_B=\lceil sB+\sqrt d/2\rceil$, hence sensitivity
+$2L_B$. It checks squared integer norms exactly in the recorded numeric
+range and replaces an out-of-ball report with zero.
+Each conditional update is clipped relative to the same preceding public broadcast.
+\end{proof}
+
+\begin{proof}[Proof of Theorems~\ref{thm:round} and~\ref{thm:run}]
+Condition on a public transcript and a coalition's disclosed contributions.
+The remaining integer query has sensitivity $\Delta_q$ and retains at least
+$h$ independent scale-$b$ noise shares per coordinate.
+Proposition~10 of Kairouz et al.~\cite{kairouz2021distributed} gives the
+zCDP upper bound in Eq.~\eqref{eq:round-rho}. Its first branch suffices for
+all reported certificates. Since $j/(j+1)\ge1/2$,
+$\tau_h\le10(h-1)e^{-\pi^2b^2}$.
+Modulo reduction and later target construction are post-processing.
+The same conditional bound holds at every round, so adaptive composition
+sums the bounds. Equation~\eqref{eq:accounting} converts the sum to
+client-level $(\varepsilon,\delta)$-DP.
+\end{proof}
+
+\paragraph{Strict numerical slack.}
+The implementation increases the integer scale beyond the Gaussian reference
+and verifies $\Delta_q^2/(2hb^2)+d\tau_h/4\le\rho_\varepsilon/T$.
+It stores $\log[10(h-1)e^{-\pi^2b^2}]$ and conservatively uses
+$10^{-30}$ as an upper bound when the exponential is smaller.
+Thus underflow never silently discards the correction.
+The experiment artifacts certify each stage and its composed budget.
+For $10\%$ collusion tolerance, both $h$ and its correction are recomputed.
+Ninety-digit recomputation verifies all composed certificate bounds; the
+largest retained convolution upper bound is $10^{-30}$.
+
+\paragraph{Ring arithmetic.}
+Reports and shares are added modulo $2^{64}$; the signed representative is
+dequantised for learning. Privacy is preserved under this modular map even
+when wraparound occurs. Utility wraparound is controlled using the
+sub-Gaussian tail of the discrete Gaussian~\cite{kairouz2021distributed}:
+for a scalar noise sum $G$, $\Pr(|G|\ge a)\le2e^{-a^2/(2nb^2)}$.
+A union bound across released coordinates and rounds, with signal bounded by
+the quantised report range, certifies the recorded configurations.
+Its log probability is below $-3.5\times10^{18}$ across primary releases.
+
+\section{Reproducibility and Public Selection}
+\label{app:repro}
+
+The anonymous supplementary archive has a root \texttt{README.md} and
+\texttt{reproduce.py}. Run \texttt{python reproduce.py verify} to check
+inputs, frozen configurations, all numerical tables and stored outputs;
+\texttt{python reproduce.py smoke} replays representative fixed cases.
+\texttt{EXPERIMENT\_INDEX.csv} maps each condition to its seeds, configuration,
+role and result. Feature bundles, candidate scores, raw logs, exact integer
+certificates and complete grid tables are included. Public selection omits test
+arrays; configuration hashes are checked against the frozen manifests.
+
+The frozen image extractor is DINOv2 ViT-S/14 from the official public
+checkpoint~\cite{oquab2023dinov2}; its hash is recorded. All images use
+$224\times224$ RGB bicubic resizing and the checkpoint's normalisation.
+PCA and feature normalisation are fixed public preprocessing; application to
+private examples is point-wise. Public $K$-means uses five initialisations,
+at most $100$ iterations, seed $1729$, and deterministic nonempty-cluster repair.
+Random grouping preserves the semantic partition's exact region sizes.
+The feature control changes the partition to raw-pixel PCA while retaining
+the same client learner and feature map. The representative control queries
+the proxy point closest to each public centroid.
+
+Public pilot teachers use seed $1729$, disjoint development data, and the same
+round-1 learner as the final experiment. Candidate $K$ and correction modes
+use mean-posterior opinions and are scored by nearest-public-centroid label
+transfer on validation data,
+averaged over noise seeds $91001$--$91005$. Exact ties prefer smaller $K$,
+then ordinary consensus. Six DP-Head clipping candidates are public norm
+quantiles $0.5,0.75,0.9,0.95,0.99,1.0$; they use five noise repeats.
+PATE-DI settings use two fixed noise repeats per public candidate.
+These public design surrogates neither use private client data nor consume
+their privacy budget. Per-budget choices are retained alongside every candidate
+score, enabling independent verification of the selection rule.
+The representative comparisons retain those same $K$/consensus choices;
+no private result selects between M and R. The no-public-label check instead
+uses fixed taxonomy resolution and centered consensus. Proxy labels enter its
+offline diagnostics, while training targets come from the protected client sum.
+
+\paragraph{Exact noise and experimental replay.}
+The sampler uses a discrete-Laplace rejection proposal and rational
+Bernoulli $\exp(-\gamma)$ decisions as in Canonne et al.~\cite{canonne2020discrete}.
+Rejection from ideal independent random bits and arbitrary-precision fallbacks
+retain the exact integer distribution and its tail. The executable uses
+ChaCha20 pseudorandom bit streams under the corresponding cryptographic
+random-source assumption, with fresh secret keys drawn from the operating
+system for deployment. The privacy proof uses independent private random coins.
+Recorded benchmark seeds reproduce offline utility calculations and diagnostics,
+rather than defining a publicly seeded deployment privacy transcript.
+Sampler checks compare zero-event probabilities, moments and tails with
+analytic integer-Gaussian probabilities; the learner is checked against scalar
+SGD and one-client noninterference before final tests.
+
+\paragraph{Resource and protocol scope.}
+Experiments use one RTX 5090 GPU and $16$ CPU noise-sampling threads.
+Vectorisation trains every client independently and samples every client's
+share; cached round-1 states accelerate paired comparisons.
+Private models are not transmitted. The utility simulator evaluates the noisy
+sum directly and assumes the protected transport of A1--A4.
+Reported clean pseudo-label metrics and test accuracies are offline benchmark
+measurements, outside the claimed deployment transcript.
+
+\section{Baseline Accounting and Training}
+\label{app:baselines}
+
+For DP-FedCT, the public singleton partition is exactly the per-example vote
+interface. SDD and this variant share initial local states, private batches,
+local optimiser, budget conversion and post-processing.
+For DP-Head, each client clips its update relative to the preceding public
+global head and enforces the public integer-ball radius after rounding; the server averages the protected integer updates, broadcasts
+the new head and generates proxy targets from this public model.
+All clients adopt that head and reset momentum. Each round still has $60$
+local steps. We evaluate both the final broadcast and the clients immediately before that
+broadcast, retaining the first two protected heads, with no extra local steps.
+The third release remains charged for both endpoints.
+
+For PATE-DI, let $v(x)$ be the aggregate class-count vector.
+Protected screening forms noisy $\max_c v_c(x)$ for all $|P|$ queries.
+Its replace-one $L_2$ sensitivity is $\sqrt{|P|}$.
+Thresholds are $0.1,0.2,0.3$ in mean-vote units; answer caps are
+$0.25|P|$ or $0.5|P|$; screening receives $0.25$ or $0.5$ of the per-round
+privacy allowance. The remaining allowance answers at most $M$ queries with
+joint sensitivity $\sqrt{2M}$. Thresholding and selecting the highest noisy
+confidences are post-processing of screening. The answer sensitivity holds
+conditionally on every selected subset. Both stages use the corrected
+distributed integer-noise bound and compose over $T$ rounds.
+The tighter data-independent R\'enyi conversion~\cite{balle2020hypothesis} is
+\begin{equation}
+\varepsilon\le\inf_{a>1}\left[
+a\rho_{\rm total}+\frac{\log(1/(a\delta))}{a-1}
++\log(1-1/a)\right].
+\end{equation}
+This conversion is granted to PATE-DI in addition to protected screening.
+The evaluated view includes noisy confidences and selected noisy count vectors.
+Data-dependent PATE accounting requires additional protected analysis of
+private consensus and accounting outputs; it is a distinct protocol scope.
+
+\paragraph{Original-architecture corroboration.}
+The full ResNet-18 diagnostic uses actual/calibrated $n=100$, CIFAR-10
+$\alpha=0.1$ and $6000$ replacement draws per client. Two continuation
+rounds each use $20$ epochs; the three protected releases use
+$\varepsilon=0.1,1$. It fixes $K=10$ and uses a singleton partition
+for DP-FedCT. Both use the same local GPU trainer, exact noise, and individually trained cached seed-$42$ round-1 states. Evaluation uses the proxy-excluded first
+half of test. At $\varepsilon=0.1$, regional/per-example accuracy is $22.3/25.5\%$;
+at $1$, it is $38.9/25.5\%$. These architecture-specific operating points
+are separate from the main frozen-feature population study.
+

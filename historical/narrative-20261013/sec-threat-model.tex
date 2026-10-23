@@ -1,0 +1,201 @@
+\section{Threat Model and Privacy Guarantee}
+\label{sec:threat}
+
+\subsection{Private units and the aggregation interface}
+\label{sec:threat:setting}
+
+Client $i$ holds its entire local dataset $D_i$ and model $f_i$. A fixed cohort
+of $n$ clients participates in each of $T$ rounds. The public proxy $P$, its
+partition, feature extractor and release configuration are fixed independently
+of these private datasets. The adversary observes the noisy sum and every
+broadcast; local models, individual reports and honest noise shares remain
+on the client side of the aggregation interface.
+
+\begin{description}[leftmargin=0pt,itemsep=2pt,topsep=2pt]
+\item[A1 (aggregate-only view).] Secure additive aggregation reveals the
+sum of contributions and protocol metadata that is public or independent
+of protected data, while hiding individual values.
+Secret sharing or split-and-mix aggregation can instantiate this
+interface~\cite{bonawitz2017practical,corriganGibbs2017prio,ishai2006cryptography}.
+The privacy accountant operates on the released sum.
+\item[A2 (bounded collusion).] At most $t<n$ contributors disclose their
+reports and noise to the server; at least $h=n-t$ independent honest shares
+remain. The main evaluation uses $t=0$ and separately tests $t=0.1n$.
+\item[A3 (protected aggregation).] Aggregation parties maintain A1 against
+the server and the stated coalition. The learning experiment implements the
+sum arithmetic; secure transport is an assumed deployment component.
+\item[A4 (compliant contributions).] Honest clients use the bounded report
+and fresh independent noise. Participation is fixed ($q=1$); a deployment
+rechecks calibration or aborts if the required honest cohort is unavailable.
+The guarantee concerns observation and collusion under this interface.
+\end{description}
+
+\paragraph{Replace-one client adjacency.}
+Adjacent inputs replace the entire dataset of one honest client. Conditioned
+on any previous public transcript, that client's report may change arbitrarily
+within the bounded report space. Other clients use the same transcript and
+their own local data. Conditional sensitivity and adaptive composition
+therefore protect the complete server transcript, even though reports evolve
+over rounds. All evaluated population sizes are actual reporting populations:
+the averaging denominator and noise calibration use the same $n$.
+
+\begin{table}[t]
+\caption{Notation. Population and calibration agree in every learning run.}
+\label{tab:notation}\small
+\begin{tabular}{@{}cl@{}}\toprule
+symbol & meaning \\\midrule
+$n,h$ & actual participants; honest contributors $h=n-t$ \\
+$K,C,d$ & public regions; classes; report dimension \\
+$T$ & release rounds; $3$ in the evaluation \\
+$s$ & integer quantisation scale, $2^{16}$ \\
+$b$ & integer discrete-Gaussian share scale \\
+$\Delta_q$ & sensitivity of the quantised sum \\
+$\rho_\varepsilon$ & whole-run zCDP allowance \\
+\bottomrule\end{tabular}
+\end{table}
+
+\subsection{A bounded integer release}
+\label{sec:threat:protocol}
+
+\begin{algorithm}[t]
+\caption{One round of Semantic-DP Distillation}
+\label{alg:protocol}\small
+\begin{algorithmic}[1]
+\State \textbf{client $i$:}
+\State \quad $\tilde R_i\gets$ regional posteriors (mean or representative)
+\State \quad $R_i[k,\cdot]\gets e_{\arg\max_c\tilde R_i[k,c]}$
+\State \quad $Z_i\gets sR_i$ \Comment{exact integer votes}
+\State \quad $G_i[j]\gets\mathcal N_{\mathbb Z}(0,b^2)$ independently
+\State \quad submit shares of $Y_i=Z_i+G_i$ modulo $2^{64}$
+\State \textbf{server:}
+\State \quad $S\gets\sum_iY_i$ \Comment{aggregate-only view}
+\State \quad $A\gets\operatorname{Proj}_{\Delta}(S/(sn))$ row-wise
+\State \quad extract cluster targets by fixed public post-processing
+\State \quad broadcast targets for hard-label local distillation
+\end{algorithmic}
+\end{algorithm}
+
+Here $\mathcal N_{\mathbb Z}(0,b^2)$ has mass proportional to
+$\exp(-z^2/(2b^2))$ on integers. Its scale parameter bounds its standard
+deviation; its variance is strictly below $b^2$~\cite{kairouz2021distributed}.
+The implementation uses the rejection sampler of Canonne et
+al.~\cite{canonne2020discrete}, with rational Bernoulli decisions.
+Modular addition, dequantisation, projection and target extraction are
+post-processing. Appendix~\ref{app:repro} specifies the sampler and replay protocol.
+
+\begin{lemma}[Report sensitivity]
+\label{lem:sens}
+For $R_i,R_i'\in(\Delta^{C-1})^K$,
+$\|R_i-R_i'\|_2\le\sqrt{2K}$, and this report-space bound is tight.
+It holds for every fixed public partition, including random partitions.
+\end{lemma}
+
+Each simplex row has diameter $\sqrt2$; opposing one-hot rows attain the
+$2K$ squared bound. Semantic controls separately test learning quality.
+
+\begin{lemma}[Quantised sensitivity]
+\label{lem:sens-int}
+For one-hot reports, $\Delta_q=s\sqrt{2K}$ exactly. For rounded posterior
+reports in dimension $d=KC$,
+$\Delta_q\le s\sqrt{2K}+\sqrt d$. For an update clipped at norm $B$,
+$\Delta_q\le2sB+\sqrt d$.
+\end{lemma}
+
+Two rounding-error vectors differ by at most one per coordinate, hence
+by at most $\sqrt d$ in norm. For the clipping baseline, define the integer radius
+$L_B=\lceil sB+\sqrt d/2\rceil$ and enforce this ball after rounding;
+its certified sensitivity is $2L_B$.
+The integer guard includes any floating clipping error.
+The main vote interface incurs no rounding slack. Sensitivity depends on
+the emitted object, independently of how a client trains its model.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig-main-curves.pdf}
+\Description{Four privacy--utility panels compare regional votes, per-example
+votes, compact parameter updates and protected selective queries across seven
+budgets on CIFAR-10 and MNIST with two heterogeneity levels.}
+\caption{Public-configured privacy--utility curves, actual $10^4$ reporting clients,
+three seeds with sample SD. SDD denotes SDD-M. Methods share public features
+and private optimisation; PATE-DI includes protected screening costs.
+Five-seed $\varepsilon=0.1$ estimates appear in Table~\ref{tab:new-effects}.}
+\label{fig:main-results}
+\end{figure*}
+
+\subsection{Explicit convolution and whole-run accounting}
+\label{sec:threat:guarantee}
+
+\begin{theorem}[One aggregate release]
+\label{thm:round}
+Under A1--A4, let $h=n-t$, $b\ge1$, and
+\begin{align}
+\tau_h(b)&=10\sum_{j=1}^{h-1}
+ \exp\!\left(-2\pi^2b^2\frac{j}{j+1}\right),\label{eq:tau}\\
+\rho_r&=\frac{\Delta_q^2}{2hb^2}+\frac{d\tau_h(b)}4.
+\label{eq:round-rho}
+\end{align}
+The aggregate is $\rho_r$-zCDP for replace-one client adjacency. The empty
+sum is zero when $h=1$; otherwise
+$\tau_h(b)\le10(h-1)e^{-\pi^2b^2}$.
+\end{theorem}
+
+After subtracting colluding contributions, $h$ independent discrete-Gaussian
+shares protect the integer query. Equation~\eqref{eq:round-rho} is the first
+branch of Proposition~10 in Kairouz et al.~\cite{kairouz2021distributed},
+with the actual replace-one sensitivity $\Delta_q$. Additional honest noise
+and modular reduction preserve this guarantee. This bound accounts for the
+convolution distribution directly.
+
+\begin{theorem}[Adaptive whole run]
+\label{thm:run}
+For $T$ conditionally calibrated releases,
+$\rho_{\mathrm{total}}\le\sum_{r=1}^T\rho_r$. The server transcript is
+$(\varepsilon,\delta)$-DP whenever
+\begin{equation}
+\rho_{\mathrm{total}}+2\sqrt{\rho_{\mathrm{total}}\log(1/\delta)}
+\le\varepsilon.\label{eq:accounting}
+\end{equation}
+\end{theorem}
+
+The composition includes all broadcasts~\cite{bun2016concentrated}.
+Public feature extraction, public-only configuration selection and
+distillation of released labels consume no additional client budget.
+Offline benchmark accuracy and clean-report diagnostics measure the mechanism;
+they are not additional outputs claimed to satisfy its privacy guarantee.
+
+\paragraph{Calibration that can be checked numerically.}
+Writing $L=\log(1/\delta)$, set
+$\rho_\varepsilon=(\sqrt{L+\varepsilon}-\sqrt L)^2$ and choose
+\begin{equation}
+b=\left\lfloor\frac{\Delta_q}{\sqrt{2h\rho_\varepsilon/T}}\right\rfloor+1.
+\label{eq:integer-scale}
+\end{equation}
+We then verify the full corrected bound, including $d\tau_h/4$, against
+$\rho_\varepsilon/T$. The upward integer step provides slack; every
+experimental release has $\tau_h<10^{-30}$. Machine-readable certificates
+record $n,h,b,\Delta_q,d,\log\tau_h$ and the recomposed privacy bound.
+For $K=10$, $T=3$, $\varepsilon=0.1$, $\delta=10^{-5}$, the continuous
+reference scale on the sum is $372.50$: residual scales are approximately
+$3.725$, $0.3725$ and $0.03725$ at actual $n=100$, $1000$ and $10000$.
+These are different participating populations in the learning experiment.
+
+\paragraph{Participation and resolution.}
+Since $\operatorname{Var}(G_i[j])<b^2$, the full-cohort mean has per-coordinate
+standard deviation bounded by $b\sqrt n/(sn)$. With $t=0$, this is close to
+\begin{equation}
+\frac{\sigma}{n},\qquad
+\sigma=\sqrt{TK/\rho_\varepsilon}.\label{eq:design-budget}
+\end{equation}
+At a fixed accountant, per-example and cluster votes therefore have noise-scale
+ratio $\sqrt{|P|/K}$ up to integer calibration. A larger cohort supplies more
+reports as well as a larger averaging denominator. Its evolving consensus is
+measured at each actual population size in the scaling experiment.
+
+\paragraph{Collusion tolerance.}
+Replacing $n$ with $h=n-t$ in calibration retains the corrected guarantee
+after the coalition subtracts its shares. With all $n$ shares present, the
+noise-scale upper bound increases by approximately $\sqrt{n/(n-t)}$,
+or $1.054$ for $10\%$ collusion tolerance. Integer rounding and
+$\tau_h$ remain in each certificate. This quantifies the extra noise required
+by the stated coalition model; the paired utility experiment measures
+its learning effect.

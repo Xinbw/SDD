@@ -1,0 +1,128 @@
+\section{Semantic-DP Distillation}
+\label{sec:method}
+
+A public semantic region lets one released target supervise many proxy
+examples. SDD uses regions as the unit of private knowledge exchange:
+clients cast one bounded vote per region, and the protected aggregate supplies
+shared targets for local learning.
+
+\begin{table}[t]
+\caption{Release interfaces under replace-one client adjacency, before
+quantisation and transport sharing. $B$ is the clipping norm.}
+\label{tab:release-interfaces}\small
+\begin{tabular}{@{}lcc@{}}\toprule
+released object & coordinates & $L_2$ sensitivity \\\midrule
+clipped parameter update & $d_{\mathrm{model}}$ & $2B$ \\
+joint per-example votes & $|P|C$ & $\sqrt{2|P|}$ \\
+public-region votes & $KC$ & $\sqrt{2K}$ \\
+\bottomrule\end{tabular}
+\end{table}
+
+Table~\ref{tab:release-interfaces} compares clipping and release resolution.
+Our compact head baseline shares $128$-dimensional features. SDD requires
+compatible class opinions while keeping each client's parameters local.
+
+\subsection{A public partition for knowledge reuse}
+\label{sec:method:cluster}
+
+A fixed public extractor $g$ and public $K$-means form nonempty regions
+$P_1,\ldots,P_K$, shared across rounds independently of private data.
+At fixed $K$, additional proxy examples increase distillation inputs without
+increasing reports. Singleton regions at $K=|P|$ recover per-example transfer.
+Semantic reuse requires compatible task information within a region. Random
+partitions satisfy the same sensitivity bound; matched experiments test the
+learning value of their geometry separately.
+
+\subsection{One bounded opinion per region}
+\label{sec:method:report}
+
+For client model $f_i$, the regional posterior is
+\begin{equation}
+\bar R_i[k,\cdot]=\frac1{|P_k|}\sum_{x\in P_k}f_i(x)
+\in\Delta^{C-1}.\label{eq:report}
+\end{equation}
+SDD-M votes for the largest component of $\bar R_i[k,\cdot]$.
+SDD-R votes on $f_i(x_k^*)$, where $x_k^*$ is the public point nearest the
+centroid: public representative queries followed by regional label propagation.
+Both emit $K$ one-hot rows and propagate targets over identical
+regions. Fixed-$K$ comparisons distinguish pooled and localized responses
+while holding sensitivity, report size and partition quality fixed.
+
+Reports lie in a product of $K$ probability simplexes. Direct posteriors also
+satisfy this bound, with quantisation slack. The evaluated one-hot encoding
+lies exactly on the integer grid. Common learners isolate release granularity;
+the interface itself requires compatible class outputs from local models.
+
+\subsection{Noisy consensus and local learning}
+\label{sec:method:agg}
+
+Each client adds independent integer discrete-Gaussian shares to its quantised
+report. The aggregate-only layer exposes $S=\sum_i(sR_i+G_i)$, and the server
+projects $S/(sn)$ row-wise onto the simplex to obtain $A$.
+For ordinary consensus, the target is
+\begin{equation}
+\hat y(x)=\arg\max_c A[k(x),c].\label{eq:targets}
+\end{equation}
+We also evaluate a fixed class-prior correction: with public region weights
+$w_k=|P_k|$, subtract
+$\pi_c=\sum_k w_k A[k,c]/\sum_k w_k$ before taking the arg-max.
+This uses the released aggregate and public sizes. It can counter a common
+class preference when clients have narrow local label coverage.
+Public-configured runs select ordinary or centered consensus with public
+development data, shared across label-release methods. The fixed condition
+uses centered consensus without public task labels.
+
+\paragraph{Coverage-constrained decoding.}
+At taxonomy resolution $K=C$, a prespecified alternative is a one-to-one
+assignment using the released matrix:
+\begin{equation}
+\hat\pi=\arg\max_{\pi\in\mathfrak S_C}\sum_k |P_k|A[k,\pi(k)],
+\qquad \hat y(x)=\hat\pi(k(x)).
+\label{eq:matching}
+\end{equation}
+Hungarian assignment solves this public-size-weighted objective. It guarantees
+class coverage among regional targets, while correctness depends on whether
+the public regions support a one-to-one class allocation. Equal numbers of
+regions and classes alone do not establish that condition.
+The decoder requires no further private query or privacy budget.
+We also test $A[k,\cdot]$ as a soft training target and a fixed-temperature
+softmax of centered scores. These are proportions of hard client votes,
+rather than calibrated class posteriors. All variants use the same protected
+release, with their full paired results retained.
+
+Later-round batches mix equal private and proxy halves, with hard or soft
+cross-entropy according to the declared decoder and fixed optimisation steps.
+Every proxy item inherits its region's target. Three releases are charged;
+releases 1/2 supervise the next training rounds, and release 3 follows the
+final local fit. The confidence-filtered baseline samples its answered subset
+under separately budgeted screening.
+
+\paragraph{Report size.}
+At $|P|=2000$, $C=10$, a $K=10/20$ release uses $100/200$ integer
+coordinates, versus $20000$ per-example coordinates and $1280$ head coordinates.
+Counts measure per-round learning payload before secret sharing and
+cryptographic overhead.
+
+\paragraph{Choosing resolution without private tuning.}
+The public design criterion in \S\ref{sec:quality} scores release-label quality
+using public teachers and deployment noise. Original public-configured grids
+retain their frozen pilot settings; the new criterion is evaluated separately.
+Fixed checks use $K=C$ and the declared decoder without public task labels.
+Both regional estimators remain separate. Final runs aggregate actual client
+reports and independent shares, calibrated for that same population.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig-main-curves.pdf}
+\Description{Four original privacy--utility panels compare centered or raw
+regional votes, per-example votes, compact parameter updates and protected
+selective queries across seven budgets on CIFAR-10 and MNIST.}
+\caption{Original public-configured privacy--utility grids, actual 10k clients,
+three seeds with sample SD, seven budgets and two heterogeneity levels.
+SDD denotes mean regional voting with the original consensus decoder;
+matching is evaluated separately in Table~\ref{tab:decoder-cifar}.
+Methods share learner features and private optimisation. DP-Head releases a
+global head; PATE-DI includes protected screening costs. All configurations
+retain the original public-only selection.}
+\label{fig:main-results}
+\end{figure*}

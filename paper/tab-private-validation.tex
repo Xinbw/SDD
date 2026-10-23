@@ -1,0 +1,12 @@
+\begin{table*}[t]
+\caption{Budgeted private verification: fresh CIFAR-1k cohorts, 100 random ten-label draws crossed with ten actual cohorts. Each deployment spends one total $(\varepsilon,10^{-5})$ budget: $50\%$ of $\rho$ on naming, $25\%$ each on paired gain and class statistics. The demonstration fixes the public count-matching comparator and the regional candidate family; it is separate from the fourteen-learner frontier. All accuracies are independent-test results; policy utilities include every rejection at its public fallback. Class policy uses direct class-sum confidence bands; acceptance is \%.}
+\label{tab:private-validation}\small
+\centering
+\begin{tabular}{@{}rrrrrrr@{}}\toprule
+Total $\varepsilon$ & Public & Candidate & Gain accept & Gain policy & Class accept & Class policy \\
+\midrule
+0.1 & 62.3 & 73.8 & 4.6 & 63.7 & 0.0 & 62.3 \\
+1 & 62.3 & 88.9 & 86.8 & 88.9 & 6.2 & 64.3 \\
+3 & 62.3 & 88.9 & 87.0 & 88.9 & 75.9 & 86.6 \\
+\bottomrule\end{tabular}
+\end{table*}

@@ -1,0 +1,65 @@
+{
+  "created_utc": "2026-10-09T13:31:18.552383+00:00",
+  "scope": "paired validation of Fig.1(a) and Fig.2(a)",
+  "independent_population_seeds": [
+    42,
+    43,
+    44
+  ],
+  "conditional_repeat_rng_seed": 10042,
+  "jobs": [
+    {
+      "id": "cohort1000_s43",
+      "population_seed": 43,
+      "cohort": 1000,
+      "epsilon": 1.0,
+      "post_checkpoint_rng_seed": null
+    },
+    {
+      "id": "cohort3000_s43",
+      "population_seed": 43,
+      "cohort": 3000,
+      "epsilon": 1.0,
+      "post_checkpoint_rng_seed": null
+    },
+    {
+      "id": "cohort1000_s44",
+      "population_seed": 44,
+      "cohort": 1000,
+      "epsilon": 1.0,
+      "post_checkpoint_rng_seed": null
+    },
+    {
+      "id": "cohort3000_s44",
+      "population_seed": 44,
+      "cohort": 3000,
+      "epsilon": 1.0,
+      "post_checkpoint_rng_seed": null
+    },
+    {
+      "id": "eps0_25_s42_rng10042",
+      "population_seed": 42,
+      "cohort": 10000,
+      "epsilon": 0.25,
+      "post_checkpoint_rng_seed": 10042
+    },
+    {
+      "id": "eps0_5_s42_rng10042",
+      "population_seed": 42,
+      "cohort": 10000,
+      "epsilon": 0.5,
+      "post_checkpoint_rng_seed": 10042
+    }
+  ],
+  "source_hashes": {
+    "train_sdd.py": "3984eda72b198f860a1b7e169d41bcb9995ef1fc2933fd39b97fa5fb75e72db8",
+    "sdd_core.py": "41069a259a9fc1caf96123f4c481aef841c604780d96765809c25131ae0a2c56",
+    "data.py": "fd6d5be274504ba680242c502be98afdae49c637ba7e1a7f2ec7cda4fef839bd",
+    "dp_utils.py": "049804f6e71be4410fceb98e55d0179173420c5e86bf2b066b27a036a423a127"
+  },
+  "notes": [
+    "All runs retain 100 clients, K=10, T=3, 20 epochs, original clean test split.",
+    "Existing seed-42 cohort runs and three-seed epsilon results remain separate source evidence.",
+    "The additional epsilon pair varies post-checkpoint RNG, not the client population."
+  ]
+}

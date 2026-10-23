@@ -1,0 +1,15 @@
+{
+  "dataset": "cifar10",
+  "public_encoder": "Meta DINOv2 ViT-S/14, frozen before client sampling",
+  "encoder_source": "https://github.com/facebookresearch/dinov2",
+  "encoder_weights_sha256": "de41b6c4d9f81885103e8aafa0554d412d2b9bcbcd6e9771ef1807682db0ae8a",
+  "public_PCA_components": 128,
+  "PCA_fit_data": "public proxy only",
+  "public_development_samples": 5000,
+  "private_pool_samples": 45000,
+  "unlabelled_public_proxy_samples": 2000,
+  "public_validation_samples": 3967,
+  "sealed_test_samples": 4033,
+  "validation_selection_access_to_test": false,
+  "weak_partition_features": "public-proxy raw-pixel PCA, 128 components"
+}

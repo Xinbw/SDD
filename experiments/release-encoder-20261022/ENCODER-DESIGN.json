@@ -1,0 +1,68 @@
+{
+  "design": {
+    "stage": "EAB round 12: weak-encoder ablation of Finding 1",
+    "encoder": {
+      "name": "torchvision ResNet-18, IMAGENET1K_V1 weights (downloaded with user approval 2026-10-22)",
+      "layer": "global average pool, 512-d, eval mode, frozen",
+      "preprocessing": "as DINOv2: bicubic resize to 224, ImageNet mean/std",
+      "reduction": "PCA to 128 fitted on the 2000 public proxy images only (randomized, random_state 1729), then row L2 normalization"
+    },
+    "reference_encoder": "DINOv2 ViT-S/14 (all existing results)",
+    "identities": "same private/development/proxy/validation/test image ids as release-frontier inputs/cifar10.npz; labels asserted equal",
+    "setting": {
+      "dataset": "cifar10",
+      "clients": 1000,
+      "dirichlet_alpha": 0.1,
+      "epsilon": 0.1,
+      "delta": 1e-05,
+      "private_steps": 180,
+      "release": "T=1, K=C=10 public regions, estimator M",
+      "cohort_seeds": [
+        8801,
+        8802,
+        8803,
+        8804,
+        8805,
+        8806,
+        8807,
+        8808,
+        8809,
+        8810
+      ],
+      "head_fixed_release": "also run (clip 1), as in the reference confirmation"
+    },
+    "labels": {
+      "random": "release-frontier confirmation/samples cifar10_random_{0..99}_m{10,30,50,100,200,500}.json, unchanged indices",
+      "feature_directed": "geometry_labels policy (q nearest development points per public K=C region, recomputed in the ResNet-18 geometry), q in {1,3,5}"
+    },
+    "evaluation": "release-frontier anchored_fusion.main(confirm=True) with module roots pointed at this stage; joint naming and fourteen public learners with exact LOO",
+    "noise_note": "release noise keys are the reference formula (seed*1000003+steps*101+20261019), so the two encoders share noise tapes; paired by design",
+    "primary": {
+      "E1": "random acquisition, m=10: mean over 100 draws x 10 cohorts of (joint naming accuracy - strongest mean public learner accuracy) has crossed-bootstrap 95% lower bound > 0 (2000 replicates, seed 20261022)",
+      "E2": "feature-directed acquisition, m=10, public only: accuracy of the selected public portfolio >= mean random-acquisition joint naming accuracy at m=10 (acquisition substitutes for private reports)",
+      "success": "E1 and E2 both hold"
+    },
+    "predictions": [
+      "E1 holds",
+      "E2 holds",
+      "partition ceilings (one-to-one, many-to-one, K=C) are lower than with DINOv2",
+      "the random-acquisition joint gain at m=10 is smaller than with DINOv2 (+13.0)",
+      "with feature-directed m=10 labels, the mean joint naming accuracy exceeds the directed public portfolio by at most 1 point"
+    ],
+    "descriptive": [
+      "all six label budgets for random acquisition",
+      "directed q=1,3,5",
+      "head-fixed native and joint control",
+      "partition ceilings"
+    ],
+    "reporting": {
+      "all_cases_retained": true,
+      "no_reruns_with_new_seeds": true,
+      "amendments": "AMENDMENTS.json with time and reason"
+    }
+  },
+  "frozen_utc": "2026-10-22T14:38:25Z",
+  "source_sha256": {
+    "design.py": "51160c5e79521920c89900ba419bb5bf6ec21a10fba690d96c8435bd8d234ff3"
+  }
+}

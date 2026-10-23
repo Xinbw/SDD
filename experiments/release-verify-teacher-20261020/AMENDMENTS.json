@@ -1,0 +1,24 @@
+{
+  "design_sha256": "ff49a6690ab2d66a0a53f41abe91adf1793eb85876e5e6dee50dda36f21bc6c8",
+  "amendments": [
+    {
+      "utc": "2026-10-20T09:08:02Z",
+      "file": "src/run.py",
+      "change": "TF32 matmul: enabled for private training and vote counting (engine_base convention), disabled for all public computation (public_frontier convention)",
+      "reason": "first smoke run aborted on the public-learner equality assertion (ridge-0.001, MNIST draw 0) because training had left TF32 enabled; no case had been produced",
+      "depends_on_outcomes": false
+    }
+  ],
+  "operational_notes": [
+    {
+      "utc": "2026-10-20T09:10Z",
+      "note": "first full launch had a 10-minute background limit; it was stopped after 286 of 6000 cases and resumed with the same code (skip-existing). All 60 naming diagnostics were regenerated deterministically and match the sha256 recorded in every case (0 mismatches).",
+      "changes_code": false
+    }
+  ],
+  "post_hoc": {
+    "file": "src/post_hoc.py",
+    "written_after_primary_outcome": true,
+    "purpose": "split of private-candidate cases by protected decision"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "dataset": "mnist",
+  "actual_clients": 10000,
+  "calibrated_clients": 10000,
+  "alpha": 0.1,
+  "seed": 802,
+  "method": "DP-Head",
+  "k": 20,
+  "epsilon": 0.01,
+  "delta": 1e-05,
+  "mode": "center",
+  "clip": 9.780058002471923,
+  "public_development": false,
+  "evaluation_split": "test",
+  "accuracy": 0.1639999896287918,
+  "balanced_accuracy": 0.16485470533370972,
+  "initial_accuracy": 0.30157301238179207,
+  "initial_balanced_accuracy": 0.29962837669104336,
+  "population": {
+    "actual_clients": 10000,
+    "unique_client_identifiers": 10000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "a580e51e58fb6931abaac8374113ce541a18fa63817a3bbaee33670cad441b6b",
+    "client_generation_seed": 802,
+    "alpha": 0.1
+  },
+  "rounds": 3,
+  "optimizer_steps_per_round": 60,
+  "batch_size": 128,
+  "lr": 0.1,
+  "momentum": 0.9,
+  "weight_decay": 0.0005,
+  "private_model": "128-dimensional frozen public features; independently trained no-intercept softmax heads",
+  "trace": [
+    {
+      "round": 1,
+      "privacy": {
+        "epsilon_requested": 0.01,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 10000,
+        "calibrated_clients": 10000,
+        "honest_clients": 10000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 10656786,
+        "sensitivity_integer_squared": 1643338216753.2202,
+        "dimension": 1280,
+        "log_tau_upper": -1120862230061236.9,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.235098864763979e-07,
+        "rho_total_upper": 2.1705296594291936e-06,
+        "epsilon_upper": 0.009999999531700925,
+        "residual_std": 1.6260964965820313,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "clip": 9.780058002471923,
+        "clipped_fraction": 0.04769999906420708,
+        "logical_report_coordinates": 1280
+      }
+    },
+    {
+      "round": 2,
+      "privacy": {
+        "epsilon_requested": 0.01,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 10000,
+        "calibrated_clients": 10000,
+        "honest_clients": 10000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 10656786,
+        "sensitivity_integer_squared": 1643338216753.2202,
+        "dimension": 1280,
+        "log_tau_upper": -1120862230061236.9,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.235098864763979e-07,
+        "rho_total_upper": 2.1705296594291936e-06,
+        "epsilon_upper": 0.009999999531700925,
+        "residual_std": 1.6260964965820313,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "clip": 9.780058002471923,
+        "clipped_fraction": 0.0,
+        "logical_report_coordinates": 1280
+      }
+    },
+    {
+      "round": 3,
+      "privacy": {
+        "epsilon_requested": 0.01,
+        "delta": 1e-05,
+        "rounds": 3,
+        "actual_clients": 10000,
+        "calibrated_clients": 10000,
+        "honest_clients": 10000,
+        "colluders": 0,
+        "quantization_scale": 65536,
+        "sigma_share_integer": 10656786,
+        "sensitivity_integer_squared": 1643338216753.2202,
+        "dimension": 1280,
+        "log_tau_upper": -1120862230061236.9,
+        "tau_certified_upper": 1e-30,
+        "rho_round_upper": 7.235098864763979e-07,
+        "rho_total_upper": 2.1705296594291936e-06,
+        "epsilon_upper": 0.009999999531700925,
+        "residual_std": 1.6260964965820313,
+        "ring_bits": 64,
+        "accounting": "zcdp",
+        "rho_fraction": 1.0,
+        "sampler": "CKS exact rational rejection, ChaCha20 bits"
+      },
+      "diagnostics": {
+        "clip": 9.780058002471923,
+        "clipped_fraction": 0.0007999999797903001,
+        "logical_report_coordinates": 1280
+      }
+    }
+  ],
+  "seconds": 2.825875997543335,
+  "diagnostics_are_offline_benchmark_measurements": true,
+  "experiment_roles": [
+    "complete budget curve"
+  ],
+  "configuration_override": null,
+  "public_configuration_file": "mnist_a0.1_n10000.json"
+}

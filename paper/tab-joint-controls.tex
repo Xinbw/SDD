@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{Equal-label comparison at random $m=C$: 100 public label draws crossed with ten cohorts per setting. I: independent confirmation; P: paired protocol cohort. Public is the strongest mean of 14 frozen public learners, a descriptive envelope. Region, Head and Point use the same count-based joint assignment and within-budget LOO selection; Point pools unprojected scores after release. Native Head uses no public labels. All entries are public classifiers, \%; Web uses balanced accuracy.}
+\label{tab:joint-controls}\small
+\centering
+\begin{tabular}{@{}llrrrrr@{}}\toprule
+Task, clients / $\varepsilon$ & Group & Public & Region joint & Head joint & Point joint & Native Head \\
+\midrule
+CIFAR 1k / 0.1 & I & 61.6 & 74.6 & 76.6 & 76.9 & 34.3 \\
+CIFAR 10k / 0.1 & I & 61.6 & 87.4 & 91.1 & 87.4 & 94.0 \\
+MNIST 10k / 0.1 & I & 46.2 & 44.4 & 72.2 & 44.7 & 77.0 \\
+Usenet 3k / 1 & P & 32.1 & 28.2 & 31.8 & 28.9 & 23.2 \\
+FEMNIST 1k / 0.1 & P & 37.3 & 36.0 & 36.0 & 36.0 & 12.1 \\
+FEMNIST 1k / 1 & P & 37.3 & 35.9 & 38.1 & 36.0 & 40.7 \\
+FEMNIST 2k / 0.1 & P & 37.3 & 36.0 & 35.9 & 36.0 & 26.3 \\
+FEMNIST 2k / 1 & P & 37.3 & 35.8 & 38.5 & 36.1 & 41.3 \\
+\bottomrule\end{tabular}
+\end{table*}

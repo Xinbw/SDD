@@ -1,0 +1,14 @@
+\begin{table*}[t]
+\centering
+\caption{Knowledge-source attribution, percent mean $\pm$ sample SD (Web: balanced accuracy). Images use $\alpha=0.1$, $\varepsilon=0.1$, five seeds at 10k and ten elsewhere; Web uses ten. SDD is M/R for images/Web. Local+Pub uses public-model proxy labels. Public-only uses all 5000 image/1500 Web training labels, with learning rate 0.3, and releases no private report.}
+\label{tab:attribution}
+\small\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}lrrrrr@{}}\toprule
+task, cohort & SDD & Local & Local+Pub & Pub (180) & Pub (600) \\\midrule
+CIFAR, 10k & 85.0\,$\pm$\,2.9 & 42.4\,$\pm$\,0.1 & 87.0\,$\pm$\,0.0 & 95.6\,$\pm$\,0.1 & 95.9\,$\pm$\,0.1 \\
+MNIST, 10k & 55.0\,$\pm$\,1.1 & 33.3\,$\pm$\,0.1 & 64.1\,$\pm$\,0.1 & 84.9\,$\pm$\,0.1 & 89.0\,$\pm$\,0.1 \\
+CIFAR, 1k & 45.6\,$\pm$\,5.8 & 42.3\,$\pm$\,0.4 & 87.0\,$\pm$\,0.1 & 95.6\,$\pm$\,0.1 & 95.9\,$\pm$\,0.1 \\
+Usenet, 1k, $0.25$ & 24.8\,$\pm$\,3.0 & 17.1\,$\pm$\,0.0 & 41.0\,$\pm$\,0.4 & 65.6\,$\pm$\,0.4 & 68.2\,$\pm$\,0.5 \\
+Usenet, 3k, $1$ & 26.3\,$\pm$\,1.6 & 17.0\,$\pm$\,0.0 & 41.0\,$\pm$\,0.3 & 65.6\,$\pm$\,0.4 & 68.2\,$\pm$\,0.5 \\
+\bottomrule\end{tabular}
+\end{table*}

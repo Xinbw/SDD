@@ -1,0 +1,15 @@
+{
+  "amendments": [
+    {
+      "utc": "2026-10-22T14:54:00Z",
+      "before_any_result": true,
+      "change": "Weight source. The design names torchvision IMAGENET1K_V1 (download.pytorch.org resnet18-f37072fd.pth). That download ran at about 1 MB/min through the proxy, so the identical weights were taken from hf-mirror.com/timm/resnet18.tv_in1k (timm's repackaging of the torchvision IMAGENET1K_V1 weights, safetensors, sha256 694f673d...). features.py reads them with a minimal safetensors reader (the package is not installed). Tensor equality with the official file is checked when it arrives and recorded below.",
+      "procedure_changed": false
+    },
+    {
+      "utc": "2026-10-22T15:25:00Z",
+      "change": "Official file download.pytorch.org resnet18-f37072fd.pth completed (sha256 f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec). All 102 tensors it contains are bit-identical to the mirror weights used; the mirror additionally stores the 20 BatchNorm num_batches_tracked counters, unused in eval mode. The features are therefore those of the designed encoder.",
+      "procedure_changed": false
+    }
+  ]
+}

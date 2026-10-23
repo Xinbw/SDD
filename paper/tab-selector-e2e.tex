@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\caption{End-to-end public selection, ten fresh paired seeds (8501--8510). K/estimator/decoder freezes before private evaluation. Global: nearest public centroid using the third protected label release. Client: 180-step private local endpoint. Fixed uses taxonomy K=C, M, centered consensus. Head: final DP-Head broadcast. Entries are accuracy (Usenet: balanced accuracy), \%, mean$\pm$sample SD; both head endpoints and other readouts appear in Table~\ref{tab:selector-readouts}.}
+\label{tab:selector-e2e}\small
+\centering
+\begin{tabular}{@{}lcrrrr@{}}\toprule
+Task, clients, $\varepsilon$ & K/e/d & Chosen global & Fixed global & Chosen client & Head global \\
+\midrule
+CIFAR, 1k, 0.1 & 10/R/ctr & 41.07$\pm$21.30 & 40.02$\pm$21.31 & 51.94$\pm$9.13 & 26.47$\pm$5.62 \\
+CIFAR, 10k, 0.1 & 10/R/match & 91.59$\pm$0.00 & 89.27$\pm$3.75 & 86.28$\pm$0.02 & 92.41$\pm$0.66 \\
+MNIST, 10k, 0.1 & 20/R/ctr & 49.50$\pm$7.95 & 48.58$\pm$4.83 & 52.38$\pm$5.11 & 67.02$\pm$1.43 \\
+Usenet, 3k, 1 & 5/R/ctr & 24.79$\pm$2.79 & 22.45$\pm$4.32 & 25.51$\pm$2.14 & 16.76$\pm$0.08 \\
+FEMNIST, 1k, 0.1 & 31/M/raw & 5.42$\pm$2.80 & 3.53$\pm$1.08 & 30.87$\pm$0.42 & 3.86$\pm$1.82 \\
+FEMNIST, 1k, 1 & 31/R/ctr & 30.29$\pm$1.34 & 30.95$\pm$0.88 & 33.10$\pm$0.56 & 30.63$\pm$1.56 \\
+FEMNIST, 2k, 0.1 & 31/M/raw & 17.28$\pm$3.40 & 9.17$\pm$2.83 & 31.48$\pm$0.73 & 9.30$\pm$3.15 \\
+FEMNIST, 2k, 1 & 62/R/ctr & 30.17$\pm$1.24 & 32.01$\pm$1.29 & 32.49$\pm$0.37 & 31.54$\pm$0.63 \\
+\bottomrule\end{tabular}
+\end{table*}

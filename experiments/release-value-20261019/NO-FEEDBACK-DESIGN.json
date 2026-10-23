@@ -1,0 +1,39 @@
+{
+  "design": {
+    "dataset": "cifar10",
+    "n": 1000,
+    "epsilon": 0.1,
+    "delta": 1e-05,
+    "seeds": [
+      8501,
+      8502,
+      8503,
+      8504,
+      8505,
+      8506,
+      8507,
+      8508,
+      8509,
+      8510
+    ],
+    "private_records": 600,
+    "rounds": 3,
+    "private_steps_per_round": 60,
+    "all_private_batches": 128,
+    "proxy_training": false,
+    "regional_rule": "K=10/M/center",
+    "round_noise": "same seed tapes as preceding fixed-center T=3 protocol",
+    "postprocess": [
+      "last release",
+      "average three unprojected releases, then centered decoding"
+    ],
+    "role": "separate budget concentration and time-varying teacher averaging; not a pure causal estimate of feedback echo",
+    "first_and_final_private_votes_checked_against_parent_T1": true
+  },
+  "utc": "2026-10-19T13:20:12Z",
+  "source_sha256": {
+    "study.py": "26b3db9e2cda1e45ab3379fccd406d8490971aaf63232f35277d792a876ccda7",
+    "private_validation.py": "807779810c91743b3bd1b6e6b8478db9e1df2787dbee5cd47e0a9c5a52de2d8b",
+    "no_feedback.py": "255a155688deb6d8b3872e664d0973813e8a7eb8a60fe889db53ab3c44347abe"
+  }
+}

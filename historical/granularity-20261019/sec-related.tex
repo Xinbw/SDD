@@ -1,0 +1,52 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Private parameters and public representations.}
+DP-SGD clips and noises example gradients~\cite{abadi2016deep}; client-private
+federated averaging applies bounded contributions to whole
+clients~\cite{mcmahan2018learning,kairouz2021advances}.
+Secure aggregation and distributed discrete Gaussian noise remove a trusted
+curator from the release interface~\cite{bonawitz2017practical,kairouz2021distributed,canonne2020discrete}.
+DP-FTRL uses correlated noise and a different training/accounting
+construction~\cite{kairouz2021ftrl}; our matched parameter baseline uses the
+same independent-round distributed mechanism as the vote interfaces.
+Tram\`er and Boneh~\cite{tramer2021features} show the value of public features
+for private learning, and Li et al.~\cite{li2022large} establish the strength
+of private adaptation of pretrained language models. We hold the learner's
+public representation fixed when comparing release objects and change
+partition features separately in structure controls.
+
+\paragraph{Federated distillation and private queries.}
+FedMD shares public-query predictions across heterogeneous models~\cite{li2019fedmd};
+FedDF distils an ensemble into a server model~\cite{lin2020feddf};
+DS-FL exchanges and sharpens public-example outputs~\cite{itahara2021dsfl}.
+These transfer mechanisms motivate prediction exchange, while our comparisons
+calibrate every released object to replace-one whole-client adjacency.
+PATE protects noisy teacher-vote answers~\cite{papernot2017semi,papernot2018scalable},
+and Private-kNN uses local neighbourhoods for private query
+labelling~\cite{zhu2020privateknn}. FedCT exchanges hard labels with local
+randomisation~\cite{abourayya2025little}. Our DP-FedCT control keeps its local
+co-training schedule and replaces the release layer with the same protected
+joint vote sum as SDD. Its singleton regions isolate release resolution.
+PATE-DI additionally receives protected confidence screening, charged to the
+same whole-run budget. Recent personalized distillation at this venue addresses
+knowledge calibration across clients~\cite{wang2026fedakd}.
+
+\paragraph{Cluster reuse and the protected unit.}
+NoiseCluster~\cite{tang2022labels} reuses a noisy cluster majority under label
+privacy. Its adjacency changes one label with fixed features, giving
+$\sqrt2$ sensitivity for the cluster-count vector. Replacing one complete
+SDD client can change all $K$ model responses, giving $\sqrt{2K}$.
+SDD studies regional model reports in adaptive client collaboration, with a
+quality criterion and distributed whole-run privacy. The numerical privacy
+budgets of these different protected units are not directly interchangeable.
+
+\paragraph{Protected Web aggregates.}
+Prio, Prochlo and split-and-mix protocols support aggregate-only
+interfaces~\cite{corriganGibbs2017prio,bittau2017prochlo,ishai2006cryptography}.
+Browser reporting and summary releases motivate bounded
+contributions~\cite{erlingsson2014rappor,ghazi2025sandbox,aksu2023summary};
+distributed noise sharing also appears in Web data markets~\cite{xing2026xemis}.
+Shuffling offers an alternative amplification route~\cite{erlingsson2019amplification,feldman2021hiding}.
+SDD's accountant operates on the protected noisy sum. Its report-coordinate
+counts quantify the learning payload before protocol overhead.
