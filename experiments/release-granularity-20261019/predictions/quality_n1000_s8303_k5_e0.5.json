@@ -1,0 +1,187 @@
+{
+  "dataset": "cifar10",
+  "n": 1000,
+  "seed": 8303,
+  "k": 5,
+  "epsilon": 0.5,
+  "privacy": {
+    "epsilon_requested": 0.5,
+    "delta": 1e-05,
+    "rounds": 3,
+    "actual_clients": 1000,
+    "calibrated_clients": 1000,
+    "honest_clients": 1000,
+    "colluders": 0,
+    "quantization_scale": 65536,
+    "sigma_share_integer": 110108,
+    "sensitivity_integer_squared": 42949672960,
+    "dimension": 50,
+    "log_tau_upper": -119656830163.60751,
+    "tau_certified_upper": 1e-30,
+    "rho_round_upper": 0.0017712999778581116,
+    "rho_total_upper": 0.0053138999335743346,
+    "epsilon_upper": 0.49999979568380315,
+    "residual_std": 0.05312989328091734,
+    "ring_bits": 64,
+    "accounting": "zcdp",
+    "rho_fraction": 1.0,
+    "sampler": "CKS exact rational rejection, ChaCha20 bits"
+  },
+  "modes": {
+    "raw": {
+      "predicted_accuracy": 0.4811591796875,
+      "gaussian_mc_sem": 0.00036945308001517363,
+      "purity": 0.49,
+      "clean_accuracy": 0.489,
+      "expected_flip_fraction": 0.253466796875,
+      "class_probabilities": [
+        [
+          0.0,
+          0.0,
+          0.01611328125,
+          0.274658203125,
+          0.0,
+          0.1923828125,
+          0.516845703125,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0068359375,
+          0.00048828125,
+          0.949951171875,
+          0.0,
+          0.0,
+          0.042724609375,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.016845703125,
+          0.0,
+          0.0,
+          0.983154296875,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.3828125,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.6171875
+        ],
+        [
+          0.334228515625,
+          0.000244140625,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.66552734375,
+          0.0
+        ]
+      ],
+      "observed_single_exact_accuracy": 0.487
+    },
+    "center": {
+      "predicted_accuracy": 0.483443603515625,
+      "gaussian_mc_sem": 0.0003047438704479923,
+      "purity": 0.49,
+      "clean_accuracy": 0.489,
+      "expected_flip_fraction": 0.248046875,
+      "class_probabilities": [
+        [
+          0.0,
+          0.0,
+          0.00732421875,
+          0.216796875,
+          0.0,
+          0.217041015625,
+          0.558837890625,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.004150390625,
+          0.0,
+          0.9677734375,
+          0.0,
+          0.0,
+          0.028076171875,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.01123046875,
+          0.0,
+          0.0,
+          0.98876953125,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.342041015625,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.657958984375
+        ],
+        [
+          0.41357421875,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.58642578125,
+          0.0
+        ]
+      ],
+      "observed_single_exact_accuracy": 0.487
+    }
+  },
+  "raw_subgaussian_lower_bound": 0.43926831624604606,
+  "population": {
+    "actual_clients": 1000,
+    "unique_client_identifiers": 1000,
+    "per_client_records_min": 600,
+    "per_client_records_median": 600.0,
+    "per_client_records_max": 600,
+    "distinct_author_hash": null,
+    "client_sample_indices_sha256": "dc87afdf1b8d7ef9862ff2932f41ab7344a6e36ab8fd9e1cbef63530ee4643be",
+    "client_generation_seed": 8303,
+    "alpha": 0.1
+  },
+  "counts_file": "predictions/counts_n1000_s8303_k5.npz",
+  "counts_sha256": "0214b50808db3af777bf3c89799a51866032613e1a735873fdaf3226b91b3093",
+  "prediction_is_offline_and_conditional_on_private_counts": true
+}

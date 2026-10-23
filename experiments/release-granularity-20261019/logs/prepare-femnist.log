@@ -1,0 +1,97 @@
+proxy samples 2000 writers 200
+development samples 5000 writers 200
+validation samples 4685 writers 200
+test samples 4549 writers 200
+private samples 510725 writers 2600
+/home/xbw/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/swiglu_ffn.py:51: UserWarning: xFormers is not available (SwiGLU)
+  warnings.warn("xFormers is not available (SwiGLU)")
+/home/xbw/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/attention.py:33: UserWarning: xFormers is not available (Attention)
+  warnings.warn("xFormers is not available (Attention)")
+/home/xbw/.cache/torch/hub/facebookresearch_dinov2_main/dinov2/layers/block.py:40: UserWarning: xFormers is not available (Block)
+  warnings.warn("xFormers is not available (Block)")
+DINOv2 0 / 526959 elapsed 0.3
+DINOv2 8192 / 526959 elapsed 1.5
+DINOv2 16384 / 526959 elapsed 2.7
+DINOv2 24576 / 526959 elapsed 3.9
+DINOv2 32768 / 526959 elapsed 5.1
+DINOv2 40960 / 526959 elapsed 6.3
+DINOv2 49152 / 526959 elapsed 7.5
+DINOv2 57344 / 526959 elapsed 8.7
+DINOv2 65536 / 526959 elapsed 9.9
+DINOv2 73728 / 526959 elapsed 11.1
+DINOv2 81920 / 526959 elapsed 12.4
+DINOv2 90112 / 526959 elapsed 13.6
+DINOv2 98304 / 526959 elapsed 14.8
+DINOv2 106496 / 526959 elapsed 16.0
+DINOv2 114688 / 526959 elapsed 17.2
+DINOv2 122880 / 526959 elapsed 18.4
+DINOv2 131072 / 526959 elapsed 19.6
+DINOv2 139264 / 526959 elapsed 20.8
+DINOv2 147456 / 526959 elapsed 22.0
+DINOv2 155648 / 526959 elapsed 23.2
+DINOv2 163840 / 526959 elapsed 24.4
+DINOv2 172032 / 526959 elapsed 25.6
+DINOv2 180224 / 526959 elapsed 26.8
+DINOv2 188416 / 526959 elapsed 28.0
+DINOv2 196608 / 526959 elapsed 29.2
+DINOv2 204800 / 526959 elapsed 30.4
+DINOv2 212992 / 526959 elapsed 31.6
+DINOv2 221184 / 526959 elapsed 32.9
+DINOv2 229376 / 526959 elapsed 34.1
+DINOv2 237568 / 526959 elapsed 35.3
+DINOv2 245760 / 526959 elapsed 36.5
+DINOv2 253952 / 526959 elapsed 37.7
+DINOv2 262144 / 526959 elapsed 38.9
+DINOv2 270336 / 526959 elapsed 40.1
+DINOv2 278528 / 526959 elapsed 41.3
+DINOv2 286720 / 526959 elapsed 42.5
+DINOv2 294912 / 526959 elapsed 43.8
+DINOv2 303104 / 526959 elapsed 45.0
+DINOv2 311296 / 526959 elapsed 46.2
+DINOv2 319488 / 526959 elapsed 47.4
+DINOv2 327680 / 526959 elapsed 48.6
+DINOv2 335872 / 526959 elapsed 49.8
+DINOv2 344064 / 526959 elapsed 51.0
+DINOv2 352256 / 526959 elapsed 52.2
+DINOv2 360448 / 526959 elapsed 53.4
+DINOv2 368640 / 526959 elapsed 54.6
+DINOv2 376832 / 526959 elapsed 55.8
+DINOv2 385024 / 526959 elapsed 57.0
+DINOv2 393216 / 526959 elapsed 58.2
+DINOv2 401408 / 526959 elapsed 59.4
+DINOv2 409600 / 526959 elapsed 60.6
+DINOv2 417792 / 526959 elapsed 61.8
+DINOv2 425984 / 526959 elapsed 63.0
+DINOv2 434176 / 526959 elapsed 64.2
+DINOv2 442368 / 526959 elapsed 65.4
+DINOv2 450560 / 526959 elapsed 66.6
+DINOv2 458752 / 526959 elapsed 67.9
+DINOv2 466944 / 526959 elapsed 69.1
+DINOv2 475136 / 526959 elapsed 70.3
+DINOv2 483328 / 526959 elapsed 71.5
+DINOv2 491520 / 526959 elapsed 72.7
+DINOv2 499712 / 526959 elapsed 73.9
+DINOv2 507904 / 526959 elapsed 75.1
+DINOv2 516096 / 526959 elapsed 76.3
+DINOv2 524288 / 526959 elapsed 77.5
+{
+  "dataset": "Federated EMNIST, 62 classes, official writer partition",
+  "source": "https://storage.googleapis.com/tff-datasets-public/fed_emnist.tar.bz2",
+  "source_sha256": "fe1ed5a502cea3a952eb105920bff8cffb32836b5173cb18a57a32c3606f3ea0",
+  "natural_clients_available": 2600,
+  "classes": 62,
+  "writer_roles_disjoint": true,
+  "private_records_overlap_across_writers": false,
+  "private_samples": 510725,
+  "proxy_samples": 2000,
+  "development_samples": 5000,
+  "validation_samples": 4685,
+  "test_samples": 4549,
+  "encoder": "DINOv2 ViT-S/14, same frozen checkpoint as original image experiments",
+  "encoder_weights_sha256": "de41b6c4d9f81885103e8aafa0554d412d2b9bcbcd6e9771ef1807682db0ae8a",
+  "PCA_fit": "public proxy only",
+  "PCA_components": 128,
+  "feature_bundle_sha256": "ba3dcd4ed4c0a4401c4e6db9fab9cdcdbf8f443cea556a8b8a3950806cd09e53",
+  "pixels": "official white-background grayscale, 224 RGB bicubic, ImageNet normalization",
+  "completed_utc": "2026-10-19T03:31:43Z"
+}
