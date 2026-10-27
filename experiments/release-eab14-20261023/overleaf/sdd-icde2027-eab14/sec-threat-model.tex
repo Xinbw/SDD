@@ -1,0 +1,134 @@
+\section{Privacy Model and Analysis}
+\label{sec:threat}
+\label{sec:threat:setting}
+
+\subsection{Protected aggregate and whole-run client privacy}
+
+A fixed cohort of $n$ clients participates in each of $T$ rounds. Replace-one
+adjacency changes the entire dataset of one honest client. Public features,
+partitions and configurations are independent of private datasets. The
+server's entire view of client data is a sequence of protected sums and
+broadcasts; local models, reports and honest noise shares stay hidden.
+
+\paragraph{Aggregation assumptions}
+A1: secure additive aggregation reveals the sum and metadata that is public or
+independent of protected data. A2: at most $t<n$ contributors disclose reports
+and noise to the server, leaving $h=n-t$ honest independent shares.
+A3: aggregation parties preserve that view against the stated coalition.
+A4: honest contributors use bounded reports and fresh independent noise;
+participation is fixed ($q=1$), with recalibration or abort if the required
+honest cohort is unavailable. Secret-sharing or split-and-mix protocols can
+instantiate the interface~\cite{bonawitz2017practical,corriganGibbs2017prio,ishai2006cryptography};
+experiments implement protected-sum arithmetic.
+
+\begin{table}[t]
+\caption{Release Interfaces under Replace-One Client Adjacency}
+\label{tab:release-interfaces}\small
+\centering
+\begin{tabular}{@{}lcc@{}}\toprule
+released object & coordinates & $L_2$ sensitivity \\\midrule
+clipped parameter update & $d_{\mathrm{model}}$ & $2B$ \\
+joint per-example votes & $|P|C$ & $\sqrt{2|P|}$ \\
+public-region votes & $KC$ & $\sqrt{2K}$ \\
+\bottomrule\end{tabular}
+\end{table}
+
+\subsection{Sensitivity of the release objects}
+
+Table~\ref{tab:release-interfaces} compares clipping (norm $B$) and release
+resolution before quantisation and transport sharing;
+the compact head shares $128$-dimensional features, while regional naming
+keeps each client's parameters local.
+
+\begin{lemma}[Report sensitivity]
+\label{lem:sens}
+For $R,R'\in(\Delta^{C-1})^K$, $\|R-R'\|_2\le\sqrt{2K}$,
+with equality for opposing one-hot rows. This holds for every public partition.
+\end{lemma}
+
+\begin{lemma}[Integer sensitivity]
+\label{lem:sens-int}
+One-hot reports have $\Delta_q=s\sqrt{2K}$ exactly.
+Rounded posteriors have $\Delta_q\le s\sqrt{2K}+\sqrt{KC}$.
+A parameter update clipped at $B$ and guarded after rounding in the integer
+ball $L_B=\lceil sB+\sqrt d/2\rceil$ has $\Delta_q\le2L_B$.
+\end{lemma}
+
+Both follow because simplex rows differ in squared norm by at most two and
+rounding adds at most $\sqrt{KC}$; a guarded head lies in an integer ball of
+diameter $2L_B$.
+
+\subsection{Release mechanism and accounting}
+
+\paragraph{Release}
+Each client submits shares of $sR_i+G_i$ modulo $2^{64}$, with
+$s=2^{16}$ and independent coordinates
+$G_i[j]\sim\mathcal N_{\mathbb Z}(0,b^2)$.
+Noise is drawn by exact rejection sampling \cite{canonne2020discrete}, so the
+analysis applies to the sampled distribution, not a floating-point
+approximation.
+
+\begin{theorem}[One protected aggregate]
+\label{thm:round}
+Under A1--A4, the aggregate in dimension $d$ is $\rho_r$-zCDP, where
+\begin{equation}
+\rho_r=\frac{\Delta_q^2}{2hb^2}+d\,\tau_h(b),
+\quad \tau_h(b)\le10(h-1)e^{-\pi^2b^2}.
+\label{eq:round-rho}
+\end{equation}
+For $h=1$, $\tau_h=0$. The bound needs $b\ge1/2$; every recorded release has
+$b\ge\MinNoiseScale{}$.
+\end{theorem}
+
+After disclosed coalition shares are subtracted, $h$ honest shares remain,
+and Kairouz et al.~\cite[Prop.~14, full version]{kairouz2021distributed} give
+$\rho_r$ with $\tau_h=10\sum_{k<h}e^{-2\pi^2b^2k/(k+1)}$, which
+$k/(k+1)\ge\frac12$ bounds as in Eq.~\eqref{eq:round-rho}; modular addition, projection, matching and
+soft-target construction are post-processing.
+
+\begin{theorem}[Adaptive whole run]
+\label{thm:run}
+Conditionally calibrated releases compose to
+$\rho_{\mathrm{total}}\le\sum_{r=1}^T\rho_r$.
+The complete server transcript is $(\varepsilon,\delta)$-DP whenever
+\begin{equation}
+\rho_{\mathrm{total}}+2\sqrt{\rho_{\mathrm{total}}\log(1/\delta)}
+\le\varepsilon.
+\label{eq:accounting}
+\end{equation}
+\end{theorem}
+
+Conditioning on data-independent random tapes and each preceding public
+transcript fixes the other clients' responses while the replaced report
+stays bounded, so adaptive zCDP composition covers every
+broadcast~\cite{bun2016concentrated}.
+
+Test metrics and clean-count diagnostics are offline measurements,
+outside the deployment transcript claimed to satisfy this guarantee.
+Verification releases in Section~\ref{sec:private-verification} are further
+rounds of the same transcript and compose under Theorem~\ref{thm:run}.
+
+\subsection{Integer calibration and numerical certificates}
+
+Writing $L=\log(1/\delta)$ and
+$\rho_\varepsilon=(\sqrt{L+\varepsilon}-\sqrt L)^2$, the total target is
+$\rho_\varepsilon$; for each per-release share $\rho_j$ we use
+\begin{equation}
+b_j=\left\lfloor\Delta_{q,j}/\sqrt{2h\rho_j}\right\rfloor+1,
+\label{eq:integer-scale}
+\end{equation}
+and verify $\Delta_{q,j}^2/(2hb_j^2)+d_j\tau_h\le\rho_j$. In every
+recorded release $\tau_h<10^{\TauMaxLog}$, below the $10^{-30}/4$ the
+accountant charges, so all \TauCerts{} recorded certificates hold with this
+constant (artifact check).
+All budgets are recomposed with 90-digit arithmetic, and a union bound
+certifies modulo-$2^{64}$ wrap probability below $10^{-30}$ per release.
+
+Every release keeps a certificate with actual $n$, honest $h$, integer
+sensitivity, noise scale and composed budget. For $t=0$, mean-noise standard deviation is bounded by
+\begin{equation}
+v=\frac{b\sqrt n}{sn}\approx\frac{\sqrt{TK/\rho_\varepsilon}}{n}.
+\label{eq:design-budget}
+\end{equation}
+Noise grows with $\sqrt{TK}$ and shrinks with $n$, so resolution, release
+count and cohort size can be traded before any private data are touched.

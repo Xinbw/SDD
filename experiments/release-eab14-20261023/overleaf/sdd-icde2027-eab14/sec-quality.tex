@@ -1,0 +1,130 @@
+\section{Label Budgets, Joint Naming and Verification}
+\label{sec:quality}
+
+\subsection{Annotation resources and joint naming}
+
+$L_m$ holds the m labelled development examples of Section~\ref{sec:problem};
+test queries are inductive and outside training graphs.
+
+Fourteen public learners include regional majority, three assignment variants
+(differing in how empty regions are treated), class centroids, five ridge
+heads and four graph propagation configurations \cite{zhou2003consistency}
+with two strengths, with/without class-mass normalization. Ridge and graph
+learners use exact LOO predictions; a fixed public-first order resolves ties.
+Web selection uses observed-class balanced accuracy.
+
+With observed regional label counts $L[k,c]$, projected private matrix A and
+public region sizes $w_k$, joint naming solves
+\begin{equation}
+\hat\pi_\lambda=\arg\max_{\pi\in\mathfrak S_C}
+\sum_k\left\{L[k,\pi(k)]+\lambda\frac{w_k}{\bar w}A[k,\pi(k)]\right\}.
+\label{eq:fusion}
+\end{equation}
+Here $K=C$, $\bar w=\sum_k w_k/K$ and
+$\lambda\in\{.01,.03,.1,.3,1,3,10,30\}$. LOO selects among the fourteen
+public learners, joint assignments and fixed private centered/coverage rules.
+All candidates reuse one protected matrix, so selection adds no private
+query. Exact LOO is efficient for the assignment candidates.
+
+\begin{valueprop}[LOO on matched edges]
+\label{prop:loo}
+For $S=L+\lambda\operatorname{diag}(w/\bar w)A$, let $\pi$ maximize assignment
+weight. Removing an example on an unmatched edge $(k,c)$, $c\ne\pi(k)$,
+cannot make that edge correct in the reduced problem. Thus LOO correctness
+for all m examples needs at most $C+1$ assignment solves per weight.
+\end{valueprop}
+Every assignment using an unmatched removed edge loses one unit while the
+optimum loses none; examples on one matched edge share one refit.
+
+The same joint decoder receives a protected head's mean proxy-region softmax
+or point scores averaged inside each region before projection. Native head
+prediction is an additional fixed head-arm candidate.
+
+\subsection{Public evidence and publication targets}
+
+The public augmentation rule requires a positive paired LOO lower gain,
+all-class proxy predictions and a positive Wilson-form recall bound per class
+(heuristics, since prediction and selection are dependent), else it falls
+back to the public model. A missing labelled class forces rejection, so
+verification labels also strengthen the public competitor; private
+verification changes the source of evidence and charges its privacy.
+
+\subsection{Private verification within one total budget}
+\label{sec:private-verification}
+
+After protected naming fixes candidate f and public comparator b, client i
+computes held-out gain $d_i=u_i(f)-u_i(b)\in[-1,1]$ and a normalized
+$C\times4$ histogram of true class and joint correctness of f and b; both
+use distributed discrete-Gaussian shares.
+
+The demonstration fixes $\rho$ fractions $1/2,1/4,1/4$ for naming, gain and
+class statistics. Conditional composition in Theorem~\ref{thm:run} charges
+all three releases to the same total $(\varepsilon,10^{-5})$ budget.
+With released mean $\tilde r$ and gain-channel mean-noise proxy $v_g$, set
+\begin{equation}
+\underline G=2\tilde r-1
+-2v_g\sqrt{2\log(1/\alpha_g)}-s^{-1}.
+\label{eq:private-gain-bound}
+\end{equation}
+Discrete-Gaussian sub-Gaussian tails \cite{canonne2020discrete} imply
+$\Pr(\underline G>G)\le\alpha_g$, where $G=n^{-1}\sum_i d_i$.
+Direct histogram numerator/denominator bands yield simultaneous class-recall lower
+bounds (Proposition~\ref{prop:private-validation} below). We fix
+$\alpha_g=\alpha_h=.025$: gain-only acceptance uses $\underline G>0$;
+class-checked acceptance also requires every recall lower bound positive. A
+\emph{false accept} is an accepted case whose clean held-out statistics miss
+the target ($G\le0$, or some class recall zero or below the threshold).
+Rejection returns the public comparator without certifying its class
+recall. Coverage concerns validation noise and the finite held-out cohort,
+not unseen clients; publishing or rejecting is post-processing.
+
+\paragraph{Bounded validation reports}
+In the cost ladder each client has 120 held-out records. For paired gain, encode
+$q_i=\operatorname{round}(s(1+d_i)/2)\in[0,s]$. Its integer sensitivity
+is s, and converting the rounded mean to gain adds at most $1/s$ error.
+The class report $h_i\in\Delta^{4C-1}$ records true class and joint binary
+correctness $(a,b)$ of candidate/comparator. Largest-remainder rounding
+gives $Q_i\ge0$, $\sum Q_i=s$, with coordinate error below $1/s$.
+Its integer squared sensitivity is exactly $2s^2$. Both reports have fixed
+dimension (1 and $4C$), independent of the number of held-out records.
+
+\begin{valueprop}[Conditional finite-heldout coverage]
+\label{prop:private-validation}
+Assume the specified reports and independent noise shares. Fix the naming
+transcript, public labels and actual held-out cohort.
+Equation~\eqref{eq:private-gain-bound} has one-sided coverage at least
+$1-\alpha_g$. Let $z=\sqrt{2\log(4C/\alpha_h)}$ and define
+\begin{equation}
+a_N=\sqrt2v_h z+2/s,\qquad a_D=2v_h z+4/s.
+\label{eq:hist-radius}
+\end{equation}
+For released normalized histogram $\tilde h$, take
+$D_c^U=\min(1,[\sum_{a,b}\tilde h_{c,ab}+a_D]_+)$ and
+$N_c^L=[\tilde h_{c,10}+\tilde h_{c,11}-a_N]_+$.
+The clipped ratio $N_c^L/D_c^U$ is simultaneously a recall lower bound for
+all classes with probability at least $1-\alpha_h$, taking zero if $D_c^U=0$.
+Joint gain/class coverage is at least $1-\alpha_g-\alpha_h$, apart from
+the stated wrap term.
+\end{valueprop}
+\begin{proof}[Proof sketch]
+Each exact share is sub-Gaussian with proxy $b$ (Lemma~16 of
+Canonne et al.~\cite{canonne2020discrete}), so the mean has proxy $v$; a
+correct-mass sum has proxy $\sqrt2v_h$ and a class mass $2v_h$. A union over
+the $2C$ fixed linear targets with rounding errors gives
+Eq.~\eqref{eq:hist-radius}, and monotone division plus a union with the gain
+event completes the claim.
+\end{proof}
+
+This is noise coverage for a finite cohort, not a posterior probability
+given acceptance. Whole-client adjacency affects training and held-out
+records, so all releases compose sequentially.
+
+\paragraph{Why targets differ in cost}
+The gain target resolves one scalar with multiplier
+$\sqrt{2\log(1/\alpha_g)}$; classwise targets resolve $2C$ simultaneous
+bands with the larger $z$, and each must separate from zero a class mass of
+order $1/C$. Section~\ref{sec:eval:verification} measures the resulting
+cost ladder.
+
+Higher K can raise purity while increasing the noise in
+Eq.~\eqref{eq:design-budget}; natural writers test this.

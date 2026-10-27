@@ -1,0 +1,17 @@
+\begin{table}[t]
+\caption{Study Designs}
+\label{tab:studies}\small\setlength{\tabcolsep}{2pt}
+\centering
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{.28\columnwidth}>{\raggedright\arraybackslash}p{.34\columnwidth}>{\raggedright\arraybackslash}p{.15\columnwidth}>{\raggedright\arraybackslash}p{.15\columnwidth}@{}}\toprule
+Study (§) & Cohorts $\times$ label draws & Frozen first & Reported \\\midrule
+Label access, interfaces (B, C) & 10 protocol + 10 confirmation cohorts $\times$ 100 & design & Tab.~\ref{tab:joint-controls}, Figs.~\ref{fig:label-frontier}, \ref{fig:value-mechanisms} \\
+Weaker encoder (B) & CIFAR-1k confirmation cohorts & design & text \\
+Cost ladder (D) & 10 cohorts $\times$ 100 $\times$ 3 $\varepsilon$ (3000) & split, targets & Tab.~\ref{tab:verify-ladder} \\
+Protocol price (D) & ladder cohorts, draws 50--99 & Opt.\ post hoc & Tab.~\ref{tab:cost} \\
+Source-disjoint (D) & 10 new cohorts $\times$ 100 & design & Tab.~\ref{tab:cost} \\
+Split, CIFAR (D) & 10 + 10 cohorts, disjoint sources (\BCCases{}) & design, split & Tab.~\ref{tab:budgetconf} \\
+Split, FEMNIST (D) & 10 + 10 cohorts, disjoint writers (\FCCases{}) & split, planner & text \\
+Gated + verified (E) & 10 new cohorts per task (\VTCases{}) & design & Tab.~\ref{tab:verify-teacher} \\
+Ceilings (E) & clean votes of label-access cohorts & offline & Tab.~\ref{tab:decomposition}, Fig.~\ref{fig:ceiling} \\
+\bottomrule\end{tabular}
+\end{table}

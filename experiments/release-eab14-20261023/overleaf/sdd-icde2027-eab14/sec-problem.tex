@@ -1,0 +1,88 @@
+\section{Problem Formulation}
+\label{sec:problem}
+
+\subsection{Data roles}
+
+A coordinator holds a public encoder $g$, an unlabelled \emph{proxy pool}
+$P$ on which regions are formed, a \emph{development pool} whose labels are
+revealed only under a declared acquisition mode, and a \emph{test pool}
+used only offline. The class count and taxonomy are public; class
+frequencies and external validation labels are not free.
+
+Private data are held by $n$ clients. Client $i$ holds a labelled dataset
+$D_i$ and may train a local model $f_i$; the coordinator observes clients
+only through a protected sum over all participants, and the unit of
+protection is a complete client dataset. For private verification, each
+client also holds held-out records used only for bounded validation reports.
+
+\subsection{Resources}
+
+Each configuration carries a resource vector. \emph{Annotation}: $m$
+distinct development labels and an acquisition mode, either \emph{random}
+(uniform draws), \emph{balanced} ($m/C$ per class) or
+\emph{feature-directed} (examples nearest each public region, requested
+before any label is revealed); every fitting, selection and public
+publication decision uses labels within $m$. \emph{Privacy}: one total
+$(\varepsilon,\delta)$ budget under replace-one whole-client adjacency,
+composed over all releases of a deployment. \emph{Payload}: integer
+coordinates per client and release, before secret sharing.
+\emph{Public computation}: decoding, assignment, selection and an optional
+public student. Configurations differing in more than one resource are
+reported as separate conditions.
+
+\subsection{Release objects and endpoints}
+
+A release object is the protected vector a client contributes: a clipped
+parameter update, per-example proxy votes, or one bounded opinion per public
+region. The published endpoint is a \emph{public classifier}; client models
+are never published.
+
+\subsection{Marginal value of private supervision}
+
+Let $\mathcal H_{\mathrm{pub}}$ be a fixed family of public learners, each of
+which maps a label set $L_m$ and the public features to a classifier. The
+encoder is part of the resource vector: a zero-shot head on another
+encoder, or one supervised by class names, changes the representation, not
+$m$, and is compared as a separate condition. Let
+$U(h)$ denote test accuracy (balanced accuracy for Usenet).
+
+\begin{definition}[Resource-matched marginal value]
+\label{def:value}
+For acquisition mode $a$, budget $m$ and total privacy budget $\varepsilon$,
+\begin{equation}
+V_a(m,\varepsilon)=\mathbb E\bigl[U(h_{\mathrm{joint}})\bigr]
+-\max_{h\in\mathcal H_{\mathrm{pub}}}\mathbb E\bigl[U(h)\bigr],
+\label{eq:marginal-value}
+\end{equation}
+where $h_{\mathrm{joint}}$ combines the same label set with one protected
+release under budget $\varepsilon$, and expectations run over label draws
+from mode $a$ and over cohort/noise seeds.
+\end{definition}
+
+No within-budget selection rule is guaranteed to reach the maximum over
+learner \emph{means}, so Eq.~\eqref{eq:marginal-value} is conservative. It
+depends on $a$ as well as $m$, and since a deployment sees one label draw and
+one cohort, we also report the per-draw gain distribution.
+
+\subsection{Publication targets}
+
+A positive $V_a$ concerns average utility; a publishing coordinator may
+require more. We consider two targets for a candidate $f$ against a fixed public comparator $b$. The \emph{gain target}
+requires the finite held-out cohort mean $G=n^{-1}\sum_i
+[u_i(f)-u_i(b)]$ to be positive, where $u_i$ is held-out accuracy at client
+$i$. The \emph{classwise target} additionally requires every client-weighted
+class recall $\sum_i \mathrm{TP}_{i,c}/H_i\,/\sum_i N_{i,c}/H_i$ to be positive
+($H_i$ held-out records at client $i$, $N_{i,c}$ of class $c$); it is the
+pooled recall when all $H_i$ are equal, as in the CIFAR studies. Evidence can come from public labels or from protected private statistics
+charged to the same total budget.
+
+
+\paragraph{Research questions}
+They follow the platform's three decisions. \textbf{Q1} (buy): how does
+$V_a(m,\varepsilon)$ depend on acquisition mode and budget, and how is the
+per-draw gain distributed? \textbf{Q2} (release): does report sensitivity rank
+regional, per-example and head releases? \textbf{Q3} (verify): what does each
+publication target cost in total budget, and can the budget split be chosen
+before deployment? We then ask where, below the partition ceiling, regional
+value is lost. Sections~\ref{sec:eval:main}, \ref{sec:eval:rounds},
+\ref{sec:eval:verification} and~\ref{sec:eval:ceiling} answer them in turn.

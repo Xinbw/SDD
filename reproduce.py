@@ -24,6 +24,7 @@ ENC=ROOT/'experiments/release-encoder-20261022'
 FCONF=ROOT/'experiments/release-femnistconf-20261022'
 EAB13=ROOT/'experiments/release-eab13-20261023'
 EAB14=ROOT/'experiments/release-eab14-20261023'
+EAB15=ROOT/'experiments/release-eab15-20261027'
 BC=ROOT/'experiments/release-budgetconf-20261021'
 def sha(path):return hashlib.sha256(path.read_bytes()).hexdigest()
 def same_json(a,b,tol=1e-12):
@@ -109,7 +110,7 @@ def verify(quick=False):
     # Twelfth round: weaker-encoder ablation, FEMNIST replication and the corrected-constant certificate check.
     for path,script in [(ENC/'analysis/encoder-analysis.json',ENC/'src/analyze.py'),(FCONF/'analysis/femnistconf-analysis.json',FCONF/'src/analyze.py'),(EAB12/'analysis/tau-recheck.json',EAB12/'src/recheck_tau.py'),(EAB13/'analysis/eab13-ledger.json',EAB13/'src/ledger.py')]:
         before=path.read_bytes();run(script,log=ROOT/'reproduction-output'/(path.stem+'.log'));same_record(path,before)
-    run(EAB14/'src/eab14_layout.py','--project',ROOT)
+    run(EAB15/'src/eab15_layout.py','--project',ROOT)
     out=ROOT/'reproduction-output/value-regeneration';out.mkdir(parents=True,exist_ok=True)
     run(STAGE/'src/export_value.py','--paper',out,log=out/'regeneration.log')
     run(EAB/'src/export_eab.py','--paper',out)
@@ -124,6 +125,8 @@ def verify(quick=False):
     run(EAB11/'src/export_eab11.py','--paper',out,log=out/'eab11-regeneration.log')
     run(EAB12/'src/export_eab12.py','--paper',out,log=out/'eab12-regeneration.log')
     run(EAB13/'src/export_eab13.py','--paper',out,log=out/'eab13-regeneration.log')
+    # Fifteenth round: the same figures with legends above the plots and subfigure labels below the panels.
+    run(EAB15/'src/export_eab15.py','--paper',out,log=out/'eab15-regeneration.log')
     for name in ['tab-ceiling.tex','tab-verify-ladder.tex','tab-allocation.tex','eab-values.tex','eab-data.json','tab-decomposition.tex','tab-setup.tex','eab3-values.tex','eab3-data.json','tab-verify-teacher.tex','eab4-values.tex','eab4-data.json','tab-cost.tex','eab5-values.tex','eab5-data.json','eab6-values.tex','eab6-data.json','tab-budgetconf.tex','eab8-values.tex','eab8-data.json','eab12-values.tex','eab12-data.json','eab13-values.tex','eab13-data.json']:
         assert (out/name).read_bytes()==(ROOT/'paper'/name).read_bytes(),name
     for path in [*out.glob('tab-*.tex'),*out.glob('ieee-tab-*.tex')]:assert path.read_bytes()==(ROOT/'paper'/path.name).read_bytes(),path.name
@@ -132,7 +135,7 @@ def verify(quick=False):
     import fitz
     def text(path):
         with fitz.open(path) as doc:return ' '.join(doc[0].get_text().split())
-    for name in ['fig-joint-frontier.pdf','fig-value-mechanisms.pdf','fig-natural-frontier.pdf','fig-evidence.pdf','fig-planning.pdf','fig-ceiling.pdf','fig-verification.pdf','fig-value-mechanisms-print.pdf','fig-ceiling-print.pdf','fig-verification-print.pdf']:
+    for name in ['fig-joint-frontier.pdf','fig-value-mechanisms.pdf','fig-natural-frontier.pdf','fig-evidence.pdf','fig-planning.pdf','fig-ceiling.pdf','fig-verification.pdf','fig-value-mechanisms-print.pdf','fig-ceiling-print.pdf','fig-verification-print.pdf','fig-joint-frontier-ieee.pdf','fig-value-mechanisms-ieee.pdf','fig-ceiling-ieee.pdf','fig-verification-ieee.pdf']:
         assert text(out/'figures'/name)==text(ROOT/'paper/figures'/name),name
     print('PASS (quick: inherited validators skipped):' if quick else 'PASS:','preserved 3426 primary records; 3000 composed private-verification cases; 110 existing zero-label pooled readouts; exact reports, confidence bands and decisions; regenerated manuscript; partition ceilings, verification-cost ladder, allocation analysis, exploratory selection-rule study, published-minimum-recall and closed-form planning map and the pre-registered verify-teacher (6000 cases) and source-disjoint (3000 cases) analyses, tighter bands, balanced-accuracy control, planning out-of-sample check, single-subset cost table, 24-cell calculator check, disjoint heterogeneity and the budget-split confirmation (54000 cases), the weaker-encoder ablation, the FEMNIST replication and the corrected-constant check of every certificate re-derived; ICDE 2027 EAB layout with 12 body pages and no appendix.')
 if __name__=='__main__':
