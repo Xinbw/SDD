@@ -33,7 +33,7 @@ New in this version:
   Class targets are stated as client-weighted recall, the quantity the
   releases certify (equal to pooled recall when held-out sizes are equal).
 
-- Twelfth round (reviewer W1-W5, M1-M8):
+- Twelfth round:
   - `experiments/release-encoder-20261022`: NEW frozen weak-encoder ablation
     (ResNet-18 ImageNet weights; same images, cohorts 8801-8810, label draws,
     learners and release as the CIFAR-1k confirmation). Registered E1
