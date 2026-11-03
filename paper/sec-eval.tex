@@ -38,8 +38,8 @@ draws; CIFAR/MNIST balanced acquisition has 50 draws. Feature-directed
 annotation selects q nearest development points per public region before
 revealing labels, filling shortages by nearest-to-assigned-centroid points.
 Each set crosses ten cohort/noise seeds. A two-way bootstrap (2000
-resamples) resamples label draws and cohorts; simultaneous public gain
-intervals cover all six budgets and fourteen public learners.
+resamples) over label draws and cohorts gives simultaneous gain
+intervals over all six budgets and fourteen public learners.
 
 \paragraph{Implementation and reproducibility}
 Graphs use 20 neighbors and $\alpha=.8/.95$; ridge uses
@@ -239,7 +239,8 @@ validation split; the selection reads only protected decisions and
 validation labels and was frozen before any confirmation case ran. Confirmation cohorts, label
 draws 50--99 and the test split then compare the frozen share with the fixed
 split at the same total budget (Table~\ref{tab:budgetconf},
-\BCCases{} cases; $\Delta$ with crossed-bootstrap 95\% interval, FA false
+\BCCases{} cases; Fixed, Frozen: acceptance/test accuracy (\%) of each split;
+Planner: predicted acceptance, fixed/frozen; $\Delta$ with crossed-bootstrap 95\% interval, FA false
 accepts, Best the unused confirmation-best share). The pre-registered primary test holds: at
 $\varepsilon=1$, all-recall acceptance rises from \BCFixedRecallOne{}\% to
 \BCFrozenRecallOne{}\% ($\BCDiffRecallOneAcc$ points, $\BCDiffRecallOneAccCI$)

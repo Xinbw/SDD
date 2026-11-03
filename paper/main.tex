@@ -87,14 +87,15 @@ points over the strongest of fourteen public learners, yet ten
 feature-directed labels reach the same \CeilCifar{}\% classifier without
 private reports. Second, raw sensitivity does not rank release interfaces:
 per-example votes are about 14 times more sensitive than regional reports, but
-pooled within regions they carry .88--1.07 times the regional noise and match
-regional accuracy within \PointRegionMaxGap{} points; payload is what differs.
+pooled within regions they carry .88--1.07 times the regional noise, and the mean accuracy
+of their final classifiers is within \PointRegionMaxGap{} points of regional
+naming in all \PointRegionSettings{} tested settings; payload is what differs.
 Third, publication evidence is a separate resource:
 \MinRecGainOneTenth{}\% of the classifiers a mean-gain certificate publishes
 recall some class below 10\%, and a budget split selected on independent
 development cohorts and frozen raises all-class acceptance on new cohorts from
 \BCFixedRecallOne{}\% to \BCFrozenRecallOne{}\% at $\varepsilon=1$, with no
-false accept. The public artifact (\url{https://github.com/Xinbw/SDD})
+false accepts observed. The public artifact (\url{https://github.com/Xinbw/SDD})
 regenerates every reported number.
 \end{abstract}
 
